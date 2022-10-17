@@ -5,7 +5,7 @@ jobs:
   build:
     docker:
       - image: cimg/ruby:3.1.2-node                                     
-    working_directory: ~/minoirofake
+    working_directory: ~/nikkiintern
     steps:
       - save_cache:
           key: circleci-cache
@@ -14,7 +14,7 @@ jobs:
       - setup_remote_docker:
           version: 20.10.14
       - checkout:
-          path: ~/minoirofake
+          path: ~/nikkiintern
       - run: sudo apt-get update && sudo apt-get install python3-pip groff-base
       - run: sudo apt-get install imagemagick libmagickcore-dev libmagickwand-dev
       - run: export PATH="$PATH:/usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16"
@@ -25,16 +25,16 @@ jobs:
       - image: cimg/mysql:8.0
         environment:
           MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: rails-front-demo-db
+          MYSQL_DATABASE: nikki_db
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       APP_DATABASE_HOST: "127.0.0.1"
       RAILS_ENV: test
-    working_directory: ~/minoirofake
+    working_directory: ~/nikkiintern
     steps:
       - checkout:
-          path: ~/minoirofake
+          path: ~/nikkiintern
       - run: sudo apt-get update && sudo apt-get install python3-pip groff-base
       - run: sudo apt-get install imagemagick libmagickcore-dev libmagickwand-dev
       - run: export PATH="$PATH:/usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16"
