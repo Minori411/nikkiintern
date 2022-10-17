@@ -52,9 +52,9 @@ jobs:
             bundle exec rspec --format RspecJunitFormatter \
                               --out test_results/rspec.xml \
                               --format documentation
-      - run:
-          name: Rubocop
-          command: bundle exec rubocop
+      # - run:
+      #     name: Rubocop
+      #     command: bundle exec rubocop
       
       - store_test_results:
           path: test_results
