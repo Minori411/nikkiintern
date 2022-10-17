@@ -1,0 +1,70 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@1.1.2
+jobs:
+  build:
+    docker:
+      - image: cimg/ruby:3.1.2-node                                     
+    working_directory: ~/minoirofake
+    steps:
+      - save_cache:
+          key: circleci-cache
+          paths:
+            - circleci-cache.txt    
+      - setup_remote_docker:
+          version: 20.10.14
+      - checkout:
+          path: ~/minoirofake
+      - run: sudo apt-get update && sudo apt-get install python3-pip groff-base
+      - run: sudo apt-get install imagemagick libmagickcore-dev libmagickwand-dev
+      - run: export PATH="$PATH:/usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16"
+      - ruby/install-deps
+  test:
+    docker:
+      - image: cimg/ruby:3.1.2-node
+      - image: cimg/mysql:8.0
+        environment:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: rails-front-demo-db
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      APP_DATABASE_HOST: "127.0.0.1"
+      RAILS_ENV: test
+    working_directory: ~/minoirofake
+    steps:
+      - checkout:
+          path: ~/minoirofake
+      - run: sudo apt-get update && sudo apt-get install python3-pip groff-base
+      - run: sudo apt-get install imagemagick libmagickcore-dev libmagickwand-dev
+      - run: export PATH="$PATH:/usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16"
+      - ruby/install-deps
+      - run:
+          name: Database setup
+          command: bundle exec rails db:migrate
+      - run:
+          name: yarn Install
+          command: yarn install
+      - run: bundle exec bin/webpack
+      - run:
+          name: rspec
+          command: |
+            bundle exec rspec --format RspecJunitFormatter \
+                              --out test_results/rspec.xml \
+                              --format documentation
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+      
+      - store_test_results:
+          path: test_results
+
+workflows:
+  version: 2
+  build_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+  
