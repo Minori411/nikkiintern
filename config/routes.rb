@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  
   root 'news#index'
-  get 'news/index'
+
+  resources :news
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
