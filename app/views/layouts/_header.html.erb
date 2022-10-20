@@ -1,0 +1,65 @@
+<% if signed_in? %>
+<body>
+<%#PC表示%>
+    <header class="header pc_hyoji mini">
+        <div class="header_inner">
+            <div class="header_inner_head flexbox">
+                <div id="logo">
+                    <%= link_to "JGC News" %>
+                </div>
+                <ul class="menu gnav flexbox">
+                    <li class="menu_item flexbox">
+                        <%= link_to "スケジュール" %>
+                    </li>
+                    
+                    <li class="menu_item flexbox">
+                        <%= link_to "記事一覧" %>
+                    </li>
+                </ul>
+                <% if current_user.userstyle == 0 %>
+                    <div class="iconbtn" style="margin-right: 16px;">
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger' href='#' data-target='dropdown1'><%= image_tag "flower.png", :height=>"50px"%></a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content dropdown1'>
+                            <li>
+                            <%= link_to "記事を作成する" %>
+                            </li>
+                            <li class="divider" tabindex="-1"></li>
+                            <li>
+                            <%= link_to "スケジュールを作成する"%>
+                            </li>
+                            </ul>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </header>
+<% else %>
+<%#pc表示%>
+<header class="header pc_hyoji mini">
+    <div class="header_inner">
+        <div class="header_inner_head flexbox">
+            <div id="logo">
+                <%= link_to "JGC News", root_path, class:"flexbox" %>
+            </div>
+            <ul class="menu gnav flexbox">
+                <li class="menu_item flexbox">
+                    <%= link_to "スケジュール"%>
+                </li>
+                <li class="menu_item flexbox">
+                <%= link_to "記事一覧" %>
+                </li>
+            </ul>
+            <div class="navi auth_buttons flexbox">
+                <div class="navi_login">
+                    <%= link_to("ログイン", new_session_path(resource_name), class: "waves-effect waves-light btn pchyoji-login") %>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>    
+</body>
+<% end %>
