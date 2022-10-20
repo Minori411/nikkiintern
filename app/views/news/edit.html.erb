@@ -1,4 +1,4 @@
-<%= form_with model: @news, url: news_create_path, local: true do |f| %>
+<%= form_with model: @news, url: news_path, local: true do |f| %>
     <div class="boxbaseP30 post-articles">
         <%= f.label :title %><br>
         <%= f.text_field :title, autofocus: true %>

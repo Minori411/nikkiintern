@@ -19,18 +19,18 @@
                 <% if current_user.userstyle == 0 %>
                     <div class="iconbtn" style="margin-right: 16px;">
                         <!-- Dropdown Trigger -->
-                        <a class='dropdown-trigger' href='#' data-target='dropdown1'><a class="waves-effect waves-light btn-large makepost">MAKE/POST</a></a>
+                        <a class="dropdown-trigger" href="#" data-target="dropdown1"><a class="waves-effect waves-light btn-large makepost">MAKE/POST</a></a>
 
                         <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content dropdown1'>
+                        <ul id="dropdown1" class="dropdown-content dropdown1">
                             <li>
-                            <%= link_to "NEWS", news_index_path %>
+                            <%= link_to "NEWS", new_news_path %>
                             </li>
                             <li class="divider" tabindex="-1"></li>
                             <li>
                             <%= link_to "SCHEDULE/EVENT"%>
                             </li>
-                            </ul>
+                        </ul>
                     </div>
                 <% end %>
                 <i class="fa-regular fa-bell bell-icon fa-2xl"></i>
