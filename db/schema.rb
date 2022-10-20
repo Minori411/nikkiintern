@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_10_20_065342) do
-  create_table "areas", charset: "utf8mb3", force: :cascade do |t|
+  create_table "areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "aprocessarea", default: "", null: false
     t.string "butilityarea", default: "", null: false
     t.string "coffsite", default: "", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_065342) do
     t.index ["user_id"], name: "index_areas_on_user_id"
   end
 
-  create_table "internews", charset: "utf8mb3", force: :cascade do |t|
+  create_table "internews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "news_id", null: false
     t.bigint "area_id", null: false
     t.bigint "section_id", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_065342) do
     t.index ["section_id"], name: "index_internews_on_section_id"
   end
 
-  create_table "news", charset: "utf8mb3", force: :cascade do |t|
+  create_table "news", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.text "body"
     t.string "image"
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_065342) do
     t.index ["user_id"], name: "index_news_on_user_id"
   end
 
-  create_table "sections", charset: "utf8mb3", force: :cascade do |t|
+  create_table "sections", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "civil", default: "", null: false
     t.string "building", default: "", null: false
     t.string "mechanical", default: "", null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_065342) do
     t.index ["user_id"], name: "index_sections_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb3", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
