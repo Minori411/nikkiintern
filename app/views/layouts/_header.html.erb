@@ -19,19 +19,23 @@
                 <% if current_user.userstyle == 0 %>
                     <div class="iconbtn" style="margin-right: 16px;">
                         <!-- Dropdown Trigger -->
-                        <a class='dropdown-trigger' href='#' data-target='dropdown1'>あいう</a>
+                        <a class='dropdown-trigger' href='#' data-target='dropdown1'><a class="waves-effect waves-light btn-large makepost">MAKE/POST</a></a>
 
                         <!-- Dropdown Structure -->
                         <ul id='dropdown1' class='dropdown-content dropdown1'>
                             <li>
-                            <%= link_to "post NEWS" %>
+                            <%= link_to "NEWS" %>
                             </li>
                             <li class="divider" tabindex="-1"></li>
                             <li>
-                            <%= link_to "make a SCHEDULE/EVENT"%>
+                            <%= link_to "SCHEDULE/EVENT"%>
                             </li>
                             </ul>
                     </div>
+                <% end %>
+                <i class="fa-regular fa-bell bell-icon fa-2xl"></i>
+                <% if current_user.userstyle == 0 %>
+                <i class="fa-solid fa-box-archive fa-2xl"></i>
                 <% end %>
                 <%= link_to destroy_user_session_path, class: "logout-icon", method: :delete do %>
                     <i class="fa-solid fa-right-from-bracket fa-2xl"></i>

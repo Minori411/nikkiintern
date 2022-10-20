@@ -397,7 +397,7 @@ header{
         box-sizing: border-box;
 
         .flexbox{
-            align-items: cneter;
+            align-items: center;
         }
 
         #logo{
@@ -1289,4 +1289,14 @@ a{
 
 .logout-icon {
     margin: 0 0 0 auto;
+}
+
+.makepost {
+    font-weight: 700;
+    background: #d32f2f;
+}
+
+.bell-icon {
+    justify-content:flex-end;
+    margin-right: 10px;
 }
