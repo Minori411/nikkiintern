@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'news#index'
 
   resources :news
+  post 'news/create'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

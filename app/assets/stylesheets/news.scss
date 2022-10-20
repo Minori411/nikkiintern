@@ -1,0 +1,34 @@
+.post-articles {
+    width: 1200px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.post-article {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-article {
+    background: #d32f2f!important;
+    width: 200px;
+    &:hover {
+        background: darken(#d32f2f, 20%);
+    }
+}
+
+.boxbaseP30 {
+    padding: 30px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #f6f6f6;
+    border-radius: 8px;
+    overflow:hidden;
+}
+
+textarea {
+    resize: none;
+    height: 250px;
+    border-radius: 8px;
+    padding: 10px;
+}

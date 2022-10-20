@@ -13,7 +13,7 @@ class NewsController < ApplicationController
     @news = News.new(news_params) # 何を新しく保存するか指定
     @news.user_id = current_user.id
     if @news.save # もし保存ができたら
-      redirect_to news_path # 投稿画面に遷移
+      redirect_to news_path(@news.id) # 投稿画面に遷移
     else # できなければ
       render :new # newに遷移
     end
@@ -28,7 +28,6 @@ class NewsController < ApplicationController
   end
 
   def update
-    # logger.debug("article_id:" + params[:article_id])
     @news = News.find(params[:id])
     if @news.update(news_params)
       redirect_to news_path(@news.id)
@@ -46,6 +45,6 @@ class NewsController < ApplicationController
   private  # ストロングパラメーター（予期しない値を変更されてしまう脆弱性を防ぐ機能）
 
   def news_params
-    params.require(:article).permit(:title, :body, :image, :from, :to).merge(user_id: current_user.id)
+    params.require(:news).permit(:title, :body, :image, :from, :to).merge(user_id: current_user.id)
   end
 end
