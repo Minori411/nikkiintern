@@ -10,15 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_20_051210) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_20_065342) do
+  create_table "areas", charset: "utf8mb3", force: :cascade do |t|
+    t.string "aprocessarea", default: "", null: false
+    t.string "butilityarea", default: "", null: false
+    t.string "coffsite", default: "", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_areas_on_user_id"
+  end
+
+  create_table "internews", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "news_id", null: false
+    t.bigint "area_id", null: false
+    t.bigint "section_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_internews_on_area_id"
+    t.index ["news_id"], name: "index_internews_on_news_id"
+    t.index ["section_id"], name: "index_internews_on_section_id"
+  end
+
   create_table "news", charset: "utf8mb3", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.text "body"
     t.string "image"
-    t.bigint "user_id"
+    t.string "from", default: "", null: false
+    t.string "to", default: "", null: false
+    t.boolean "archive", default: false, null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_news_on_user_id"
+  end
+
+  create_table "sections", charset: "utf8mb3", force: :cascade do |t|
+    t.string "civil", default: "", null: false
+    t.string "building", default: "", null: false
+    t.string "mechanical", default: "", null: false
+    t.string "piping", default: "", null: false
+    t.string "erectrical", default: "", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sections_on_user_id"
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
@@ -36,5 +72,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_051210) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "areas", "users"
+  add_foreign_key "internews", "areas"
+  add_foreign_key "internews", "news"
+  add_foreign_key "internews", "sections"
   add_foreign_key "news", "users"
+  add_foreign_key "sections", "users"
 end

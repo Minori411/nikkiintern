@@ -1,0 +1,2 @@
+class Internews < ApplicationRecord
+end
