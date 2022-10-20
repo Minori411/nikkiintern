@@ -9,11 +9,11 @@
                 </div>
                 <ul class="menu gnav flexbox">
                     <li class="menu_item flexbox">
-                        <%= link_to "スケジュール" %>
+                        <%= link_to "SCHEDULE/EVENT" %>
                     </li>
                     
                     <li class="menu_item flexbox">
-                        <%= link_to "記事一覧" %>
+                        <%= link_to "NEWS" %>
                     </li>
                 </ul>
                 <% if current_user.userstyle == 0 %>
@@ -24,11 +24,11 @@
                         <!-- Dropdown Structure -->
                         <ul id='dropdown1' class='dropdown-content dropdown1'>
                             <li>
-                            <%= link_to "記事を作成する" %>
+                            <%= link_to "post NEWS" %>
                             </li>
                             <li class="divider" tabindex="-1"></li>
                             <li>
-                            <%= link_to "スケジュールを作成する"%>
+                            <%= link_to "make a SCHEDULE/EVENT"%>
                             </li>
                             </ul>
                     </div>
@@ -47,10 +47,10 @@
             </div>
             <ul class="menu gnav flexbox">
                 <li class="menu_item flexbox">
-                    <%= link_to "スケジュール"%>
+                    <%= link_to "SCHEDULE/EVENT"%>
                 </li>
                 <li class="menu_item flexbox">
-                <%= link_to "記事一覧" %>
+                <%= link_to "NEWS" %>
                 </li>
             </ul>
             <div class="navi auth_buttons flexbox">

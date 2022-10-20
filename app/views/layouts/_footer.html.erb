@@ -3,21 +3,21 @@
   <div class="container">
     <div class="row">
       <div class="col l3 s12">
-        <h5 class="white-text">JGC News</h5>
-        <p class="grey-text text-lighten-4">JGCコミュニケーションツール</p>
+        <h5 class="white-text jgc-news">JGC News</h5>
+        <p class="grey-text text-lighten-4">JGC's communication tool</p>
       </div>
-      <div class="col l3 s12">
+      <div class="col l5 s12">
         <h5 class="white-text">Legal</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">利用規約</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">個人情報保護法</a></li>
+            <li><a class="text-lighten-3" href="#!">Terms of Use</a></li>
+            <li><a class="text-lighten-3" href="#!">Act on the Protection of Personal Information</a></li>
           </ul>
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Links</h5>
           <ul>
-            <li><%= link_to "スケジュール",class: "grey-text text-lighten-3" %></li>
-            <li><%= link_to "記事一覧",class: "grey-text text-lighten-3"  %></li>
+            <li><%= link_to "SCHEDULE/EVENT",class: "text-lighten-3" %></li>
+            <li><%= link_to "NEWS",class: "text-lighten-3"  %></li>
           </ul>
         </div>
     </div>
@@ -26,17 +26,17 @@
     <div class="container">
     © JGC News
     <% if current_user %>
-    <%= link_to "退会", "#modal5", class:"waves-effect waves-light modal-trigger grey-text text-lighten-4 right" %>
+    <%= link_to "Withdrawal", "#modal5", class:"waves-effect waves-light modal-trigger grey-text text-lighten-4 right" %>
     <!-- Modal Structure -->
     <div id="modal5" class="modal">
       <div class="modal-content">
-        <h4>退会お手続き</h4>
-        <p>退会手続きをされますと、全てのサービスがご利用いただけなくなります。<br>
-        再度ご利用をいただく場合には、新規登録のお手続きが必要になります。<br>
-        本当に退会してよろしいですか？</p>
+        <h4>Withdrawal process</h4>
+        <p>if you continue withdrawal process,you cannot use all services.<br>
+        when you use this site again, you need to contact admin.<br>
+        Are you sure to withdrawal?</p>
       </div>
       <div class="modal-footer">
-      <%= link_to "退会", withdrawal_path(current_user.id), method: :delete, class: "waves-effect waves-green"%>
+      <%= link_to "Withdrawal", withdrawal_path(current_user.id), method: :delete, class: "waves-effect waves-green"%>
       </div>
       </div>
       <% end %>
