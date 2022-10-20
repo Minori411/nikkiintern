@@ -19,7 +19,7 @@
                 <% if current_user.userstyle == 0 %>
                     <div class="iconbtn" style="margin-right: 16px;">
                         <!-- Dropdown Trigger -->
-                        <a class='dropdown-trigger' href='#' data-target='dropdown1'><%= image_tag "flower.png", :height=>"50px"%></a>
+                        <a class='dropdown-trigger' href='#' data-target='dropdown1'>あいう</a>
 
                         <!-- Dropdown Structure -->
                         <ul id='dropdown1' class='dropdown-content dropdown1'>
@@ -32,7 +32,10 @@
                             </li>
                             </ul>
                     </div>
-                    <% end %>
+                <% end %>
+                <%= link_to destroy_user_session_path, class: "logout-icon", method: :delete do %>
+                    <i class="fa-solid fa-right-from-bracket fa-2xl"></i>
+                <% end %>
                 </div>
             </div>
         </div>
