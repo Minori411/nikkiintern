@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :news
   post 'news/create'
 
-  get "search" => "searches#search"
+  get "search" => "news#search"
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
