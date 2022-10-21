@@ -1,0 +1,2 @@
+class ScheduleAreaSection < ApplicationRecord
+end

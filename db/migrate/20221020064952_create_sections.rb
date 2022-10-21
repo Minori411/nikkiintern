@@ -6,8 +6,6 @@ class CreateSections < ActiveRecord::Migration[7.0]
       t.string :mechanical,         null: false, default: ""
       t.string :piping,             null: false, default: ""
       t.string :erectrical,         null: false, default: ""
-      t.references :user, null: false, foreign_key: true
-
       t.timestamps
     end
   end

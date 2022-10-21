@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :news
   post 'news/create'
 
+  get "search" => "searches#search"
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords'
