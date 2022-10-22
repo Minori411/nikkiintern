@@ -1,6 +1,12 @@
 class NewsController < ApplicationController
   before_action :authenticate_user!
 
+  def search
+    @news = News.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
+
   def index
     @news = News.all
   end
