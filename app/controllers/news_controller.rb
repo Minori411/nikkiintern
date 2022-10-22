@@ -7,6 +7,12 @@ class NewsController < ApplicationController
     render "index"
   end
 
+  def archives 
+  end
+
+  def archive_id
+  end
+
   def index
     @news = News.all
   end

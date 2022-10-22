@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :news
   post 'news/create'
+  get 'news/archives', to: 'news#archives', as: :archives
+  get 'news/:id/archives', to: 'news#archive_id', as: :news_archiv_id
 
   get "search" => "news#search"
 
