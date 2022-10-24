@@ -9,10 +9,21 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+          initialView: 'dayGridMonth',
+          events: [
+            {
+              id: 'a',
+              title: 'my event',
+              start: '2022-10-01'
+            }
+          ],
+          headerToolbar: {right:'dayGridMonth,timeGridWeek,dayGridDay,listYear'},
+          editable: true
         });
         calendar.render();
       });
+
+      
 
     </script>
   </head>
