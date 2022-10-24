@@ -13,3 +13,4 @@ ActiveStorage.start()
 import "./footer"
 import "./header"
 import "./iconeye"
+import "./schedule"

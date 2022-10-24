@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
     def withdrawal
         @user = User.find(params[:id])
         # is_deletedカラムをtrueに変更することにより削除フラグを立てる

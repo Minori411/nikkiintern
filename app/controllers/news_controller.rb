@@ -7,10 +7,8 @@ class NewsController < ApplicationController
     render "index"
   end
 
-  def archives 
-  end
-
-  def archive_id
+  def archives
+    @news = News.find(params[:id])
   end
 
   def index
