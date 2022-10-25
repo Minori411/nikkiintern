@@ -28,9 +28,25 @@
             center: "title",
             right:'dayGridMonth,timeGridWeek,dayGridDay,listYear'
         },
+        eventClick: function(arg) {
+            if (confirm('Are you shure to delete？')) {
+                arg.event.remove()
+            }
+        },
+        dateClick:function(event, jsEvent){
+			var title = prompt('please make a title:', event.title);
+			if(title && title!=""){
+				event.title = title;
+				calendar.fullCalendar('updateEvent', event); //イベント（予定）の修正
+			}else{
+				calendar.fullCalendar("removeEvents", event.id); //イベント（予定）の削除				
+            }
+        },
           editable: true,
           selectable: true,
-          displayEventTime: false
+          droppable: true,
+          displayEventTime: false,
+          slotDuration: '01:00'
         });
         calendar.render();
       });
