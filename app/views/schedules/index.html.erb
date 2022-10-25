@@ -5,7 +5,6 @@
     <link href='fullcalendar/main.css' rel='stylesheet' />
     <script src='fullcalendar/main.js'></script>
     <script>
-
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -17,13 +16,17 @@
               start: '2022-10-01'
             }
           ],
-          headerToolbar: {right:'dayGridMonth,timeGridWeek,dayGridDay,listYear'},
-          editable: true
+          
+          headerToolbar: {
+            left: "prev,next,today",
+            center: "title",
+            right:'dayGridMonth,timeGridWeek,dayGridDay,listYear'
+        },
+          editable: true,
+          displayEventTime: false
         });
         calendar.render();
       });
-
-      
 
     </script>
   </head>

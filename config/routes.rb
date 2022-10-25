@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'schedules/index'
-  get 'schedules/show'
+  resources :schedules
   
   root 'news#index'
 

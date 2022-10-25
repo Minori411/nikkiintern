@@ -1,16 +1,16 @@
-var calendarEl = document.getElementById('calendar');
-var calendar = new Calendar(calendarEl, {
-    timeZone: 'UTC',
-    events: [
-      {
-        id: 'a',
-        title: 'my event',
-        start: '2022-10-01'
-      }
-    ]
-  })
+$(document).ready(function(){
+$('#calendar').fullCalendar({
+    dayClick: function(date, jsEvent, view) {
   
-  var event = calendar.getEventById('a') // an event object!
-  var start = event.start // a property (a Date object)
-  console.log(start.toISOString()) // "2018-09-01T00:00:00.000Z"
-  calendar.render();
+      alert('Clicked on: ' + date.format());
+  
+      alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+  
+      alert('Current view: ' + view.name);
+  
+      // change the day's background color just for fun
+      $(this).css('background-color', 'red');
+  
+    }
+  });
+});
