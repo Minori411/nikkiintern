@@ -10,6 +10,7 @@
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
+          eventColor: 'green',
           contentHeight: 600,
           dateClick: function(info) {
             alert('Date: ' + info.dateStr);
@@ -25,9 +26,10 @@
             }
             },
             {
-            title: 'event2',
+            title: 'gasin',
             start: '2022-10-05',
             end: '2022-10-07',
+            color: 'red',
             extendedProps: {
               description: "説明文"
             }
@@ -47,25 +49,40 @@
             center: "title",
             right:'dayGridMonth,timeGridWeek,dayGridDay,listYear'
         },
+        
     eventClick: function (info) {
         console.log(info.jsEvent.detail);
 
       if (info.jsEvent.detail == 2) {
-        info.event.remove();
+        
       }
       //     let title = prompt("Please enter a new title for your event");
       // info.event.setProp("title", title)
           alert(info.event.extendedProps.description);
         },
+        views: {
+            extendedProps: {
+                description: "説明文"
+              }
+  },
         dateClick: function(info) {
+            if (info.dayEl.classList.contains("fc-day-past")) {
+                alert("You can't choose.");
+                return;
+            }
           let title = prompt("Please enter a new title for your event");
+          let extendedProps = prompt("Please enter a new detail for your event");
              calendar.addEvent({
               title: title,
               start: info.date,
-              allDay: true
+              allDay: true,
+              extendedProps: {
+              description: "説明文"
+            }
             });
 
     },
+
           editable: true,
           selectable: true,
           droppable: true,
