@@ -55,3 +55,26 @@ textarea {
     border-radius: 8px;
     overflow:hidden;
 }
+
+.index {
+    font-size: 15px;
+    color: black;
+    font-weight: 700;
+}
+
+.indexx {
+    font-size: 15px;
+    color: black;
+    font-weight: 700;
+    line-break: auto;
+}
+
+.listBox_result {
+    margin-left: 20px;
+    font-size: 20px;
+    span {
+        color:#d32f2f;
+        font-size: 30px;
+        font-weight: 700;
+    }
+}

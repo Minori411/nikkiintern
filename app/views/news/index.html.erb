@@ -1,5 +1,11 @@
 
 <h4>Top News</h2>
+<p class="listBox_result">
+    <span>
+        <%= @news.count %>
+    </span>
+    News is here.
+</p>
 <div class="row flexbox">
   <article class="col-8 flexbox" style="width:800px;">
   <% @news.each do |news| %>
@@ -28,29 +34,39 @@
   <% end %>
   </article>
   <aside class="col-4">
-    <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= form_with url: search_path,id: :search_news, method: :get, local: true do |f| %>
         <div class="row">
-    <div class="col s12 m4" style="width:100%;width: 400px;height: 100%; height: 450px;">
+    <div class="col s12 m4" style="width:100%;width: 410px;height: 100%; height: 320px;">
       <div class="card-panel teal" style="width: 500px;width: 100%;height: 100%;background-color: white!important;border-radius: 8px;margin:0;border: 3px solid #d32f2f;">
       <p class="search-title">絞り込み検索</p>
           <div class="input-field col s12">
             <%= f.text_field :keyword, value: @keyword, :placeholder => "キーワード検索" %>
+            <% f.submit "検索", id: 'search-submit' %>
           </div>
       <div class="area_search">
       <h5>Area</h5>
       </div>
-      <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
-      <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
-      <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
+      <div class="block">
+      <%= f.check_box :a_processarea,id: :a_processarea %>
+      <%= f.label :A_ProcessArea,{class: 'index'} %>
+      <%= f.check_box :b_utilityarea, id: :b_utility_area %>
+      <%= f.label :B_UtilityArea,{class: 'index'} %>
+      <%= f.check_box :a_processarea, id: :c_offsite %>
+      <%= f.label :C_Offsite,{class: 'index'} %>
+      </div>
       <div class="area_search">
       <h5>Section</h5>
       </div>
       <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
+      <%= f.label :Civil,{class: 'indexx'} %>
       <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
+      <%= f.label :Building,{class: 'indexx'} %>
       <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
+      <%= f.label :Mechanical,{class: 'indexx'} %><br>
       <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
+      <%= f.label :Piping,{class: 'indexx'} %>
       <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
-      <%= f.submit "検索" %>
+      <%= f.label :Erectrical,{class: 'indexx'} %>
       </div>
     </div>
   </div>
