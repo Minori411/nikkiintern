@@ -1,5 +1,20 @@
 <%= form_with model: @news, url: news_create_path, local: true do |f| %>
     <div class="boxbaseP30 post-articles">
+    <div class="size125">
+        <img src="<%= @news.image %>" id= "news_image",class="img_user", width='150' height='150'>
+    </div>
+    <div class="upload m-t1">
+    画像をアップロードする
+    <div class="alignCenter m-t-20 m-b-20">
+        <%= f.file_field :image,class: "preview-uploader",id: "news_file" %>
+    </div>
+    <div id="selected-file">
+        <div class="selected-file-thumbnail"></div>
+        <div class="selected-file-result"></div>
+        <input id="icon" name="icon" type="hidden">
+    </div>
+</div>
+        
         <%= f.label :title %><br>
         <%= f.text_field :title, autofocus: true %>
         <%= f.label :body %><br>

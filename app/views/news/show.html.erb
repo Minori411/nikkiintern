@@ -1,6 +1,7 @@
 <div class="boxbaseP30 post-articles">
     <div class="flexbox">
-    <p>from AエリアCivil to Bエリアpipeline</p>
+    <p class="image_tag">from AエリアCivil to Bエリアpipeline</p>
+    <%= image_tag @news.image.to_s, class: "image_tag",height: '150', width: '300' %>
     <% if user_signed_in? && current_user.userstyle == 0 %>
         <div class="admin-icons">
         <%= link_to edit_news_path(@news.id) do %>
