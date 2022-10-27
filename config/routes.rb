@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   resources :schedules
   
   root 'news#index'
-
+  get 'news/archives', to: 'news#archives', as: :archives
+  post 'news/:id/archive', to: 'news#archive', as: :archive
   resources :news
-  post 'news/create'
-  get 'news/:id/archives', to: 'news#archives', as: :archives
+  post 'news/create', to: 'news#create'
 
   get "search" => "news#search"
 

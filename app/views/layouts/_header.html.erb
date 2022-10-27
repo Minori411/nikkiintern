@@ -35,7 +35,9 @@
                 <% end %>
                 <i class="fa-regular fa-bell bell-icon fa-2xl"></i>
                 <% if current_user.userstyle == 0 %>
+                <%= link_to archives_path do %>
                 <i class="fa-solid fa-box-archive fa-2xl"></i>
+                <% end %>
                 <% end %>
                 <%= link_to destroy_user_session_path, class: "logout-icon", method: :delete do %>
                     <i class="fa-solid fa-right-from-bracket fa-2xl"></i>

@@ -10,11 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_21_023921) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_27_222206) do
   create_table "areas", charset: "utf8mb3", force: :cascade do |t|
-    t.string "a_processarea", default: "", null: false
-    t.string "b_utilityarea", default: "", null: false
-    t.string "c_offsite", default: "", null: false
+    t.integer "area_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,8 +23,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_023921) do
     t.string "image"
     t.boolean "archive", default: false, null: false
     t.bigint "user_id", null: false
+    t.bigint "area_id", null: false
+    t.bigint "section_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_news_on_area_id"
+    t.index ["section_id"], name: "index_news_on_section_id"
     t.index ["user_id"], name: "index_news_on_user_id"
   end
 
@@ -54,9 +56,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_023921) do
   end
 
   create_table "reads", charset: "utf8mb3", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "news_id", null: false
     t.bigint "schedule_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["news_id"], name: "index_reads_on_news_id"
@@ -81,11 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_023921) do
   end
 
   create_table "sections", charset: "utf8mb3", force: :cascade do |t|
-    t.string "civil", default: "", null: false
-    t.string "building", default: "", null: false
-    t.string "mechanical", default: "", null: false
-    t.string "piping", default: "", null: false
-    t.string "erectrical", default: "", null: false
+    t.integer "section_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -116,6 +114,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_023921) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "news", "areas"
+  add_foreign_key "news", "sections"
   add_foreign_key "news", "users"
   add_foreign_key "news_area_sections", "areas"
   add_foreign_key "news_area_sections", "news"

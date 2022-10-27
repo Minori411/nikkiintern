@@ -8,7 +8,13 @@ class NewsController < ApplicationController
   end
 
   def archives
-    @news = News.find(params[:id])
+    @news = News.archives
+  end
+
+  def archive
+    news = News.find(params[:id])
+    news.archive = true
+    news.save
   end
 
   def index

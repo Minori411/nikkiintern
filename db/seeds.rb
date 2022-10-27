@@ -14,13 +14,6 @@ user.save!
                  )
 end
 
-6.times do |n|
-    News.create!(title: "GASIN",
-                 body: "This week, GASIN is gonna be held.",
-                 user_id: n + 1
-    )
-end
-
 10.times do |n|
     User.create!(id: n + 7,
                  name: Gimei.kanji,
@@ -30,3 +23,54 @@ end
                  )
 end
 
+Area.create!(area_name: "1") #A
+Area.create!(area_name: "2") #B
+Area.create!(area_name: "3") #C
+
+Section.create!(section_name: "1") #Civil
+Section.create!(section_name: "2") #Building
+Section.create!(section_name: "3") #Mechanical
+Section.create!(section_name: "4") #Piping
+Section.create!(section_name: "5") #Erectrical
+
+News.create!(title: "GASIN",
+             body: "GASIN is gonna be started.",
+             image: "aaa",
+             user_id: 1,
+             area_id: 1,
+             section_id: 1)
+
+News.create!(title: "Ramadan",
+             body: "Ramadan is gonna be started.",
+             image: "aaa",
+             user_id: 2,
+             area_id: 2,
+             section_id: 2)
+            
+News.create!(title: "Building",
+             body: "Building is gonna be started.",
+             image: "building.png",
+             user_id: 3,
+             area_id: 1,
+             section_id: 4)
+
+News.create!(title: "Mechanical",
+             body: "Mechanical is gonna be started.",
+             image: "building.png",
+             user_id: 3,
+             area_id: 1,
+             section_id: 4)
+
+News.create!(title: "Erectrical",
+             body: "Erectrical is gonna be started.",
+             image: "building.png",
+             user_id: 3,
+             area_id: 1,
+             section_id: 4)
+             
+News.create!(title: "Piping",
+             body: "Piping is gonna be started.",
+             image: "building.png",
+             user_id: 3,
+             area_id: 1,
+             section_id: 4)

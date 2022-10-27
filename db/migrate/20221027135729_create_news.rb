@@ -6,6 +6,8 @@ class CreateNews < ActiveRecord::Migration[7.0]
       t.string :image
       t.boolean :archive, default: false, null: false
       t.references :user, null: false, foreign_key: true
+      t.references :area, null: false, foreign_key: true
+      t.references :section, null: false, foreign_key: true
 
       t.timestamps
     end
