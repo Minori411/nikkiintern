@@ -6,16 +6,11 @@
     <div class="upload m-t1">
     画像をアップロードする
     <div class="alignCenter m-t-20 m-b-20">
-        <%= f.file_field :image,class: "preview-uploader",id: "news_file" %>
-    </div>
-    <div id="selected-file">
-        <div class="selected-file-thumbnail"></div>
-        <div class="selected-file-result"></div>
-        <input id="icon" name="icon" type="hidden">
+        <%= f.file_field :image,id: "news_file" %>
     </div>
 </div>
         
-        <%= f.label :title %><br>
+        <%= f.label :title %>
         <%= f.text_field :title, autofocus: true %>
         <%= f.label :body %><br>
         <%= f.text_area :body %>
