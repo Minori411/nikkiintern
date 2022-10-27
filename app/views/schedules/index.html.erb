@@ -17,9 +17,20 @@
         },
           events: [
             {
-              id: 'a',
-              title: 'my event',
-              start: '2022-10-01'
+            title: 'Ramadan',
+            start: '2022-10-01',
+            end: '2022-10-04',
+            eventColor: '#1de9b6'
+            },
+            {
+            title: 'event2',
+            start: '2022-10-05',
+            end: '2022-10-07'
+            },
+            {
+            title: 'event3',
+            start: '2022-10-09T12:30:00',
+            allDay: false // will make the time show
             }
           ],
           
@@ -28,20 +39,27 @@
             center: "title",
             right:'dayGridMonth,timeGridWeek,dayGridDay,listYear'
         },
-        eventClick: function(arg) {
-            if (confirm('Are you shure to delete？')) {
-                arg.event.remove()
-            }
+        eventClick: function (info) {
+      console.log(info.jsEvent.detail);
+
+      if (info.jsEvent.detail == 2) {
+        info.event.remove();
+      }
+      //     let title = prompt("Please enter a new title for your event");
+      // info.event.setProp("title", title)
+    },
+    eventClick: function (info) {
+          alert(info.event.extendedProps.description);
         },
-        dateClick:function(event, jsEvent){
-			var title = prompt('please make a title:', event.title);
-			if(title && title!=""){
-				event.title = title;
-				calendar.fullCalendar('updateEvent', event); //イベント（予定）の修正
-			}else{
-				calendar.fullCalendar("removeEvents", event.id); //イベント（予定）の削除				
-            }
-        },
+        dateClick: function(info) {
+          let title = prompt("Please enter a new title for your event");
+             calendar.addEvent({
+              title: title,
+              start: info.date,
+              allDay: true
+            });
+
+    },
           editable: true,
           selectable: true,
           droppable: true,
