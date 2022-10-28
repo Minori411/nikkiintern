@@ -28,6 +28,7 @@ class NewsController < ApplicationController
   def create
     @news = News.new(news_params) # 何を新しく保存するか指定
     @news.user_id = current_user.id
+    binding.pry
     if @news.save # もし保存ができたら
       redirect_to news_path(@news.id) # 投稿画面に遷移
     else # できなければ

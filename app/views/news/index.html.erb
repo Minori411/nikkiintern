@@ -10,20 +10,32 @@
   <article class="col-8 flexbox" style="width:800px;">
   <% @news.each do |news| %>
     <%= link_to news_path(news.id) do %>
-    <div class="row" style="margin:0;">
+    <div class="row" style="margin:10px;">
         <div class="col2 s12 m5">
             <!-- card start -->
-            <div class="card" style="display:flex;height: 150px;width: 400px; margin:0;">
+            <div class="card" style="display:flex;height: 180px;width: 380px; margin:0;">
                 <div class="card-image" style="Width: 150px;">
-                <%= image_tag news.image.to_s, height: '150', width: '150' %>
-                <span class="card-title"><%= news.title %></span>
+                <%= image_tag news.image.to_s, height: '180', width: '150' %>
             </div>
             <div class="card-content">
             <%= news.created_at.strftime('%Y/%m/%d %H:%M') %>
-            <% if current_user.userstyle == 0 %>
-            <% end %>
+            <span class="card-title"><%= news.title %></span>
             <div class="fromto">
-            <h6>FROM Aエリアpipeline <br>TO Bエリアpipeline</h6>
+            <h6>
+            <div class="chip">
+                Aエリア
+            </div>
+            <i class="fa-solid fa-xmark"></i>
+            <div class="chip">
+                Piping
+            </div>
+            <div class="chip">
+                Bエリア
+            </div>
+            <i class="fa-solid fa-xmark"></i>
+            <div class="chip">
+                Mechanical
+            </div>
             </div>
             </div>
             </div>

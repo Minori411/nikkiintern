@@ -18,6 +18,7 @@
                 </ul>
                 <% if current_user.userstyle == 0 %>
                     <div class="iconbtn" style="margin-right: 16px;">
+                    <div class="dropdown-wrapper" style="position:relative;">
                         <!-- Dropdown Trigger -->
                         <a class="dropdown-trigger btn-large makepost" href="#" data-target="dropdown1">MAKE/POST</a>
 
@@ -31,6 +32,7 @@
                             <%= link_to "SCHEDULE/EVENT",schedules_path %>
                             </li>
                         </ul>
+                        </div>
                     </div>
                 <% end %>
                 <i class="fa-regular fa-bell bell-icon fa-2xl"></i>

@@ -1,7 +1,18 @@
 <div class="boxbaseP30 post-articles">
     <div class="flexbox">
-    <p class="image_tag">from AエリアCivil to Bエリアpipeline</p>
+    <div class="flexbox column-img">
     <%= image_tag @news.image.to_s, class: "image_tag",height: '150', width: '150' %>
+    <div class="flexbox chips-news">
+    <div class="chip">
+    AエリアCivil
+    </div>
+  <i class="fa-solid fa-angles-right fa-1xl angle-right">
+  </i>
+  <div class="chip">
+    BエリアPiping
+  </div>
+  </div>
+    </div>
     <% if user_signed_in? && current_user.userstyle == 0 %>
         <div class="admin-icons">
         <%= link_to archive_path(@news.id), method: :post do %>
