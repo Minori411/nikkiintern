@@ -1,5 +1,5 @@
 class Section < ApplicationRecord
-    belongs_to :news
+    belongs_to :news, optional: true
     has_many :schedule_area_sections, dependent: :destroy
     has_many :news_area_sections, dependent: :destroy
     has_many :news, dependent: :destroy

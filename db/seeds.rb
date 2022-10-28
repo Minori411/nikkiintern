@@ -35,42 +35,42 @@ Section.create!(section_name: "5") #Erectrical
 
 News.create!(title: "GASIN",
              body: "GASIN is gonna be started.",
-             image: "aaa",
+             image: File.open("./app/assets/images/gasin.png"),
              user_id: 1,
              area_id: 1,
              section_id: 1)
 
 News.create!(title: "Ramadan",
              body: "Ramadan is gonna be started.",
-             image: "aaa",
+             image: File.open("./app/assets/images/ramadan.png"),
              user_id: 2,
              area_id: 2,
              section_id: 2)
             
 News.create!(title: "Building",
              body: "Building is gonna be started.",
-             image: "building.png",
+             image: File.open("./app/assets/images/building.png"),
              user_id: 3,
              area_id: 1,
              section_id: 4)
 
 News.create!(title: "Mechanical",
              body: "Mechanical is gonna be started.",
-             image: "building.png",
+             image: File.open("./app/assets/images/mechanical.png"),
              user_id: 3,
              area_id: 1,
              section_id: 4)
 
 News.create!(title: "Erectrical",
              body: "Erectrical is gonna be started.",
-             image: "building.png",
+             image: File.open("./app/assets/images/erectrical.png"),
              user_id: 3,
              area_id: 1,
              section_id: 4)
-             
+
 News.create!(title: "Piping",
              body: "Piping is gonna be started.",
-             image: "building.png",
+             image: File.open("./app/assets/images/pipeline.png"),
              user_id: 3,
              area_id: 1,
              section_id: 4)

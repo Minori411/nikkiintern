@@ -4,9 +4,9 @@ class News < ApplicationRecord
     has_many :reads, dependent: :destroy
     has_many :notifications, dependent: :destroy
     has_many :news_area_sections, dependent: :destroy
-    belongs_to :user
-    belongs_to :area
-    belongs_to :section
+    belongs_to :user, optional: true
+    belongs_to :area, optional: true
+    belongs_to :section, optional: true
 
 
     mount_uploader :image, ImageUploader

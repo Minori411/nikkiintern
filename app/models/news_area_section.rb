@@ -1,5 +1,5 @@
 class NewsAreaSection < ApplicationRecord
-    belongs_to :news
-    belongs_to :area
-    belongs_to :section
+    belongs_to :news, optional: true
+    belongs_to :area, optional: true
+    belongs_to :section, optional: true
 end
