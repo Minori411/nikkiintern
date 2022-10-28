@@ -37,6 +37,7 @@ class NewsController < ApplicationController
 
   def new
     @news = News.new
+    @news.news_area_sections.build
   end
 
   def edit
@@ -61,6 +62,6 @@ class NewsController < ApplicationController
   private  # ストロングパラメーター（予期しない値を変更されてしまう脆弱性を防ぐ機能）
 
   def news_params
-    params.require(:news).permit(:title, :body, :image).merge(user_id: current_user.id, area_id: 1,section_id: 1)
+    params.require(:news).permit(:title, :body, :image, news_area_sections_attributes:[:id,:area_id,:section_id]).merge(user_id: current_user.id)
   end
 end

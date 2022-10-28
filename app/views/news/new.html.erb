@@ -8,6 +8,14 @@
     <div class="alignCenter m-t-20 m-b-20">
         <%= f.file_field :image,id: "news_file" %>
     </div>
+    <%= f.label :Adress %><br>
+    <%= f.select :area_name, [['A_processarea', 1],['B_Utilityarea', 2],['C_Offsite', 3]],{ include_blank: true, selected: params[:area_name] }, id: "area-select", class: "area-control" %>
+    <%= f.select :section_name, [['Civil', 1],['Building', 2],['Mechanical', 3],['Piping', 4],['Erectrical', 5]],{ include_blank: true, selected: params[:section_name] }, id: "section-select", class: "section-control" %>
+    <i class="fa-solid fa-angles-right fa-2xl"></i>
+    <%= f.select :area_name, [['A_processarea', 1],['B_Utilityarea', 2],['C_Offsite', 3]],{ include_blank: true, selected: params[:area_name] }, id: "area-select", class: "area-control" %>
+    <%= f.select :section_name, [['Civil', 1],['Building', 2],['Mechanical', 3],['Piping', 4],['Erectrical', 5]],{ include_blank: true, selected: params[:section_name] }, id: "section-select", class: "section-control" %>
+
+
 </div>
         
         <%= f.label :title %>

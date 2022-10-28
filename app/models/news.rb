@@ -7,6 +7,8 @@ class News < ApplicationRecord
     belongs_to :user, optional: true
     belongs_to :area, optional: true
     belongs_to :section, optional: true
+    accepts_nested_attributes_for :news_area_sections, allow_destroy: true
+
 
 
     mount_uploader :image, ImageUploader

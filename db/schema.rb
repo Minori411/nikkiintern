@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_27_222206) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_28_044238) do
   create_table "areas", charset: "utf8mb3", force: :cascade do |t|
     t.integer "area_name"
     t.datetime "created_at", null: false
@@ -43,6 +43,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_222206) do
     t.index ["section_id"], name: "index_news_area_sections_on_section_id"
   end
 
+  create_table "news_reads", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "news_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["news_id"], name: "index_news_reads_on_news_id"
+    t.index ["user_id"], name: "index_news_reads_on_user_id"
+  end
+
   create_table "notifications", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "news_id", null: false
@@ -55,17 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_222206) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-  create_table "reads", charset: "utf8mb3", force: :cascade do |t|
-    t.bigint "news_id", null: false
-    t.bigint "schedule_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["news_id"], name: "index_reads_on_news_id"
-    t.index ["schedule_id"], name: "index_reads_on_schedule_id"
-    t.index ["user_id"], name: "index_reads_on_user_id"
-  end
-
   create_table "schedule_area_sections", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "schedule_id", null: false
     t.bigint "area_id", null: false
@@ -75,6 +73,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_222206) do
     t.index ["area_id"], name: "index_schedule_area_sections_on_area_id"
     t.index ["schedule_id"], name: "index_schedule_area_sections_on_schedule_id"
     t.index ["section_id"], name: "index_schedule_area_sections_on_section_id"
+  end
+
+  create_table "schedule_reads", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "schedule_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_schedule_reads_on_schedule_id"
+    t.index ["user_id"], name: "index_schedule_reads_on_user_id"
   end
 
   create_table "schedules", charset: "utf8mb3", force: :cascade do |t|
@@ -120,15 +127,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_222206) do
   add_foreign_key "news_area_sections", "areas"
   add_foreign_key "news_area_sections", "news"
   add_foreign_key "news_area_sections", "sections"
+  add_foreign_key "news_reads", "news"
+  add_foreign_key "news_reads", "users"
   add_foreign_key "notifications", "news"
   add_foreign_key "notifications", "schedules"
   add_foreign_key "notifications", "users"
-  add_foreign_key "reads", "news"
-  add_foreign_key "reads", "schedules"
-  add_foreign_key "reads", "users"
   add_foreign_key "schedule_area_sections", "areas"
   add_foreign_key "schedule_area_sections", "schedules"
   add_foreign_key "schedule_area_sections", "sections"
+  add_foreign_key "schedule_reads", "schedules"
+  add_foreign_key "schedule_reads", "users"
   add_foreign_key "user_area_sections", "areas"
   add_foreign_key "user_area_sections", "sections"
   add_foreign_key "user_area_sections", "users"
