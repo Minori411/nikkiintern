@@ -14,7 +14,7 @@
         <div class="col2 s12 m5">
             <!-- card start -->
             <div class="card" style="display:flex;height: 150px;width: 400px; margin:0;">
-                <div class="card-image">
+                <div class="card-image" style="Width: 150px;">
                 <%= image_tag news.image.to_s, height: '150', width: '150' %>
                 <span class="card-title"><%= news.title %></span>
             </div>
@@ -47,11 +47,11 @@
       <h5>Area</h5>
       </div>
       <div class="block">
-      <%= f.check_box :a_processarea,id: :a_processarea %>
+      <%= f.check_box :area_name, id: :a_processarea, checked: params[:area_name] == "1" %>
       <%= f.label :A_ProcessArea,{class: 'index'} %>
-      <%= f.check_box :b_utilityarea, id: :b_utility_area %>
+      <%= f.check_box :b_utilityarea, id: :b_utility_area, checked: params[:area_name] == "2" %>
       <%= f.label :B_UtilityArea,{class: 'index'} %>
-      <%= f.check_box :a_processarea, id: :c_offsite %>
+      <%= f.check_box :a_processarea, id: :c_offsite, checked: params[:area_name] == "3" %>
       <%= f.label :C_Offsite,{class: 'index'} %>
       </div>
       <div class="area_search">

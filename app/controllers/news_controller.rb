@@ -61,6 +61,6 @@ class NewsController < ApplicationController
   private  # ストロングパラメーター（予期しない値を変更されてしまう脆弱性を防ぐ機能）
 
   def news_params
-    params.require(:news).permit(:title, :body, :image, :from, :to).merge(user_id: current_user.id)
+    params.require(:news).permit(:title, :body, :image).merge(user_id: current_user.id, area_id: 1,section_id: 1)
   end
 end
