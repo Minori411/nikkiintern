@@ -64,25 +64,25 @@
       <h5>Area</h5>
       </div>
       <div class="block">
-      <%= f.check_box :area_name, id: :a_processarea, checked: params[:area_name] == "1" %>
+      <%= f.check_box :area_name_a, id: :a_processarea, checked: params[:area_name_a] == "1", include_hidden: false %>
       <%= f.label :A_ProcessArea,{class: 'index'} %>
-      <%= f.check_box :b_utilityarea, id: :b_utility_area, checked: params[:area_name] == "2" %>
+      <%= f.check_box :area_name_b, id: :b_utilityarea, checked: params[:area_name_b] == "2", include_hidden: false %>
       <%= f.label :B_UtilityArea,{class: 'index'} %>
-      <%= f.check_box :a_processarea, id: :c_offsite, checked: params[:area_name] == "3" %>
+      <%= f.check_box :area_name_c, id: :c_offsite, checked: params[:area_name_c] == "3", include_hidden: false %>
       <%= f.label :C_Offsite,{class: 'index'} %>
       </div>
       <div class="area_search">
       <h5>Section</h5>
       </div>
-      <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
+      <%= f.check_box :section_name_a, id: :civil, checked: params[:section_name_a] == "1" %>
       <%= f.label :Civil,{class: 'indexx'} %>
-      <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
+      <%= f.check_box :section_name_b,  id: :building, checked: params[:section_name_b] == "2" %>
       <%= f.label :Building,{class: 'indexx'} %>
-      <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
+      <%= f.check_box :section_name_c,  id: :mechanical, checked: params[:section_name_c] == "3" %>
       <%= f.label :Mechanical,{class: 'indexx'} %><br>
-      <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
+      <%= f.check_box :section_name_d,  id: :piping, checked: params[:section_name_d] == "4" %>
       <%= f.label :Piping,{class: 'indexx'} %>
-      <%= f.check_box :a_processarea, {}, "a_processarea", "unchecked-value" %>
+      <%= f.check_box :section_name_e,  id: :erectrical, checked: params[:section_name_e] == "5" %>
       <%= f.label :Erectrical,{class: 'indexx'} %>
       </div>
     </div>

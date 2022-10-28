@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'news#index'
   get 'news/archives', to: 'news#archives', as: :archives
   post 'news/:id/archive', to: 'news#archive', as: :archive
+  post 'news/:id/back', to: 'news#back', as: :back
   resources :news
   post 'news/create', to: 'news#create'
 

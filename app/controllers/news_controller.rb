@@ -2,7 +2,39 @@ class NewsController < ApplicationController
   before_action :authenticate_user!
 
   def search
-    @news = News.search(params[:keyword])
+    areas = []
+    if params[:area_name_a] == 1
+      areas << 1
+    end
+    if params[:area_name_b] == 1
+      areas << 2
+    end
+    if params[:area_name_c] == 1
+      areas << 3
+    end
+
+    sections = []
+    if params[:section_name_a] == 1
+      sections << 1
+    end
+    if params[:section_name_b] == 1
+      sections << 2
+    end
+    if params[:section_name_c] == 1
+      sections << 3
+    end
+    if params[:section_name_d] == 1
+      sections << 4
+    end
+    if params[:section_name_e] == 1
+      sections << 5
+    end
+
+    Rails.logger.debug(params[:keyword])
+    Rails.logger.debug(areas)
+    Rails.logger.debug(sections)
+
+    @news = News.search(params[:keyword],areas,sections)
     @keyword = params[:keyword]
     render "index"
   end
@@ -17,18 +49,31 @@ class NewsController < ApplicationController
     news.save
   end
 
+  def back
+    if current_user.userstyle == 0
+    news = News.unscoped.find(params[:id])
+    news.archive = false
+    news.save
+    redirect_to archives_path
+    end
+  end
+
   def index
     @news = News.all
   end
 
   def show
-    @news = News.find(params[:id])
+    @news = if current_user.userstyle == 0
+    News.unscoped.find(params[:id])
+    else
+    News.find_by(id: params[:id])
+    end
   end
 
   def create
     @news = News.new(news_params) # 何を新しく保存するか指定
     @news.user_id = current_user.id
-    binding.pry
+    Rails.logger.debug(news_params)
     if @news.save # もし保存ができたら
       redirect_to news_path(@news.id) # 投稿画面に遷移
     else # できなければ
