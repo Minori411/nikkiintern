@@ -47,6 +47,7 @@ class NewsController < ApplicationController
     news = News.find(params[:id])
     news.archive = true
     news.save
+    redirect_to news_index_path
   end
 
   def back

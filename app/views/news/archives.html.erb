@@ -1,3 +1,4 @@
+
 <h4>Archived News</h2>
 <p class="listBox_result">
     <span>
@@ -5,34 +6,52 @@
     </span>
     News is here.
 </p>
-<article class="col-8 flexbox">
-<% @news.each do |news| %>
-<div>
-  <%= link_to news_path(news.id) do %>
-  <div class="row" style="margin:0;">
-      <div class="col2 s12 m5">
-          <!-- card start -->
-          <div class="card" style="display:flex;height: 150px;width: 400px; margin:0;">
-              <div class="card-image" style="Width: 150px;">
-              <%= image_tag news.image.to_s, height: '150', width: '150' %>
-              <span class="card-title"><%= news.title %></span>
-          </div>
-          <div class="card-content">
-          <%= news.created_at.strftime('%Y/%m/%d %H:%M') %>
-          <div class="fromto">
-          <h6>FROM Aエリアpipeline <br>TO Bエリアpipeline</h6>
-          </div>
-          </div>
-          </div>
-          <!-- card end -->
-      </div>
-      </div>
+<div class="row flexbox">
+  <article class="col-8 flexbox" style="width:100%;">
+  <% @news.each do |news| %>
+    <div class="row" style="margin:10px;">
+        <div class="col2 s12 m5">
+            <!-- card start -->
+            <div class="card" style="display:flex;height: 280px;width: 380px; text-align: left;">
+                <div class="card-image" style="Width: 150px;">
+                <%= image_tag news.image.to_s, height: '280', width: '150' %>
+            </div>
+            <% if current_user.userstyle == 0 %>
+            <%= link_to back_path(news.id), class: "back-arrow", method: :post do %>
+                <i class="fa-solid fa-arrow-rotate-left fa-2xl"></i>
+            <% end %>
+            <% end %>
+            <%= link_to news_path(news.id) do %>
+            <div class="card-content">
+            <%= news.created_at.strftime('%Y/%m/%d %H:%M') %>
+            <span class="card-title"><%= news.title %></span>
+            <div class="fromto">
+            <div class="chip">
+                Aエリア
+            </div>
+            <i class="fa-solid fa-xmark"></i>
+            <div class="chip">
+                Piping
+            </div>
+            <div class="flex-column">
+            <i class="fa-solid fa-angles-down angle-down fa-xl"></i>
+            </div>
+            <div class="flexbox" style="width: 200px;margin-top: 15px;">
+            <div class="chip">
+                Bエリア
+            </div>
+            <i class="fa-solid fa-xmark x-mark-news"></i>
+            <div class="chip">
+                Mechanical
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <!-- card end -->
+        </div>
+        </div>
+    <% end %>
   <% end %>
-  <% if current_user.userstyle == 0 %>
-  <%= link_to back_path(news.id), method: :post do %>
-    <i class="fa-solid fa-house"></i>
-  <% end %>
-  <% end %>
-  </div>
-  <% end %>
-</article>
+  </article>
+</div>

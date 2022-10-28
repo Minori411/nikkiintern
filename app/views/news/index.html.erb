@@ -9,7 +9,6 @@
 <div class="row flexbox">
   <article class="col-8 flexbox" style="width:800px;">
   <% @news.each do |news| %>
-    <%= link_to news_path(news.id) do %>
     <div class="row" style="margin:10px;">
         <div class="col2 s12 m5">
             <!-- card start -->
@@ -17,11 +16,16 @@
                 <div class="card-image" style="Width: 150px;">
                 <%= image_tag news.image.to_s, height: '280', width: '150' %>
             </div>
+            <% if current_user.userstyle == 0 %>
+            <%= link_to archive_path(news.id), class: "back-arrow", method: :post do %>
+                <i class="fa-solid fa-user-xmark fa-2xl"></i>
+            <% end %>
+            <% end %>
+            <%= link_to news_path(news.id) do %>
             <div class="card-content">
             <%= news.created_at.strftime('%Y/%m/%d %H:%M') %>
             <span class="card-title"><%= news.title %></span>
             <div class="fromto">
-            <h6>
             <div class="chip">
                 Aエリア
             </div>

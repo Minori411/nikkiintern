@@ -380,11 +380,6 @@ a{
     display: none!important;
 }
 
-div{
-    max-width: 100%;
-    height: auto;
-}
-
 header{
 
     .header_inner_head{
@@ -707,14 +702,14 @@ input {
 
 @media (max-width: 699px){
 .dropdown1 {
-    width: 300px;
+    width: 250px;
     left: 800px!important;
 }
 }
 
 .dropdown1 {
     left: 0px!important;
-    width: 300px;
+    width: 200px;
 
 }
 .dropdown2 {

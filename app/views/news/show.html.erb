@@ -15,9 +15,6 @@
     </div>
     <% if user_signed_in? && current_user.userstyle == 0 %>
         <div class="admin-icons">
-        <%= link_to archive_path(@news.id), method: :post do %>
-            <i class="fa-solid fa-user-xmark fa-2xl"></i>
-        <% end %>
         <%= link_to edit_news_path(@news.id) do %>
             <i class="fa-solid fa-pen-to-square fa-2xl"></i>
         <% end %>
