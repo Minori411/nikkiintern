@@ -13,9 +13,9 @@
     <div class="row" style="margin:10px;">
         <div class="col2 s12 m5">
             <!-- card start -->
-            <div class="card" style="display:flex;height: 180px;width: 380px; margin:0;">
+            <div class="card" style="display:flex;height: 280px;width: 380px; margin:0;">
                 <div class="card-image" style="Width: 150px;">
-                <%= image_tag news.image.to_s, height: '180', width: '150' %>
+                <%= image_tag news.image.to_s, height: '280', width: '150' %>
             </div>
             <div class="card-content">
             <%= news.created_at.strftime('%Y/%m/%d %H:%M') %>
@@ -29,12 +29,17 @@
             <div class="chip">
                 Piping
             </div>
+            <div class="flex-column">
+            <i class="fa-solid fa-angles-down angle-down fa-xl"></i>
+            </div>
+            <div class="flexbox" style="width: 200px;margin-top: 15px;">
             <div class="chip">
                 Bエリア
             </div>
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark x-mark-news"></i>
             <div class="chip">
                 Mechanical
+            </div>
             </div>
             </div>
             </div>
