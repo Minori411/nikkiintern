@@ -68,9 +68,9 @@ $(function(){
                             <option value="5">Piping</option>
                             <option value="6">Erectrical</option>
                         </select>
-                        <span class="delete-form-btn">
-                            削除する
-                        </span>
+                            <a class="delete-form-btn" data-deletefiled="true" data-index="${index}">
+                                <i class="fas fa-times-circle"></i>
+                            </a>
                         </div>`;
       return html;
     }
@@ -86,7 +86,13 @@ $(function(){
     $(".add-form-btn").on("click", function() { // 追加ボタンクリックでイベント発火
       $(".areas").append(buildField(fileIndex[0])); // fileIndexの一番小さい数字をインデックス番号に使ってフォームを作成
       fileIndex.shift(); // fileIndexの一番小さい数字を取り除く
-      if (fileIndex.length == 0) $(".add-form-btn").css("display","none"); // フォームが５つになったら追加ボタンを非表示にする
+    //   if (fileIndex.length == 0) $(".add-form-btn").css("display","none"); // フォームが５つになったら追加ボタンを非表示にする
       displayCount += 1; // 見えているフォームの数をカウントアップしておく
     })
-  })
+    $(document).on("click", ".delete-form-btn", function (e) {
+        // $(this)でイベントが発生した要素を取得して削除する
+        
+        let index = e.target.getAttribute('data-index')
+        e.target.parentElement.parentElement.remove()
+    });
+});
