@@ -87,8 +87,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_29_051821) do
   end
 
   create_table "schedules", charset: "utf8mb3", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.string "title"
+    t.string "extendedprops"
+    t.string "description"
+    t.boolean "allday", default: false, null: false
+    t.string "eventColor"
+    t.string "color"
+    t.string "events"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
   create_table "sections", charset: "utf8mb3", force: :cascade do |t|
@@ -139,6 +150,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_29_051821) do
   add_foreign_key "schedule_area_sections", "sections"
   add_foreign_key "schedule_reads", "schedules"
   add_foreign_key "schedule_reads", "users"
+  add_foreign_key "schedules", "users"
   add_foreign_key "user_area_sections", "areas"
   add_foreign_key "user_area_sections", "sections"
   add_foreign_key "user_area_sections", "users"
