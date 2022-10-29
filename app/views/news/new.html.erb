@@ -11,10 +11,18 @@
     <%= f.label :Adress %><br>
     <%= f.select :area_name, [['A processarea', 1],['B Utilityarea', 2],['C Offsite', 3]],{ include_blank: true, selected: params[:area_name] }, id: "area-select", class: "area-control" %>
     <%= f.select :section_name, [['Civil', 1],['Building', 2],['Mechanical', 3],['Piping', 4],['Erectrical', 5]],{ include_blank: true, selected: params[:section_name] }, id: "section-select", class: "section-control" %>
-    <i class="fa-solid fa-angles-right fa-2xl"></i>
-    <%= f.select :area_name, [['All Area', 1],['A processarea', 2],['B Utilityarea', 3],['C Offsite', 4]],{ include_blank: true, selected: params[:area_name] }, id: "area-select", class: "area-control" %>
-    <%= f.select :section_name, [['All Section', 1],['Civil', 2],['Building', 3],['Mechanical', 4],['Piping', 5],['Erectrical', 6]],{ include_blank: true, selected: params[:section_name] }, id: "section-select", class: "section-control" %>
-    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <i class="fa-solid fa-angles-down fa-2xl"></i>
+    <div class="areas">
+    <%= f.fields_for :areas do |areafields| %>
+        <div class="select-scope" data-index: "<%= areafields.index %>">
+            <%= areafields.select :area_name, [['All Area', 1],['A processarea', 2],['B Utilityarea', 3],['C Offsite', 4]],{ include_blank: true, selected: params[:area_name] }, id: "area-select", class: "area-control" %>
+            <%= areafields.select :section_name, [['All Section', 1],['Civil', 2],['Building', 3],['Mechanical', 4],['Piping', 5],['Erectrical', 6]],{ include_blank: true, selected: params[:section_name] }, id: "section-select", class: "section-control" %>
+        </div>
+    <% end %>
+    </div>
+    <%= f.button type: :button, class:"btn-floating waves-effect waves-light red add-form-btn" do %>
+        <i class="material-icons">add</i>
+    <% end %>
 
 </div>
         
