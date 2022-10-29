@@ -1,4 +1,6 @@
 class News < ApplicationRecord
+    # include Discard::Model
+    # default_scope -> { kept }
     has_many :areas, dependent: :destroy
     has_many :sections, dependent: :destroy
     has_many :reads, dependent: :destroy

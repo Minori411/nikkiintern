@@ -38,39 +38,45 @@ News.create!(title: "GASIN",
              image: File.open("./app/assets/images/gasin.png"),
              user_id: 1,
              area_id: 1,
-             section_id: 1)
+             section_id: 1,
+             discarded_at: nil)
 
 News.create!(title: "Ramadan",
              body: "Ramadan is gonna be started.",
              image: File.open("./app/assets/images/ramadan.png"),
              user_id: 2,
              area_id: 2,
-             section_id: 2)
+             section_id: 2,
+             discarded_at: nil)
             
 News.create!(title: "Building",
              body: "Building is gonna be started.",
              image: File.open("./app/assets/images/building.png"),
              user_id: 3,
              area_id: 1,
-             section_id: 4)
+             section_id: 4,
+             discarded_at: nil)
 
 News.create!(title: "Mechanical",
              body: "Mechanical is gonna be started.",
              image: File.open("./app/assets/images/mechanical.png"),
              user_id: 3,
              area_id: 1,
-             section_id: 4)
+             section_id: 4,
+             discarded_at: nil)
 
 News.create!(title: "Erectrical",
              body: "Erectrical is gonna be started.",
              image: File.open("./app/assets/images/erectrical.png"),
              user_id: 3,
              area_id: 1,
-             section_id: 4)
+             section_id: 4,
+             discarded_at: nil)
 
 News.create!(title: "Piping",
              body: "Piping is gonna be started.",
              image: File.open("./app/assets/images/pipeline.png"),
              user_id: 3,
              area_id: 1,
-             section_id: 4)
+             section_id: 4,
+             discarded_at: nil)
