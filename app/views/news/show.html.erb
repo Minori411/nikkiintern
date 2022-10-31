@@ -20,7 +20,7 @@
         <%= link_to edit_news_path(@news.id) do %>
             <i class="fa-solid fa-pen-to-square fa-2xl"></i>
         <% end %>
-        <%= link_to news_path(@news.id), method: :delete do %>
+        <%= link_to news_path(@news.id), method: :delete, data: { confirm: "【確認】削除しますか？" } do %>
             <i class="fa-solid fa-trash fa-2xl"></i>
         <% end %>
         </div>

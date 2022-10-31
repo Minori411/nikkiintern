@@ -23,17 +23,17 @@ end
                  )
 end
 
-Area.create!(area_name: "1") #A
-Area.create!(area_name: "2") #B
-Area.create!(area_name: "3") #C
-Area.create!(area_name: "99")
+Area.create!(area_name: 1) #A
+Area.create!(area_name: 2) #B
+Area.create!(area_name: 3) #C
+Area.create!(area_name: 99) #AllArea
 
-Section.create!(section_name: "1") #Civil
-Section.create!(section_name: "2") #Building
-Section.create!(section_name: "3") #Mechanical
-Section.create!(section_name: "4") #Piping
-Section.create!(section_name: "5") #Erectrical
-Section.create!(section_name: "99")
+Section.create!(section_name: 1) #Civil
+Section.create!(section_name: 2) #Building
+Section.create!(section_name: 3) #Mechanical
+Section.create!(section_name: 4) #Piping
+Section.create!(section_name: 5) #Erectrical
+Section.create!(section_name: 99) #AllSection
 
 News.create!(title: "GASIN",
              body: "GASIN is gonna be started.",
@@ -82,3 +82,27 @@ News.create!(title: "Piping",
              area_id: 1,
              section_id: 4,
              discarded_at: nil)
+
+NewsAreaSection.create!(news_id: 1,
+                        area_id:1,
+                        section_id:1)
+
+NewsAreaSection.create!(news_id: 2,
+                        area_id:2,
+                        section_id:2)
+
+NewsAreaSection.create!(news_id: 3,
+                        area_id:3,
+                        section_id:3)
+
+NewsAreaSection.create!(news_id: 4,
+                        area_id:2,
+                        section_id:4)
+
+NewsAreaSection.create!(news_id: 5,
+                        area_id:3,
+                        section_id:5)
+
+NewsAreaSection.create!(news_id: 6,
+                        area_id:1,
+                        section_id:1)

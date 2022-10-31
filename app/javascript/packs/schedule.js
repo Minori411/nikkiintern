@@ -55,23 +55,23 @@ $(function() {
 $(function(){
     function buildField(index) {  // 追加するフォームのｈｔｍｌを用意
       const html = `<div class="select-scope" data-index: "${index}">
-                        <select id="area-select" class="area-control" name="news[areas][area_name]"><option value="" label=" "></option>
-                            <option value="1">All Area</option>
-                            <option value="2">A processarea</option>
-                            <option value="3">B Utilityarea</option>
-                            <option value="4">C Offsite</option></select>
-                        <select id="section-select" class="section-control" name="news[areas][section_name]"><option value="" label=" "></option>
-                            <option value="1">All Section</option>
-                            <option value="2">Civil</option>
-                            <option value="3">Building</option>
-                            <option value="4">Mechanical</option>
-                            <option value="5">Piping</option>
-                            <option value="6">Erectrical</option>
-                        </select>
-                            <a class="delete-form-btn" data-deletefiled="true" data-index="${index}">
-                                <i class="fas fa-times-circle"></i>
-                            </a>
-                        </div>`;
+                    <select id="area-select" class="area-control" name="news[news_area_sections_attributes][0][area_id]"><option value="" label=" "></option>
+                        <option value="4">All Area</option>
+                        <option value="1">A processarea</option>
+                        <option value="2">B Utilityarea</option>
+                        <option value="3">C Offsite</option></select>
+                    <select id="section-select" class="section-control" name="news[news_area_sections_attributes][0][section_id]"><option value="" label=" "></option>
+                        <option value="6">All Section</option>
+                        <option value="1">Civil</option>
+                        <option value="2">Building</option>
+                        <option value="3">Mechanical</option>
+                        <option value="4">Piping</option>
+                        <option value="6">Erectrical</option>
+                    </select>
+                    <a class="delete-form-btn" data-deletefiled="true" data-index="${index}">
+                        <i class="fas fa-times-circle"></i>
+                    </a>
+                    </div>`;
       return html;
     }
   
