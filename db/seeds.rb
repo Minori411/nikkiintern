@@ -26,12 +26,14 @@ end
 Area.create!(area_name: "1") #A
 Area.create!(area_name: "2") #B
 Area.create!(area_name: "3") #C
+Area.create!(area_name: "99")
 
 Section.create!(section_name: "1") #Civil
 Section.create!(section_name: "2") #Building
 Section.create!(section_name: "3") #Mechanical
 Section.create!(section_name: "4") #Piping
 Section.create!(section_name: "5") #Erectrical
+Section.create!(section_name: "99")
 
 News.create!(title: "GASIN",
              body: "GASIN is gonna be started.",

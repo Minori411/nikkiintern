@@ -4,13 +4,15 @@
     <%= image_tag @news.image.to_s, class: "image_tag",height: '150', width: '150' %>
     <div class="flexbox chips-news">
     <div class="chip">
-    AエリアCivil
+    <%= @news.area.area_name %>/<%= @news.section.section_name %>
     </div>
   <i class="fa-solid fa-angles-right fa-1xl angle-right">
   </i>
+  <% @news_area_sections.each do |newsareasection| %>
   <div class="chip">
-    BエリアPiping
+    <%= newsareasection.area.area_name %>/<%= newsareasection.section.section_name %>
   </div>
+  <% end %>
   </div>
     </div>
     <% if user_signed_in? && current_user.userstyle == 0 %>

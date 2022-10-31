@@ -3,30 +3,30 @@ class NewsController < ApplicationController
 
   def search
     areas = []
-    if params[:area_name_a] == 1
+    if params[:area_name_a].to_i == 1
       areas << 1
     end
-    if params[:area_name_b] == 1
+    if params[:area_name_b].to_i == 1
       areas << 2
     end
-    if params[:area_name_c] == 1
+    if params[:area_name_c].to_i == 1
       areas << 3
     end
 
     sections = []
-    if params[:section_name_a] == 1
+    if params[:section_name_a].to_i == 1
       sections << 1
     end
-    if params[:section_name_b] == 1
+    if params[:section_name_b].to_i == 1
       sections << 2
     end
-    if params[:section_name_c] == 1
+    if params[:section_name_c].to_i == 1
       sections << 3
     end
-    if params[:section_name_d] == 1
+    if params[:section_name_d].to_i == 1
       sections << 4
     end
-    if params[:section_name_e] == 1
+    if params[:section_name_e].to_i == 1
       sections << 5
     end
 
@@ -69,12 +69,13 @@ class NewsController < ApplicationController
     else
     News.find_by(id: params[:id])
     end
+    @news_area_sections = @news.news_area_sections
   end
 
   def create
     @news = News.new(news_params) # 何を新しく保存するか指定
     @news.user_id = current_user.id
-    "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    logger.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     Rails.logger.debug(news_params)
     if @news.save # もし保存ができたら
       redirect_to news_path(@news.id) # 投稿画面に遷移
@@ -110,6 +111,6 @@ class NewsController < ApplicationController
   private  # ストロングパラメーター（予期しない値を変更されてしまう脆弱性を防ぐ機能）
 
   def news_params
-    params.require(:news).permit(:title, :body, :image, news_area_sections_attributes:[:id,:area_id,:section_id]).merge(user_id: current_user.id)
+    params.require(:news).permit(:title, :body, :image, :area_id, :section_id, news_area_sections_attributes:[:id,:area_id,:section_id]).merge(user_id: current_user.id)
   end
 end

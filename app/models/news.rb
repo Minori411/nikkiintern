@@ -1,7 +1,6 @@
 class News < ApplicationRecord
-    # include Discard::Model
-    # default_scope -> { kept }
-    has_many :areas, dependent: :destroy
+    include Discard::Model
+    default_scope -> { kept }
     has_many :sections, dependent: :destroy
     has_many :reads, dependent: :destroy
     has_many :notifications, dependent: :destroy
@@ -19,18 +18,19 @@ class News < ApplicationRecord
 
     def self.search(keyword,areas,sections)
             if keyword != ""
-                where(["title like ? OR body like ?", "%#{keyword}%", "%#{keyword}%"])
+                @news = self.where(["title like ? OR body like ?", "%#{keyword}%", "%#{keyword}%"]) 
+            else
+                @news = News.all
             end
-                
-                areas = NewsAreaSection.all
-                areas = NewsAreaSection.where(area_id: areas)
+        
+            if areas.count > 0
+                @news = @news.where(id: NewsAreaSection.where(area_id: areas).pluck('news_id'))
+            end
 
-            if areas.count >= 0
+            if sections.count > 0
+                @news = @news.where(id: NewsAreaSection.where(section_id: sections).pluck('news_id'))
             end
-
-            if sections.count >= 0
-                where(section_id: sections)
-            end
+            @news
     end
 
     
