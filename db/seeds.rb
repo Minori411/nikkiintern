@@ -35,11 +35,30 @@ Section.create!(section_name: 4) #Piping
 Section.create!(section_name: 5) #Erectrical
 Section.create!(section_name: 99) #AllSection
 
-User.all.each do |user|
-    user.user_area_sections.create!(user_id: user.id, 
-                                    area_id: [1,2,3].sample,
-                                    section_id: [1,2,3,4,5].sample)
-end
+UserAreaSection.create!(user_id: 1, area_id: 1, section_id: 1)
+UserAreaSection.create!(user_id: 1, area_id: 2, section_id: 1)
+UserAreaSection.create!(user_id: 2, area_id: 2, section_id: 2)
+UserAreaSection.create!(user_id: 2, area_id: 2, section_id: 3)
+UserAreaSection.create!(user_id: 3, area_id: 3, section_id: 3)
+UserAreaSection.create!(user_id: 3, area_id: 1, section_id: 3)
+UserAreaSection.create!(user_id: 3, area_id: 3, section_id: 3)
+UserAreaSection.create!(user_id: 4, area_id: 1, section_id: 4)
+UserAreaSection.create!(user_id: 5, area_id: 2, section_id: 5)
+UserAreaSection.create!(user_id: 5, area_id: 1, section_id: 5)
+UserAreaSection.create!(user_id: 6, area_id: 3, section_id: 1)
+UserAreaSection.create!(user_id: 6, area_id: 3, section_id: 4)
+UserAreaSection.create!(user_id: 7, area_id: 1, section_id: 2)
+UserAreaSection.create!(user_id: 8, area_id: 2, section_id: 3)
+UserAreaSection.create!(user_id: 9, area_id: 3, section_id: 4)
+UserAreaSection.create!(user_id: 10, area_id: 1, section_id: 5)
+UserAreaSection.create!(user_id: 11, area_id: 2, section_id: 1)
+UserAreaSection.create!(user_id: 12, area_id: 3, section_id: 2)
+UserAreaSection.create!(user_id: 13, area_id: 1, section_id: 3)
+UserAreaSection.create!(user_id: 14, area_id: 2, section_id: 4)
+UserAreaSection.create!(user_id: 15, area_id: 3, section_id: 5)
+UserAreaSection.create!(user_id: 16, area_id: 1, section_id: 1)
+
+
 
 News.create!(title: "GASIN",
              body: "GASIN is gonna be started.",
@@ -92,6 +111,11 @@ News.create!(title: "Piping",
 NewsAreaSection.create!(news_id: 1,
                         area_id:1,
                         section_id:1)
+
+NewsAreaSection.create!(news_id: 1,
+                        area_id:2,
+                        section_id:3)
+
 
 NewsAreaSection.create!(news_id: 2,
                         area_id:2,

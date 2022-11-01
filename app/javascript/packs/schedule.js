@@ -54,7 +54,7 @@ $(function() {
 
 $(function(){
     function buildField(index) { 
-        console.log("aaa"+index+"bbb")
+        console.log(index)
       const html = `<div class="select-scope" data-index:"${index}">
                     <select id="area-select" class="area-control" name="news[news_area_sections_attributes][${index}][area_id]"><option value="" label=" "></option>
                         <option value="4">All Area</option>
@@ -76,7 +76,7 @@ $(function(){
       return html;
     }
   
-    let fileIndex = [1, 2, 3, 4] // 追加するフォームのインデックス番号を用意
+    let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // 追加するフォームのインデックス番号を用意
     var lastIndex = $(".select-scope:last").data("index"); // 編集フォーム用（すでにデータがある分のインデックス番号が何か取得しておく）
     fileIndex.splice(0, lastIndex); // 編集フォーム用（データがある分のインデックスをfileIndexから除いておく）
     let fileCount = $(".hidden-destroy").length; // 編集フォーム用（データがある分のフォームの数を取得する）
