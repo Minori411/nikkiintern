@@ -47,7 +47,7 @@ News.create!(title: "GASIN",
              user_id: 1,
              area_id: 1,
              section_id: 1,
-             discarded_at: nil)
+             deleted_at: nil)
 
 News.create!(title: "Ramadan",
              body: "Ramadan is gonna be started.",
@@ -55,7 +55,7 @@ News.create!(title: "Ramadan",
              user_id: 2,
              area_id: 2,
              section_id: 2,
-             discarded_at: nil)
+             deleted_at: nil)
             
 News.create!(title: "Building",
              body: "Building is gonna be started.",
@@ -63,7 +63,7 @@ News.create!(title: "Building",
              user_id: 3,
              area_id: 1,
              section_id: 4,
-             discarded_at: nil)
+             deleted_at: nil)
 
 News.create!(title: "Mechanical",
              body: "Mechanical is gonna be started.",
@@ -71,7 +71,7 @@ News.create!(title: "Mechanical",
              user_id: 3,
              area_id: 1,
              section_id: 4,
-             discarded_at: nil)
+             deleted_at: nil)
 
 News.create!(title: "Erectrical",
              body: "Erectrical is gonna be started.",
@@ -79,7 +79,7 @@ News.create!(title: "Erectrical",
              user_id: 3,
              area_id: 1,
              section_id: 4,
-             discarded_at: nil)
+             deleted_at: nil)
 
 News.create!(title: "Piping",
              body: "Piping is gonna be started.",
@@ -87,7 +87,7 @@ News.create!(title: "Piping",
              user_id: 3,
              area_id: 1,
              section_id: 4,
-             discarded_at: nil)
+             deleted_at: nil)
 
 NewsAreaSection.create!(news_id: 1,
                         area_id:1,

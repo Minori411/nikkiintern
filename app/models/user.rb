@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :news, dependent: :destroy
   has_many :user_area_sections, dependent: :destroy
 
-
+  # def active_for_authentication?
+  #   super && (deleted_at == false)
+  # end
 
 end
