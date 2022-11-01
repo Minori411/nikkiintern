@@ -1,7 +1,6 @@
 class News < ApplicationRecord
-    include Discard::Model
-    default_scope -> { kept }
-    has_many :reads, dependent: :destroy
+    acts_as_paranoid
+    has_many :news_reads, dependent: :destroy
     has_many :notifications, dependent: :destroy
     has_many :news_area_sections, dependent: :destroy
     belongs_to :user, optional: true

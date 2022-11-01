@@ -35,6 +35,12 @@ Section.create!(section_name: 4) #Piping
 Section.create!(section_name: 5) #Erectrical
 Section.create!(section_name: 99) #AllSection
 
+User.all.each do |user|
+    user.user_area_sections.create!(user_id: user.id, 
+                                    area_id: [1,2,3].sample,
+                                    section_id: [1,2,3,4,5].sample)
+end
+
 News.create!(title: "GASIN",
              body: "GASIN is gonna be started.",
              image: File.open("./app/assets/images/gasin.png"),
