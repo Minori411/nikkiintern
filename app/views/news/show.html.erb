@@ -1,4 +1,7 @@
 <div class="boxbaseP30 post-articles">
+<% @news_reads.each do |newsreads| %>
+    <p class="view-count">既読：<%= newsreads.user.name %></p>
+<% end %>
     <div class="flexbox">
     <div class="flexbox column-img">
     <%= image_tag @news.image.to_s, class: "image_tag",height: '150', width: '150' %>

@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_031514) do
   create_table "news_reads", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "news_id", null: false
+    t.boolean "complete", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["news_id"], name: "index_news_reads_on_news_id"
@@ -80,6 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_031514) do
   create_table "schedule_reads", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "schedule_id", null: false
+    t.boolean "complete", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["schedule_id"], name: "index_schedule_reads_on_schedule_id"

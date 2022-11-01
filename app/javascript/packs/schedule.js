@@ -53,14 +53,15 @@ $(function() {
 });
 
 $(function(){
-    function buildField(index) {  // 追加するフォームのｈｔｍｌを用意
-      const html = `<div class="select-scope" data-index: "${index}">
-                    <select id="area-select" class="area-control" name="news[news_area_sections_attributes][0][area_id]"><option value="" label=" "></option>
+    function buildField(index) { 
+        console.log("aaa"+index+"bbb")
+      const html = `<div class="select-scope" data-index:"${index}">
+                    <select id="area-select" class="area-control" name="news[news_area_sections_attributes][${index}][area_id]"><option value="" label=" "></option>
                         <option value="4">All Area</option>
                         <option value="1">A processarea</option>
                         <option value="2">B Utilityarea</option>
                         <option value="3">C Offsite</option></select>
-                    <select id="section-select" class="section-control" name="news[news_area_sections_attributes][0][section_id]"><option value="" label=" "></option>
+                    <select id="section-select" class="section-control" name="news[news_area_sections_attributes][${index}][section_id]"><option value="" label=" "></option>
                         <option value="6">All Section</option>
                         <option value="1">Civil</option>
                         <option value="2">Building</option>

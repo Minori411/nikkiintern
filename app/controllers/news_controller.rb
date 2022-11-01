@@ -70,6 +70,15 @@ class NewsController < ApplicationController
     News.find_by(id: params[:id])
     end
     @news_area_sections = @news.news_area_sections
+    # if NewsRead.create(news_id: @news.id, user_id: current_user.id) 
+    #   @news_read = NewsRead.update(complete: true)
+    # end
+    #   @reads = NewsRead.where(complete:true)
+    # @news_reads = News.find(params[:id])
+    unless NewsRead.find_by(user_id: current_user.id, news_id: @news.id)
+      current_user.news_reads.create(user_id: current_user.id, news_id: @news.id)
+    end
+    @news_reads = @news.news_reads
   end
 
   def create
