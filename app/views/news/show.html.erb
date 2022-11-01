@@ -1,10 +1,4 @@
 <div class="boxbaseP30 post-articles">
-<% if current_user.userstyle == 0 %>
-既読：
-    <% @news_reads.each do |newsreads| %>
-        <p class="view-count"><%= newsreads.user.name %></p>
-    <% end %>
-<% end %>
     <div class="flexbox">
     <div class="flexbox column-img">
     <%= image_tag @news.image.to_s, class: "image_tag",height: '150', width: '150' %>
@@ -19,7 +13,18 @@
     <%= newsareasection.area.area_name %>/<%= newsareasection.section.section_name %>
   </div>
   <% end %>
+  
   </div>
+  <% if current_user.userstyle == 0 %>
+  <div class="reads">READ:</div>
+<% @news_reads.each do |newsreads| %>
+  <div class="view-count">
+  <div class="chip">
+  <%= newsreads.user.name %>/<%= newsreads.user.email %>
+  </div>
+  </div>
+<% end %>
+<% end %>
     </div>
     <% if user_signed_in? && current_user.userstyle == 0 %>
         <div class="admin-icons">

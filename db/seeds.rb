@@ -121,18 +121,34 @@ NewsAreaSection.create!(news_id: 2,
                         area_id:2,
                         section_id:2)
 
+NewsAreaSection.create!(news_id: 2,
+                        area_id: 3,
+                        section_id: 3)
+
+NewsAreaSection.create!(news_id: 2,
+                        area_id: 3,
+                        section_id: 1)
+
 NewsAreaSection.create!(news_id: 3,
-                        area_id:3,
-                        section_id:3)
+                        area_id: 2,
+                        section_id: 4)
+
+NewsAreaSection.create!(news_id: 3,
+                        area_id: 1,
+                        section_id: 5)
 
 NewsAreaSection.create!(news_id: 4,
-                        area_id:2,
-                        section_id:4)
+                        area_id: 4,
+                        section_id: 6)
 
 NewsAreaSection.create!(news_id: 5,
-                        area_id:3,
-                        section_id:5)
+                        area_id: 1,
+                        section_id: 2)
+
+NewsAreaSection.create!(news_id: 5,
+                        area_id: 2,
+                        section_id: 4)
 
 NewsAreaSection.create!(news_id: 6,
-                        area_id:1,
-                        section_id:1)
+                        area_id: 3,
+                        section_id: 3)
