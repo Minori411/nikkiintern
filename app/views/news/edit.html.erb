@@ -14,8 +14,10 @@
 <i class="fa-solid fa-angles-down fa-2xl"></i>
 <div class="areas">
 <%= f.fields_for :news_area_sections do |news_area_sectionsfields| %>
+    @@@@@@@@@@@@@@@@@@@@@@@@@@
+    <%= news_area_sectionsfields.object %>
     <div class="select-scope" data-index: "<%= news_area_sectionsfields.index %>">
-        <%= news_area_sectionsfields.select :area_id, [['All Area', 4],['A processarea', 1],['B Utilityarea', 2],['C Offsite', 3]],{ include_blank: true, selected: params[:area_id] }, id: "area-select", class: "area-control" %>
+        <%= news_area_sectionsfields.select :area_id, [['All Area', 4],['A processarea', 1],['B Utilityarea', 2],['C Offsite', 3]],{ include_blank: true, selected: news_area_sectionsfields.object.area_id }, id: "area-select", class: "area-control" %>
         <%= news_area_sectionsfields.select :section_id, [['All Section',6 ],['Civil', 1],['Building', 2],['Mechanical', 3],['Piping', 4],['Erectrical', 6]],{ include_blank: true, selected: params[:section_id] }, id: "section-select", class: "section-control" %>
     </div>
 <% end %>

@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  acts_as_paranoid
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,8 +11,8 @@ class User < ApplicationRecord
   has_many :news, dependent: :destroy
   has_many :user_area_sections, dependent: :destroy
 
-  # def active_for_authentication?
-  #   super && (deleted_at == false)
-  # end
+  def active_for_authentication?
+    super && !is_deleted
+  end
 
 end
