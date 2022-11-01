@@ -91,6 +91,7 @@ class NewsController < ApplicationController
 
   def edit
     @news = News.find(params[:id])
+    @news.news_area_sections.build
   end
 
   def update
