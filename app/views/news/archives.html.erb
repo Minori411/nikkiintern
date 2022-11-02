@@ -17,7 +17,7 @@
                 <%= image_tag news.image.to_s, height: '280', width: '150' %>
             </div>
             <% if current_user.userstyle == 0 %>
-            <%= link_to back_path(news.id), class: "back-arrow", method: :post, data: { confirm: "【確認】アーカイブを元に戻しますか？" } do %>
+            <%= link_to back_path(news.id), class: "back-arrow", method: :post, data: { confirm: "【confirm】Do you want to be back？" } do %>
                 <i class="fa-solid fa-arrow-rotate-left fa-2xl"></i>
             <% end %>
             <% end %>

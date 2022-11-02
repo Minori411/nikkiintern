@@ -1,4 +1,5 @@
 class News < ApplicationRecord
+    acts_as_paranoid
     has_many :news_reads, dependent: :destroy
     has_many :notifications, dependent: :destroy
     has_many :news_area_sections, dependent: :destroy

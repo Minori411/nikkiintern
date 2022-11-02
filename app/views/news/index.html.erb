@@ -17,7 +17,7 @@
                 <%= image_tag news.image.to_s, height: '280', width: '150' %>
             </div>
             <% if current_user.userstyle == 0 %>
-            <%= link_to archive_path(news.id), class: "back-arrow", method: :post, data: { confirm: "【確認】アーカイブしますか？" } do %>
+            <%= link_to archive_path(news.id), class: "back-arrow", method: :post, data: { confirm: "【confirm】Do you want to archive？" } do %>
                 <i class="fa-solid fa-user-xmark fa-2xl"></i>
             <% end %>
             <% end %>
