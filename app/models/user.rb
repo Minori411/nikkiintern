@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :news, dependent: :destroy
   has_many :user_area_sections, dependent: :destroy
 
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'user_id', dependent: :destroy
+
+
   def active_for_authentication?
     super && !is_deleted
   end
