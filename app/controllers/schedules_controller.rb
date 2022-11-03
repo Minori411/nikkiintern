@@ -3,7 +3,7 @@ class SchedulesController < ApplicationController
 
   def new
     @schedule = Schedule.new
-    render plain: render_to_string(partial: 'form_new', layout: false, locals: { schedule: @schedule })
+    render partial:'schedules/form_new',locals: { schedule: @schedule }
   end
 
   def index

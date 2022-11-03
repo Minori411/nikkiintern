@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :schedules 
+  get 'schedules/events/new', to: 'schedules#new', as: :schedulesnew
   
   root 'news#index'
   get 'news/archives', to: 'news#archives', as: :archives

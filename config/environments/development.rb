@@ -69,7 +69,7 @@ Rails.application.configure do
   config.assets.unknown_asset_fallback = false
   config.assets.digest = false
   config.assets.debug = true
-
+  config.web_console.whitelisted_ips = '172.18.0.1'
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::FileUpdateChecker
