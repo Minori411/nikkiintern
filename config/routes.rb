@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :schedules
+  resources :schedules 
   
   root 'news#index'
   get 'news/archives', to: 'news#archives', as: :archives

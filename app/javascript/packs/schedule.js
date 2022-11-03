@@ -73,9 +73,9 @@ $(function(){
                         <i class="fas fa-times-circle"></i>
                     </a>
                     </div>`;
-      return html;
+    return html;
     }
-  
+
     let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // 追加するフォームのインデックス番号を用意
     var lastIndex = $(".select-scope:last").data("index"); // 編集フォーム用（すでにデータがある分のインデックス番号が何か取得しておく）
     fileIndex.splice(0, lastIndex); // 編集フォーム用（データがある分のインデックスをfileIndexから除いておく）
@@ -83,7 +83,7 @@ $(function(){
     let displayCount = $(".select-scope").length // 見えているフォームの数を取得する
     $(".hidden-destroy").hide(); // 編集フォーム用（削除用のチェックボックスを非表示にしておく）
     if (fileIndex.length == 0) $(".add-form-btn").css("display","none"); // 編集フォーム用（フォームが５つある場合は追加ボタンを非表示にしておく）
-  
+
     $(".add-form-btn").on("click", function() { // 追加ボタンクリックでイベント発火
       $(".areas").append(buildField(fileIndex[0])); // fileIndexの一番小さい数字をインデックス番号に使ってフォームを作成
       fileIndex.shift(); // fileIndexの一番小さい数字を取り除く
@@ -92,8 +92,10 @@ $(function(){
     })
     $(document).on("click", ".delete-form-btn", function (e) {
         // $(this)でイベントが発生した要素を取得して削除する
-        
+
         let index = e.target.getAttribute('data-index')
         e.target.parentElement.parentElement.remove()
     });
 });
+
+
