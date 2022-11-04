@@ -57,13 +57,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_003553) do
 
   create_table "notifications", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "news_id", null: false
-    t.bigint "schedule_id", null: false
+    t.integer "target_id", null: false
     t.boolean "checked", default: false, null: false
+    t.string "action"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["news_id"], name: "index_notifications_on_news_id"
-    t.index ["schedule_id"], name: "index_notifications_on_schedule_id"
+    t.index ["target_id", "action"], name: "index_notifications_on_target_id_and_action"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
@@ -144,9 +143,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_003553) do
   add_foreign_key "news_area_sections", "sections"
   add_foreign_key "news_reads", "news"
   add_foreign_key "news_reads", "users"
-  add_foreign_key "notifications", "news"
-  add_foreign_key "notifications", "schedules"
-  add_foreign_key "notifications", "users"
   add_foreign_key "schedule_area_sections", "areas"
   add_foreign_key "schedule_area_sections", "schedules"
   add_foreign_key "schedule_area_sections", "sections"

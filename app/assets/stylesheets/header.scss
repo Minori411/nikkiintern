@@ -772,12 +772,12 @@ header {
 }
 
 .notification {
-    font-size: 22px;
+    font-size: 2em;
     cursor: pointer;
 }
 
 .fa-bell {
-    font-size: 40px!important;
+    font-size: 2em!important;
 }
 
 .message-bottom {
@@ -802,15 +802,14 @@ header {
 
 .collapsible-header {
     i {
-        font-size: 15px!important;
+        font-size: 10px!important;
         margin-left: 14px!important;
     }
 }
 
 .fas,.far {
-    font-size: 18px;
-    color: #ff6e00!important;
-    margin-bottom: 10px!important;
+    font-size: 15px;
+    margin-right: 5px;
 }
 
 @media (max-width: 400px) {
@@ -1208,30 +1207,6 @@ ul {
         }
 }
 
-@media (max-width: 699px){
-.smt_hyoji {
-    display: block!important;
-    box-sizing: border-box;
-}
-}
-
-@media (max-width: 699px){
-    header{
-        padding: 0 4%;
-    }
-}
-
-@media (max-width: 699px){
-    header{
-        .header_inner {
-            #logo {
-                margin-right: auto;
-                padding: 8px 0;
-            }
-        }
-    }
-}
-
 input[type=checkbox]:read-only {
     color: #ccc!important;
     border-color: #ccc!important;
@@ -1269,14 +1244,6 @@ a{
     border: none!important;
 }
 
-#logo {
-    a {
-    color: #d32f2f!important;
-    font-weight: 700;
-    font-size: 28px;
-    }
-}
-
 .jgc-news {
     font-size: 36px;
     font-weight: 700;
@@ -1307,3 +1274,10 @@ a{
     position:absolute;
     right: 100;
 }
+
+.n-circle {
+    position: absolute;
+    padding-left: 1rem;
+    padding-top: 0rem;
+    color: #efa04c;
+  }

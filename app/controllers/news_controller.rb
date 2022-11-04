@@ -84,17 +84,21 @@ class NewsController < ApplicationController
   def create
     @news = News.new(news_params) # 何を新しく保存するか指定
     @news.user_id = current_user.id
-    logger.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    Rails.logger.debug(news_params)
+    
+    # ここから
     if @news.save # もし保存ができたら
+
+    target_user_ids = params[:news][:news_area_sections_attributes].values.map do |v| 
+    UserAreaSection.where(area_id: v[:area_id], section_id: v[:section_id])
+    end.reduce(&:or).pluck('user_id')
+    admin_user_ids = User.where(userstyle: 0).ids
+    user_ids = target_user_ids - admin_user_ids
+    Notification.create_notification!(user_ids,@news.id,"news")
+    # ここまで
       redirect_to news_path(@news.id) # 投稿画面に遷移
     else # できなければ
       render :new # newに遷移
     end
-    # ここから
-    @news.create_notification_news!(current_user)
-    # ここまで
-    respond_to :js
   end
 
   def new

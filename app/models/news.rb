@@ -1,7 +1,6 @@
 class News < ApplicationRecord
     acts_as_paranoid
     has_many :news_reads, dependent: :destroy
-    has_many :notifications, dependent: :destroy
     has_many :news_area_sections, dependent: :destroy
     belongs_to :user, optional: true
     belongs_to :area, optional: true
@@ -31,22 +30,7 @@ class News < ApplicationRecord
             @news
     end
 
-    def create_notification_like!(current_user)
-        # すでに「いいね」されているか検索
-        temp = Notification.where(["user_id = ? and news_id = ?", user_id, id])
-        # いいねされていない場合のみ、通知レコードを作成
-        if temp.blank?
-          notification = current_user.active_notifications.new(
-            news_id: id,
-            user_id: user_id,
-          )
-          # 自分の投稿に対するいいねの場合は、通知済みとする
-        #   if notification.user.userstyle == 0 == notification.user.user_style == 1
-        #     notification.checked = true
-        #   end
-          notification.save if notification.valid?
-        end
-      end
+    
     
 
     
