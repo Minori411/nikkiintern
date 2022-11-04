@@ -137,8 +137,7 @@
         $('#event_start_time_2i').val(month);
         $('#event_start_time_3i').val(day);
         //イベント登録フォームのモーダル表示
-        $('#modal').modal();
-        // 成功処理
+        $('.modal').modal();
       }).fail(function (result) {
         // 失敗処理
         alert('エラーが発生しました。運営に問い合わせてください。')
@@ -162,5 +161,18 @@
   </head>
   <body>
     <div id='calendar'></div>
+    <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
   </body>
 </html>

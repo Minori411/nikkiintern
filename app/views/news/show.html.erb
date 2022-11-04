@@ -1,16 +1,31 @@
 <div class="boxbaseP30 post-articles">
+<%=link_to "To News Summary", news_index_path, class: "newssummary" %>
     <div class="flexbox">
     <div class="flexbox column-img">
     <%= image_tag @news.image.to_s, class: "image_tag",height: '150', width: '150' %>
     <div class="flexbox chips-news">
-    <div class="chip">
-    <%= @news.area.area_name %>/<%= @news.section.section_name %>
+    <div class="column-img", style= "flex-dirextion: column;">
+    <div class="chip", style = "<%= event_nav_btn_style_area1(@news) %>">
+    <%= @news.area.area_name %>
     </div>
-  <i class="fa-solid fa-angles-right fa-1xl angle-right">
+    <i class="fa-solid fa-xmark"></i>
+    <div class="chip", style = "<%= event_nav_btn_style_section1(@news) %>">
+    <%= @news.section.section_name %>
+    </div>
+    <i class="fa-solid fa-xmark"></i>
+    <div class="chip">
+    <%= @news.user.name %>
+    </div>
+    </div>
+  <i class="fa-solid fa-angles-right fa-2xl angle-right margin-angle">
   </i>
   <% @news_area_sections.each do |newsareasection| %>
-  <div class="chip">
-    <%= newsareasection.area.area_name %>/<%= newsareasection.section.section_name %>
+  <div class="chip", style = "<%= event_nav_btn_style_area2(newsareasection) %>">
+    <%= newsareasection.area.area_name %>
+  </div>
+  <i class="fa-solid fa-xmark x-mark"></i>
+  <div class="chip", style = "<%= event_nav_btn_style_section2(newsareasection) %>" >
+    <%= newsareasection.section.section_name %>
   </div>
   <% end %>
   
@@ -36,7 +51,6 @@
         <% end %>
         </div>
     <% end %>
-        <%=link_to "To News Summary", news_index_path, class: "newssummary" %>
     </div>
     <p><%= @news.created_at.strftime('%Y/%m/%d %H:%M') %></p>
     <h2><%= @news.title %></h3>

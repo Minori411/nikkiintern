@@ -9,9 +9,8 @@
     <%= f.file_field :image,id: "news_file" %>
 </div>
 <%= f.label :Adress %><br>
-<%= params[:area_id] %>
-<%= f.select :area_id, Area.where(id: current_user.user_area_sections.pluck('area_id')).pluck('area_name,id'),{ include_blank: true, selected: params[:area_id] }, id: "area-select", class: "area-control" %>
-<%= f.select :section_id, Section.where(id: current_user.user_area_sections.pluck('section_id')).pluck('section_name,id'),{ include_blank: true, selected: params[:section_id] }, id: "section-select", class: "section-control" %>
+<%= f.select :area_id, Area.where(id: @news.user.user_area_sections.pluck('area_id')).pluck('area_name,id'),{ include_blank: true, selected:  @news.area_id  }, id: "area-select", class: "area-control" %>
+<%= f.select :section_id, Section.where(id: @news.user.user_area_sections.pluck('section_id')).pluck('section_name,id'),{ include_blank: true, selected: params[:section_id] }, id: "section-select", class: "section-control" %>
 <i class="fa-solid fa-angles-down fa-2xl"></i>
 <div class="areas">
 <%= f.fields_for :news_area_sections do |news_area_sectionsfields| %>
