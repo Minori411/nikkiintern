@@ -91,6 +91,10 @@ class NewsController < ApplicationController
     else # できなければ
       render :new # newに遷移
     end
+    # ここから
+    @news.create_notification_news!(current_user)
+    # ここまで
+    respond_to :js
   end
 
   def new

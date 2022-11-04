@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :schedules 
+  resources :notifications, only: :index
+  resources :schedules, only: :index
   get 'schedules/events/new', to: 'schedules#new', as: :schedulesnew
   
   root 'news#index'
