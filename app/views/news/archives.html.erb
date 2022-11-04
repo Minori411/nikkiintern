@@ -6,44 +6,49 @@
     </span>
     News is here.
 </p>
-<div class="row flexbox">
+<div class="row flexbox" style = "margin: auto 0;">
   <article class="col-8 flexbox" style="width:100%;">
   <% @news.each do |news| %>
     <div class="row" style="margin:10px;">
         <div class="col2 s12 m5">
             <!-- card start -->
             <div class="card" style="display:flex;height: 280px;width: 380px; text-align: left;">
-                <div class="card-image" style="Width: 150px;">
-                <%= image_tag news.image.to_s, height: '280', width: '150' %>
+                <div class="card-image" style="Width: 200px;">
+                <%= image_tag news.image.to_s, height: '280', width: '150',:style => "width: 150px;" %>
             </div>
+            <%= link_to news_path(news.id) do %>
+            <div class="card-content">
+            <%= news.created_at.strftime('%Y/%m/%d %H:%M') %>
+            <div class ="flexbox">
+            <span class="card-title"><%= news.title %></span>
             <% if current_user.userstyle == 0 %>
             <%= link_to back_path(news.id), class: "back-arrow", method: :post, data: { confirm: "【confirm】Do you want to be back？" } do %>
                 <i class="fa-solid fa-arrow-rotate-left fa-2xl"></i>
             <% end %>
             <% end %>
-            <%= link_to news_path(news.id) do %>
-            <div class="card-content">
-            <%= news.created_at.strftime('%Y/%m/%d %H:%M') %>
-            <span class="card-title"><%= news.title %></span>
+            </div>
             <div class="fromto">
-            <div class="chip">
-                Aエリア
+            <div class="chip", style = "<%= event_nav_btn_style_area1(news) %>">
+                <%= news.area.area_name %>
             </div>
             <i class="fa-solid fa-xmark"></i>
-            <div class="chip">
-                Piping
+            <div class="chip", style = "<%= event_nav_btn_style_section1(news) %>">
+                <%= news.section.section_name %>
             </div>
             <div class="flex-column">
             <i class="fa-solid fa-angles-down angle-down fa-xl"></i>
             </div>
-            <div class="flexbox" style="width: 200px;margin-top: 15px;">
-            <div class="chip">
-                Bエリア
+            <div class="flexbox" style="width: 250px;margin-top: 15px;">
+            <% @news_area_sections = news.news_area_sections %>
+            <% @news_area_sections.each do |newsareasection| %>
+            <div class="chip", style = "<%= event_nav_btn_style_area2(newsareasection) %>">
+                <%= newsareasection.area.area_name %>
             </div>
-            <i class="fa-solid fa-xmark x-mark-news"></i>
-            <div class="chip">
-                Mechanical
+            <i class="fa-solid fa-xmark"></i>
+            <div class="chip", style = "<%= event_nav_btn_style_section2(newsareasection) %>">
+                <%= newsareasection.section.section_name %>
             </div>
+            <% end %>
             </div>
             </div>
             </div>
