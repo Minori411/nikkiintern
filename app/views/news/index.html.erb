@@ -17,7 +17,7 @@
                 <%= image_tag news.image.to_s, height: '280px', width: '150px',:style => "width: 150px"; %>
             </div>
             <%= link_to news_path(news.id) do %>
-            <div class="card-content">
+            <div class="card-content" style= "margin: 0;">
             <%= news.created_at.strftime('%Y/%m/%d %H:%M') %>
             <div class= "flexbox">
             <span class="card-title"><%= news.title %></span>
@@ -38,7 +38,7 @@
             <div class="flex-column">
             <i class="fa-solid fa-angles-down angle-down fa-xl"></i>
             </div>
-            <div class="flexbox" style="width: 250px;margin-top: 15px;">
+            <div class="flexbox" style="width: 235px;margin-top: 15px;">
             <% @news_area_sections = news.news_area_sections %>
             <% @news_area_sections.each do |newsareasection| %>
             <div class="chip", style = "<%= event_nav_btn_style_area2(newsareasection) %>">
