@@ -1,6 +1,6 @@
 user = User.new(id: 1,
                 name: "林みのり",
-                email: "sample@hoge.com", 
+                email: "sample@sample.com", 
                 password: "hugahuga",
                 userstyle: 0)
 user.save!
@@ -17,7 +17,7 @@ end
 10.times do |n|
     User.create!(id: n + 7,
                  name: Gimei.kanji,
-                 email: "worker1234#{n + 1}@hoge.com",
+                 email: "worker1234#{n + 1}@sample.com",
                  password: "worker1234#{n + 1}",
                  userstyle: 1
                  )
