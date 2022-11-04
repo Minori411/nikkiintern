@@ -28,11 +28,11 @@
             <% end %>
             </div>
             <div class="fromto">
-            <div class="chip", style = "<%= event_nav_btn_style(news) %>">
+            <div class="chip", style = "<%= event_nav_btn_style_area1(news) %>">
                 <%= news.area.area_name %>
             </div>
             <i class="fa-solid fa-xmark"></i>
-            <div class="chip green-chip">
+            <div class="chip", style = "<%= event_nav_btn_style_section1(news) %>">
                 <%= news.section.section_name %>
             </div>
             <div class="flex-column">
@@ -41,11 +41,11 @@
             <div class="flexbox" style="width: 250px;margin-top: 15px;">
             <% @news_area_sections = news.news_area_sections %>
             <% @news_area_sections.each do |newsareasection| %>
-            <div class="chip">
+            <div class="chip", style = "<%= event_nav_btn_style_area2(newsareasection) %>">
                 <%= newsareasection.area.area_name %>
             </div>
             <i class="fa-solid fa-xmark"></i>
-            <div class="chip">
+            <div class="chip", style = "<%= event_nav_btn_style_section2(newsareasection) %>">
                 <%= newsareasection.section.section_name %>
             </div>
             <% end %>
