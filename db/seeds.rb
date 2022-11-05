@@ -14,7 +14,7 @@ user.save!
                  )
 end
 
-10.times do |n|
+1000.times do |n|
     User.create!(id: n + 7,
                  name: Gimei.kanji,
                  email: "worker1234#{n + 1}@sample.com",
@@ -57,6 +57,165 @@ UserAreaSection.create!(user_id: 13, area_id: 1, section_id: 3)
 UserAreaSection.create!(user_id: 14, area_id: 2, section_id: 4)
 UserAreaSection.create!(user_id: 15, area_id: 3, section_id: 5)
 UserAreaSection.create!(user_id: 16, area_id: 1, section_id: 1)
+UserAreaSection.create!(user_id: 17, area_id: 4, section_id: 1)
+UserAreaSection.create!(user_id: 17, area_id: 1, section_id: 1)
+
+
+UserAreaSection.create!(user_id: 18, area_id: 1, section_id: 1)
+UserAreaSection.create!(user_id: 19, area_id: 1, section_id: 2)
+UserAreaSection.create!(user_id: 20, area_id: 1, section_id: 3)
+UserAreaSection.create!(user_id: 21, area_id: 1, section_id: 4)
+UserAreaSection.create!(user_id: 22, area_id: 1, section_id: 5)
+UserAreaSection.create!(user_id: 23, area_id: 1, section_id: 6)
+UserAreaSection.create!(user_id: 24, area_id: 2, section_id: 1)
+UserAreaSection.create!(user_id: 25, area_id: 2, section_id: 2)
+UserAreaSection.create!(user_id: 26, area_id: 2, section_id: 3)
+UserAreaSection.create!(user_id: 27, area_id: 2, section_id: 4)
+UserAreaSection.create!(user_id: 28, area_id: 2, section_id: 5)
+UserAreaSection.create!(user_id: 29, area_id: 2, section_id: 6)
+UserAreaSection.create!(user_id: 30, area_id: 3, section_id: 1)
+UserAreaSection.create!(user_id: 31, area_id: 3, section_id: 2)
+UserAreaSection.create!(user_id: 32, area_id: 3, section_id: 3)
+UserAreaSection.create!(user_id: 33, area_id: 3, section_id: 4)
+UserAreaSection.create!(user_id: 34, area_id: 3, section_id: 5)
+UserAreaSection.create!(user_id: 35, area_id: 3, section_id: 6)
+UserAreaSection.create!(user_id: 36, area_id: 4, section_id: 1)
+UserAreaSection.create!(user_id: 37, area_id: 4, section_id: 2)
+UserAreaSection.create!(user_id: 38, area_id: 4, section_id: 3)
+UserAreaSection.create!(user_id: 39, area_id: 4, section_id: 4)
+UserAreaSection.create!(user_id: 40, area_id: 4, section_id: 5)
+UserAreaSection.create!(user_id: 41, area_id: 4, section_id: 6)
+
+UserAreaSection.create!(user_id: 42, area_id: 1, section_id: 1)
+UserAreaSection.create!(user_id: 43, area_id: 1, section_id: 2)
+UserAreaSection.create!(user_id: 44, area_id: 1, section_id: 3)
+UserAreaSection.create!(user_id: 45, area_id: 1, section_id: 4)
+UserAreaSection.create!(user_id: 46, area_id: 1, section_id: 5)
+UserAreaSection.create!(user_id: 47, area_id: 1, section_id: 6)
+UserAreaSection.create!(user_id: 48, area_id: 2, section_id: 1)
+UserAreaSection.create!(user_id: 49, area_id: 2, section_id: 2)
+UserAreaSection.create!(user_id: 50, area_id: 2, section_id: 3)
+UserAreaSection.create!(user_id: 51, area_id: 2, section_id: 4)
+UserAreaSection.create!(user_id: 52, area_id: 2, section_id: 5)
+UserAreaSection.create!(user_id: 53, area_id: 2, section_id: 6)
+UserAreaSection.create!(user_id: 54, area_id: 3, section_id: 1)
+UserAreaSection.create!(user_id: 55, area_id: 3, section_id: 2)
+UserAreaSection.create!(user_id: 56, area_id: 3, section_id: 3)
+UserAreaSection.create!(user_id: 57, area_id: 3, section_id: 4)
+UserAreaSection.create!(user_id: 58, area_id: 3, section_id: 5)
+UserAreaSection.create!(user_id: 59, area_id: 3, section_id: 6)
+UserAreaSection.create!(user_id: 60, area_id: 4, section_id: 1)
+UserAreaSection.create!(user_id: 61, area_id: 4, section_id: 2)
+UserAreaSection.create!(user_id: 62, area_id: 4, section_id: 3)
+UserAreaSection.create!(user_id: 63, area_id: 4, section_id: 4)
+UserAreaSection.create!(user_id: 64, area_id: 4, section_id: 5)
+UserAreaSection.create!(user_id: 65, area_id: 4, section_id: 6)
+
+UserAreaSection.create!(user_id: 66, area_id: 1, section_id: 1)
+UserAreaSection.create!(user_id: 67, area_id: 1, section_id: 2)
+UserAreaSection.create!(user_id: 68, area_id: 1, section_id: 3)
+UserAreaSection.create!(user_id: 69, area_id: 1, section_id: 4)
+UserAreaSection.create!(user_id: 70, area_id: 1, section_id: 5)
+UserAreaSection.create!(user_id: 71, area_id: 1, section_id: 6)
+UserAreaSection.create!(user_id: 72, area_id: 2, section_id: 1)
+UserAreaSection.create!(user_id: 73, area_id: 2, section_id: 2)
+UserAreaSection.create!(user_id: 74, area_id: 2, section_id: 3)
+UserAreaSection.create!(user_id: 75, area_id: 2, section_id: 4)
+UserAreaSection.create!(user_id: 76, area_id: 2, section_id: 5)
+UserAreaSection.create!(user_id: 77, area_id: 2, section_id: 6)
+UserAreaSection.create!(user_id: 78, area_id: 3, section_id: 1)
+UserAreaSection.create!(user_id: 79, area_id: 3, section_id: 2)
+UserAreaSection.create!(user_id: 80, area_id: 3, section_id: 3)
+UserAreaSection.create!(user_id: 81, area_id: 3, section_id: 4)
+UserAreaSection.create!(user_id: 82, area_id: 3, section_id: 5)
+UserAreaSection.create!(user_id: 83, area_id: 3, section_id: 6)
+UserAreaSection.create!(user_id: 84, area_id: 4, section_id: 1)
+UserAreaSection.create!(user_id: 85, area_id: 4, section_id: 2)
+UserAreaSection.create!(user_id: 86, area_id: 4, section_id: 3)
+UserAreaSection.create!(user_id: 87, area_id: 4, section_id: 4)
+UserAreaSection.create!(user_id: 88, area_id: 4, section_id: 5)
+UserAreaSection.create!(user_id: 89, area_id: 4, section_id: 6)
+
+UserAreaSection.create!(user_id: 90, area_id: 1, section_id: 1)
+UserAreaSection.create!(user_id: 91, area_id: 1, section_id: 2)
+UserAreaSection.create!(user_id: 92, area_id: 1, section_id: 3)
+UserAreaSection.create!(user_id: 93, area_id: 1, section_id: 4)
+UserAreaSection.create!(user_id: 94, area_id: 1, section_id: 5)
+UserAreaSection.create!(user_id: 95, area_id: 1, section_id: 6)
+UserAreaSection.create!(user_id: 96, area_id: 2, section_id: 1)
+UserAreaSection.create!(user_id: 97, area_id: 2, section_id: 2)
+UserAreaSection.create!(user_id: 98, area_id: 2, section_id: 3)
+UserAreaSection.create!(user_id: 99, area_id: 2, section_id: 4)
+UserAreaSection.create!(user_id: 100, area_id: 2, section_id: 5)
+UserAreaSection.create!(user_id: 101, area_id: 2, section_id: 6)
+UserAreaSection.create!(user_id: 102, area_id: 3, section_id: 1)
+UserAreaSection.create!(user_id: 103, area_id: 3, section_id: 2)
+UserAreaSection.create!(user_id: 104, area_id: 3, section_id: 3)
+UserAreaSection.create!(user_id: 105, area_id: 3, section_id: 4)
+UserAreaSection.create!(user_id: 106, area_id: 3, section_id: 5)
+UserAreaSection.create!(user_id: 107, area_id: 3, section_id: 6)
+UserAreaSection.create!(user_id: 108, area_id: 4, section_id: 1)
+UserAreaSection.create!(user_id: 109, area_id: 4, section_id: 2)
+UserAreaSection.create!(user_id: 110, area_id: 4, section_id: 3)
+UserAreaSection.create!(user_id: 111, area_id: 4, section_id: 4)
+UserAreaSection.create!(user_id: 112, area_id: 4, section_id: 5)
+UserAreaSection.create!(user_id: 113, area_id: 4, section_id: 6)
+
+UserAreaSection.create!(user_id: 114, area_id: 1, section_id: 1)
+UserAreaSection.create!(user_id: 115, area_id: 1, section_id: 2)
+UserAreaSection.create!(user_id: 116, area_id: 1, section_id: 3)
+UserAreaSection.create!(user_id: 117, area_id: 1, section_id: 4)
+UserAreaSection.create!(user_id: 118, area_id: 1, section_id: 5)
+UserAreaSection.create!(user_id: 119, area_id: 1, section_id: 6)
+UserAreaSection.create!(user_id: 120, area_id: 2, section_id: 1)
+UserAreaSection.create!(user_id: 121, area_id: 2, section_id: 2)
+UserAreaSection.create!(user_id: 122, area_id: 2, section_id: 3)
+UserAreaSection.create!(user_id: 123, area_id: 2, section_id: 4)
+UserAreaSection.create!(user_id: 124, area_id: 2, section_id: 5)
+UserAreaSection.create!(user_id: 125, area_id: 2, section_id: 6)
+UserAreaSection.create!(user_id: 126, area_id: 3, section_id: 1)
+UserAreaSection.create!(user_id: 127, area_id: 3, section_id: 2)
+UserAreaSection.create!(user_id: 128, area_id: 3, section_id: 3)
+UserAreaSection.create!(user_id: 129, area_id: 3, section_id: 4)
+UserAreaSection.create!(user_id: 130, area_id: 3, section_id: 5)
+UserAreaSection.create!(user_id: 131, area_id: 3, section_id: 6)
+UserAreaSection.create!(user_id: 132, area_id: 4, section_id: 1)
+UserAreaSection.create!(user_id: 133, area_id: 4, section_id: 2)
+UserAreaSection.create!(user_id: 134, area_id: 4, section_id: 3)
+UserAreaSection.create!(user_id: 135, area_id: 4, section_id: 4)
+UserAreaSection.create!(user_id: 136, area_id: 4, section_id: 5)
+UserAreaSection.create!(user_id: 137, area_id: 4, section_id: 6)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
