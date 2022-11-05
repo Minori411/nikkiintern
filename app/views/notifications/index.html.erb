@@ -2,5 +2,7 @@
     <% if note.action == 'news' %>
     <p><%= link_to "News",news_path(note.target_id) %>arrived.</p>
     <% elsif note.action == 'schedule' %>
+    <% else %>
+    <p>No notifications here.</p>
     <% end %>
 <% end %>

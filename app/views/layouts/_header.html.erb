@@ -35,7 +35,16 @@
                         </div>
                     </div>
                 <% end %>
-                <%= render 'notifications/circle' %>
+                <%= link_to(notifications_path) do %>
+                <% if unchecked_notifications.any? %>
+                    <span class="fa-stack">
+                        <i class="far fa-bell fa-lg far-bell" style="font-size: 1.5em;padding-right:10px;"></i>
+                        <i class="fas fa-circle n-circle fa-stack-1x fas-circle" style="margin-top: -25px;"></i>
+                    </span>
+                    <% else %>
+                    <i class="far fa-bell fa-lg" style="font-size: 1.5em;"></i>
+                    <% end %>
+                    <% end %>
                 <% if current_user.userstyle == 0 %>
                 <%= link_to archives_path do %>
                 <i class="fa-solid fa-box-archive fa-2xl"></i>

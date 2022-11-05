@@ -87,13 +87,31 @@ class NewsController < ApplicationController
     
     # ここから
     if @news.save # もし保存ができたら
-
-    target_user_ids = params[:news][:news_area_sections_attributes].values.map do |v| 
-    UserAreaSection.where(area_id: v[:area_id], section_id: v[:section_id])
-    end.reduce(&:or).pluck('user_id')
-    admin_user_ids = User.where(userstyle: 0).ids
-    user_ids = target_user_ids - admin_user_ids
-    Notification.create_notification!(user_ids,@news.id,"news")
+      news_area_sections = params[:news][:news_area_sections_attributes].values
+      Rails.logger.warn("news_area_sections")
+      if news_area_sections.map{|v| v["area_id"].to_i}.include?(4) && news_area_sections.map{|v| v["section_id"].to_i}.include?(6)#news_area_sections.map [{area_id: 99,#全パターン
+        Notification.create_notification!(User.where(userstyle: 1).ids,@news.id,"news")
+      elsif news_area_sections.map{|v| v["area_id"].to_i}.include?(4)#エリアが全パターンのバージョン
+        target_user_ids = params[:news][:news_area_sections_attributes].values.map do |v| 
+        UserAreaSection.where(area_id: v[:area_id])
+        end.reduce(&:or).pluck('user_id')
+        user_ids = target_user_ids - [current_user.id]
+        Notification.create_notification!(user_ids,@news.id,"news")
+      elsif news_area_sections.map{|v| v["section_id"].to_i}.include?(6)
+        target_user_ids = params[:news][:news_area_sections_attributes].values.map do |v| 
+        UserAreaSection.where(section_id: v[:section_id])
+        end.reduce(&:or).pluck('user_id')
+        user_ids = target_user_ids - [current_user.id]
+        Notification.create_notification!(user_ids,@news.id,"news")
+        #セクションが全パターンのバージョン
+      else
+        target_user_ids = params[:news][:news_area_sections_attributes].values.map do |v| 
+        UserAreaSection.where(area_id: v[:area_id], section_id: v[:section_id])
+        end.reduce(&:or).pluck('user_id')
+        admin_user_ids = User.where(userstyle: 0).ids
+        user_ids = target_user_ids - [current_user.id]
+        Notification.create_notification!(user_ids,@news.id,"news")
+      end
     # ここまで
       redirect_to news_path(@news.id) # 投稿画面に遷移
     else # できなければ
