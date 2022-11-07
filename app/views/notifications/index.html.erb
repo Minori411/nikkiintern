@@ -1,8 +1,14 @@
+<div class="boxbaseP30">
 <% @notifications.each do |note| %>
     <% if note.action == 'news' %>
-    <p><%= link_to "News",news_path(note.target_id) %>arrived.</p>
+    <div class= "flexbox">
+    <div class ="newscount"><%= @notifications.count%></div>
+    <h6>News arrived.</h6>
+    </div>
+    <h3><%= link_to "News",news_path(note.target_id),class: "h3" %>arrived.</h3>
     <% elsif note.action == 'schedule' %>
     <% else %>
-    <p>No notifications here.</p>
+    <h2>No notifications here.</h2>
     <% end %>
 <% end %>
+</div>

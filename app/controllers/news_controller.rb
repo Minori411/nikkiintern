@@ -35,12 +35,17 @@ class NewsController < ApplicationController
     Rails.logger.debug(sections)
 
     @news = News.search(params[:keyword],areas,sections)
+    #アーカイブページでの検索
+    # @archive = News.archives.search(params[:keyword],areas,sections)
     @keyword = params[:keyword]
     render "index"
   end
 
   def archives
     @news = News.archives
+    # @archive_search = News.archives.search(params[:keyword],areas,sections)
+    # @keyword = params[:keyword]
+    # render "index"
   end
 
   def archive
@@ -91,7 +96,7 @@ class NewsController < ApplicationController
       Rails.logger.warn("news_area_sections")
       #news_area_sections.map [{area_id: 99,#全パターン/all all
       if news_area_sections.map{|v| v["area_id"].to_i}.include?(4) && news_area_sections.map{|v| v["section_id"].to_i}.include?(6)
-        target_user_ids = User.where(userstyle: 0, userstyle: 1).ids
+        target_user_ids = User.where(userstyle: [0,1]).ids
         user_ids = target_user_ids - [current_user.id]
         Notification.create_notification!(user_ids,@news.id,"news")
         #エリアが全パターンのバージョン/all sectionA

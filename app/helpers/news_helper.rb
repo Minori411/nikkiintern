@@ -9,6 +9,9 @@ module NewsHelper
         if news.area.area_name == 'C_Offsite'
             return 'background-color: #64b5f6;'
         end
+        if news.area.area_name == 'Allarea'
+            return 'background-color: #9fa8da;'
+        end
     end
     def event_nav_btn_style_section1(news)
         if news.section.section_name == 'Civil'
@@ -25,6 +28,9 @@ module NewsHelper
         end
         if news.section.section_name == 'Erectrical'
             return 'background-color: orange'
+        end
+        if news.section.section_name == 'Allsection'
+            return 'background-color: #cddc39;'
         end
     end
 
