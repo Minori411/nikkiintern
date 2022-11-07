@@ -17,6 +17,7 @@
             
           events: [
             {
+            id: "a",
             title: "Ramadan",
             start: "2022-11-01",
             end: "2022-11-04",
@@ -25,6 +26,7 @@
             }
             },
             {
+            id: "b",
             title: 'gasin',
             start: '2022-11-05',
             end: '2022-11-07',
@@ -34,6 +36,7 @@
             }
             },
             {
+            id: "c",
             title: 'event3',
             start: '2022-11-09T12:30:00',
             allDay: false, // will make the time show,
@@ -42,6 +45,7 @@
             }
             },
             {
+            id: "d",
             title: 'event3',
             start: '2022-11-09T12:30:00',
             allDay: false, // will make the time show,
@@ -50,6 +54,7 @@
             }
             },
             {
+            id: "e",
             title: 'event3',
             start: '2022-11-09T12:30:00',
             allDay: false, // will make the time show,
@@ -58,6 +63,7 @@
             }
             },
             {
+            id: "f",
             title: 'event3',
             start: '2022-11-09T12:30:00',
             allDay: false, // will make the time show,
@@ -66,6 +72,7 @@
             }
             },
             {
+            id: "g",
             title: 'event3',
             start: '2022-11-09T12:30:00',
             allDay: false, // will make the time show,
@@ -78,7 +85,7 @@
           headerToolbar: {
             left: "prev,next,today",
             center: "title",
-            right:'dayGridMonth,timeGridWeek,dayGridDay,listYear'
+            right:'dayGridMonth,timeGridWeek,dayGridDay,listMonth'
         },
         eventLimit: true, // for all non-TimeGrid views
             views: {
@@ -94,7 +101,7 @@
   },
   eventClick: function (info) {
       console.log(info.jsEvent.detail);
-      if (info.jsEvent.detail == 2&&confirm("Are you sure to delete?")) {
+      if (info.jsEvent.detail == 3&&confirm("Are you sure to delete?")) {
         info.event.remove();
         }
       },
@@ -105,28 +112,30 @@
       info.revert();
     }
   },
-        dateClick: function (start, end, jsEvent, view) {
-            // クリックした日付情報を取得
-            const year = moment(start).year();
-            const month = moment(start).month()+1; //1月が0のため+1する
-            const day = moment(start).date();
-            //イベント登録のためnewアクションを発火
-            $.ajax({
-                type: 'GET',
-                url: '/schedules/events/new',
-              }).done(function (res) {
-                //イベント登録用のhtmlを作成
-                $('.modal-body').html(res);
-                //イベント登録フォームの日付をクリックした日付とする
-                $('#event_start_time_1i').val(year);
-                $('#event_start_time_2i').val(month);
-                $('#event_start_time_3i').val(day);
-                //イベント登録フォームのモーダル表示
-              }).fail(function (result) {
-                // 失敗処理
-                alert('エラーが発生しました。運営に問い合わせてください。')
-              });
-            },
+            dateClick: function (start, end, jsEvent, view) {
+      //クリックした日付情報を取得
+      const year = moment(start).year();
+      const month = moment(start).month()+1; //1月が0のため+1する
+      const day = moment(start).date();
+      //イベント登録のためnewアクションを発火
+      $.ajax({
+        type: 'GET',
+        url: '/schedules/events/new',
+      }).done(function (res) {
+        //イベント登録用のhtmlを作成
+        $('.modal-body').html(res);
+        //イベント登録フォームの日付をクリックした日付とする
+        $('#event_start_time_1i').val(year);
+        $('#event_start_time_2i').val(month);
+        $('#event_start_time_3i').val(day);
+        //イベント登録フォームのモーダル表示
+        $('#modal').modal();
+        // 成功処理
+      }).fail(function (result) {
+        // 失敗処理
+        alert('エラーが発生しました。運営に問い合わせてください。')
+      });
+    },
         dateClick:
         function(info) {
             if (info.dayEl.classList.contains("fc-day-past")) {
@@ -147,8 +156,13 @@
             }
             });    
         },  
-
-
+        eventRender: function(info) {
+        info.el.onclick=function(){
+          alert(info.event.id + ":" + info.event.extendedProps.description);
+        };
+      },
+          timeZone: 'Asia/Tokyo',
+          navLinks: true,
           editable: true,
           selectable: true,
           droppable: true,
