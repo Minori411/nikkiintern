@@ -357,3 +357,13 @@ NewsAreaSection.create!(news_id: 6,
 NewsAreaSection.create!(news_id: 6,
                         area_id: 3,
                         section_id: 4)
+
+#スケジュールの所属テーブル
+# ScheduleAreaSection.create!(schedule_id:1,
+#                             area_id: 1,
+#                             section_id: 1)
+
+# ScheduleAreaSection.create!(schedule_id:1,
+#                             area_id: 2,
+#                             section_id: 2)
+                                    

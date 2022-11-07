@@ -8,6 +8,10 @@
         
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
+
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
           contentHeight: 600,
@@ -112,7 +116,8 @@
       info.revert();
     }
   },
-            dateClick: function (start, end, jsEvent, view) {
+    dateClick: function (start, end, jsEvent, view) {
+                console.log("OK")
       //クリックした日付情報を取得
       const year = moment(start).year();
       const month = moment(start).month()+1; //1月が0のため+1する
@@ -122,6 +127,7 @@
         type: 'GET',
         url: '/schedules/events/new',
       }).done(function (res) {
+        console.log(res)
         //イベント登録用のhtmlを作成
         $('.modal-body').html(res);
         //イベント登録フォームの日付をクリックした日付とする
@@ -129,22 +135,24 @@
         $('#event_start_time_2i').val(month);
         $('#event_start_time_3i').val(day);
         //イベント登録フォームのモーダル表示
-        $('#modal').modal();
+        $('#modal1').modal();
+        console.log("OK6")
         // 成功処理
       }).fail(function (result) {
         // 失敗処理
         alert('エラーが発生しました。運営に問い合わせてください。')
       });
     },
-        dateClick:
+    dateClick3:
         function(info) {
             if (info.dayEl.classList.contains("fc-day-past")) {
                 alert("You can't choose.");
                 return;
             }
     },
-    dateClick:
+    dateClick2:
     function(info){
+        console.log("OK2")
     let title = prompt("Please enter a new title for your event");
           let extendedProps = prompt("Please enter a new detail for your event");
              calendar.addEvent({
@@ -180,10 +188,9 @@
   <body>
     <div id='calendar'></div>
     <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
 
   <!-- Modal Structure -->
-  <div id="modal1" class="modal">
+  <div id="modal" class="modal">
     <div class="modal-content">
       <h4>Modal Header</h4>
       <p>A bunch of text</p>
