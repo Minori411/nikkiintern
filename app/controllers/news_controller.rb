@@ -91,7 +91,7 @@ class NewsController < ApplicationController
       Rails.logger.warn("news_area_sections")
       #news_area_sections.map [{area_id: 99,#全パターン/all all
       if news_area_sections.map{|v| v["area_id"].to_i}.include?(4) && news_area_sections.map{|v| v["section_id"].to_i}.include?(6)
-        target_user_ids = User.where(userstyle: 0,userstyle: 1).ids
+        target_user_ids = User.where(userstyle: 0, userstyle: 1).ids
         user_ids = target_user_ids - [current_user.id]
         Notification.create_notification!(user_ids,@news.id,"news")
         #エリアが全パターンのバージョン/all sectionA
@@ -136,9 +136,8 @@ class NewsController < ApplicationController
 
   def update
     @news = News.find(params[:id])
-    @news.user_id = current_user.id
     if @news.update(news_params)
-        redirect_to news_path(@news.id)
+      redirect_to news_path(@news.id)
     else
       render :edit
     end
