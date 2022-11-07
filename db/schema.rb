@@ -93,6 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_003553) do
     t.string "title"
     t.string "extendedprops"
     t.string "description"
+    t.datetime "start_time"
     t.boolean "allday", default: false, null: false
     t.string "eventColor"
     t.string "color"

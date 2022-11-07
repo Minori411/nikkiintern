@@ -9,7 +9,8 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
 
-        var elems = document.querySelectorAll('.modal');
+
+        var elems = document.querySelectorAll('#modal');
         var instances = M.Modal.init(elems);
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -86,6 +87,7 @@
             }
           ],
           
+          
           headerToolbar: {
             left: "prev,next,today",
             center: "title",
@@ -103,8 +105,13 @@
                 description: "説明文"
               }
   },
-  eventClick: function (info) {
-      console.log(info.jsEvent.detail);
+  eventClick: function (info,event,jsEvent,view) {
+    
+    alert('Event: ' + info.event.title);
+    alert('ExtendedProps: ' + info.event.extendedProps.description);
+
+    // change the border color just for fun
+    info.el.style.borderColor = 'red';
       if (info.jsEvent.detail == 3&&confirm("Are you sure to delete?")) {
         info.event.remove();
         }
@@ -116,8 +123,12 @@
       info.revert();
     }
   },
-    dateClick: function (start, end, jsEvent, view) {
+    dateClick: function (info,start, end, jsEvent, view) {
                 console.log("OK")
+    if (info.dayEl.classList.contains("fc-day-past")) {
+        alert("You can't choose.");
+        return;
+    }  
       //クリックした日付情報を取得
       const year = moment(start).year();
       const month = moment(start).month()+1; //1月が0のため+1する
@@ -135,7 +146,7 @@
         $('#event_start_time_2i').val(month);
         $('#event_start_time_3i').val(day);
         //イベント登録フォームのモーダル表示
-        $('#modal1').modal();
+        $("#modal").modal("open")
         console.log("OK6")
         // 成功処理
       }).fail(function (result) {
@@ -143,32 +154,6 @@
         alert('エラーが発生しました。運営に問い合わせてください。')
       });
     },
-    dateClick3:
-        function(info) {
-            if (info.dayEl.classList.contains("fc-day-past")) {
-                alert("You can't choose.");
-                return;
-            }
-    },
-    dateClick2:
-    function(info){
-        console.log("OK2")
-    let title = prompt("Please enter a new title for your event");
-          let extendedProps = prompt("Please enter a new detail for your event");
-             calendar.addEvent({
-              title: title,
-              start: info.date,
-              allDay: true,
-              extendedProps: {
-              description: "説明文"
-            }
-            });    
-        },  
-        eventRender: function(info) {
-        info.el.onclick=function(){
-          alert(info.event.id + ":" + info.event.extendedProps.description);
-        };
-      },
           timeZone: 'Asia/Tokyo',
           navLinks: true,
           editable: true,
@@ -187,17 +172,22 @@
   </head>
   <body>
     <div id='calendar'></div>
+    <!-- ここからモーダル表示部分として追記 -->
     <!-- Modal Trigger -->
-
-  <!-- Modal Structure -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+  
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+      <div class="modal-body">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
+<!-- ここまでモーダル追加部分で追記しました -->
+  
   </div>
   </body>
 </html>

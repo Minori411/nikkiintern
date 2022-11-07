@@ -21,3 +21,9 @@
   .fc-button {
     margin-left: 20px;
   }
+  
+  #calendarModal {
+    position: absolute;
+    top: 50%;
+    z-index: 99
+  }

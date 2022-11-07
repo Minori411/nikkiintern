@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :notifications, only: :index
   resources :schedules, only: :index
   get 'schedules/events/new', to: 'schedules#new', as: :schedulesnew
+  post "schedules/events/new", to: 'schedules#create', as: :schedulescreate
   
   root 'news#index'
   get 'news/archives', to: 'news#archives', as: :archives
