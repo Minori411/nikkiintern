@@ -136,8 +136,9 @@ class NewsController < ApplicationController
 
   def update
     @news = News.find(params[:id])
+    @news.user_id = current_user.id
     if @news.update(news_params)
-      redirect_to news_path(@news.id)
+        redirect_to news_path(@news.id)
     else
       render :edit
     end

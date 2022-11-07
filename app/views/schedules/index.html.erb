@@ -94,7 +94,7 @@
   },
   eventClick: function (info) {
       console.log(info.jsEvent.detail);
-      if (info.jsEvent.detail == 2&&!confirm("Are you sure to delete?")) {
+      if (info.jsEvent.detail == 2&&confirm("Are you sure to delete?")) {
         info.event.remove();
         }
       },

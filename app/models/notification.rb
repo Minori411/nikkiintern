@@ -4,8 +4,6 @@ class Notification < ApplicationRecord
     belongs_to :user, class_name: 'User',foreign_key: 'user_id', optional: true
 
     def self.create_notification!(user_ids,target_id,action)
-        # すでに「いいね」されているか検索
-        # いいねされていない場合のみ、通知レコードを作成
         user_ids.each do |id|
           notification = Notification.new(
             user_id: id,
