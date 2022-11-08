@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get "search" => "news#search"
   get "archive/search" => "news#archive_search", as: :archivesearch
+  get "schedule/search" => "schedules#schedule_search", as: :schedulessearch
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

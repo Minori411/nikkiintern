@@ -70,7 +70,7 @@ class NewsController < ApplicationController
       sections << 5
     end
 
-    @news = News.search(params[:keyword],areas,sections)
+    @news = News.archives.search(params[:keyword],areas,sections)
     #アーカイブページでの検索
     # @archive = News.archives.search(params[:keyword],areas,sections)
     @keyword = params[:keyword]

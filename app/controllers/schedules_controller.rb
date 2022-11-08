@@ -1,6 +1,42 @@
 class SchedulesController < ApplicationController
   before_action :authenticate_user!
 
+  def schedule_search
+    areas = []
+    if params[:area_name_a].to_i == 1
+      areas << 1
+    end
+    if params[:area_name_b].to_i == 1
+      areas << 2
+    end
+    if params[:area_name_c].to_i == 1
+      areas << 3
+    end
+
+    sections = []
+    if params[:section_name_a].to_i == 1
+      sections << 1
+    end
+    if params[:section_name_b].to_i == 1
+      sections << 2
+    end
+    if params[:section_name_c].to_i == 1
+      sections << 3
+    end
+    if params[:section_name_d].to_i == 1
+      sections << 4
+    end
+    if params[:section_name_e].to_i == 1
+      sections << 5
+    end
+
+    @schedule = Schedule.search(params[:keyword],areas,sections)
+    #アーカイブページでの検索
+    # @archive = News.archives.search(params[:keyword],areas,sections)
+    @keyword = params[:keyword]
+    render "index"
+  end
+
   def new
     @schedule = Schedule.new
     @schedule.start = (params[:year] + "-" + params[:month] + "-" + params[:day]).to_datetime
