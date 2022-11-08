@@ -64,7 +64,6 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
-    render partial:'schedules/form_show',locals: { schedule: @schedule }
   end
 
   def edit
@@ -73,12 +72,17 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    @schedule = Schedule.find(params[:id])
+    @schedule = if current_user.userstyle == 0
+      Schedule.unscoped.find(params[:id])
+      else
+      Schedule.find_by(id: params[:id])
+      end
+    render partial:'schedules/form_update',locals: { schedule: @schedule }
     unless ScheduleRead.find_by(user_id: current_user.id, schedule_id: @schedule.id)
       current_user.schedule_reads.create(user_id: current_user.id, schedule_id: @schedule.id)
     end
     @schedule_reads = @schedule.schedule_reads
-    if @schedule.update(news_params)
+    if @schedule.update(schedule_params)
       redirect_to schedules_path(@schedule.id)
     else
       render :update
