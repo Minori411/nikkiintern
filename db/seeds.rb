@@ -362,17 +362,75 @@ Schedule.create!(title: "Ramadan",
                  description: "aaa",
                  start: "2022-11-01",
                  end: "2022-11-30",
+                 user_id: 1,
                  area_id: 1,
                  section_id: 1,
-                 user_id: 1,
                  allDay: true)
 
 Schedule.create!(title: "GASIN",
                  description: "aaa",
                  start: "2022-11-08 15:00:00",
-                 area_id: 1,
-                 section_id: 2,
+                 user_id: 1,
+                 area_id: 2,
+                 section_id: 1,
+                 allDay: false)
+
+Schedule.create!(title: "rainy",
+                 description: "aaa",
+                 start: "2022-11-10 15:00:00",
+                 end: "2022-11-12 19:00:00",
                  user_id: 2,
+                 area_id: 2,
+                 section_id: 2,
+                 allDay: false)
+
+Schedule.create!(title: "event",
+                 description: "bbb",
+                 start: "2022-11-15 15:00:00",
+                 user_id: 2,
+                 area_id: 2,
+                 section_id: 3,
+                 allDay: false)
+
+Schedule.create!(title: "event",
+                 description: "aaa",
+                 start: "2022-11-08 15:00:00",
+                 user_id: 2,
+                 area_id: 3,
+                 section_id: 1,
+                 allDay: false)
+
+Schedule.create!(title: "event",
+                 description: "aaa",
+                 start: "2022-11-08 15:00:00",
+                 user_id: 3,
+                 area_id: 2,
+                 section_id: 4,
+                 allDay: false)
+
+Schedule.create!(title: "event",
+                 description: "aaa",
+                 start: "2022-11-08 15:00:00",
+                 user_id: 3,
+                 area_id: 1,
+                 section_id: 3,
+                 allDay: false)
+
+Schedule.create!(title: "event",
+                 description: "aaa",
+                 start: "2022-11-08 15:00:00",
+                 user_id: 4,
+                 area_id: 4,
+                 section_id: 6,
+                 allDay: false)
+
+Schedule.create!(title: "construction",
+                 description: "ccc",
+                 start: "2022-11-20 15:00:00",
+                 end: "2022-11-25 19:00:00",
+                 user_id: 5,
+                 area_id: 2,
+                 section_id: 5,
                  allDay: false)
 
 #スケジュールの所属テーブル
@@ -380,7 +438,36 @@ ScheduleAreaSection.create!(schedule_id:1,
                             area_id: 1,
                             section_id: 1)
 
+ScheduleAreaSection.create!(schedule_id:1,
+                            area_id: 2,
+                            section_id: 1)
+
 ScheduleAreaSection.create!(schedule_id:2,
-                            area_id: 1,
+                            area_id: 2,
                             section_id: 2)
+
+ScheduleAreaSection.create!(schedule_id:2,
+                            area_id: 2,
+                            section_id: 3)
+
+ScheduleAreaSection.create!(schedule_id:2,
+                            area_id: 3,
+                            section_id: 1)
+
+ScheduleAreaSection.create!(schedule_id:3,
+                            area_id: 2,
+                            section_id: 4)
+
+ScheduleAreaSection.create!(schedule_id:3,
+                            area_id: 1,
+                            section_id: 3)
+
+ScheduleAreaSection.create!(schedule_id:4,
+                            area_id: 4,
+                            section_id: 6)
+
+ScheduleAreaSection.create!(schedule_id:5,
+                            area_id: 2,
+                            section_id: 5)
+
                                     

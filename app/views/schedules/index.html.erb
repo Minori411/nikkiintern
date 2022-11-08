@@ -16,73 +16,6 @@
           eventSources: [
             '/schedules.json'
           ],
-
-          events: [
-            {
-            id: "1",
-            title: "Ramadan",
-            start: "2022-11-01",
-            allDay: false,
-            extendedProps: {
-              description: "説明文"
-            }
-            },
-            {
-            id: "2",
-            title: 'gasin',
-            start: '2022-11-05',
-            end: '2022-11-07',
-            color: 'red',
-            extendedProps: {
-              description: "説明文"
-            }
-            },
-            {
-            id: "3",
-            title: 'event3',
-            start: '2022-11-09T12:30:00',
-            allDay: false, // will make the time show,
-            extendedProps: {
-              description: "説明文"
-            }
-            },
-            {
-            id: "4",
-            title: 'event3',
-            start: '2022-11-09T12:30:00',
-            allDay: false, // will make the time show,
-            extendedProps: {
-              description: "説明文"
-            }
-            },
-            {
-            id: "5",
-            title: 'event3',
-            start: '2022-11-09T12:30:00',
-            allDay: false, // will make the time show,
-            extendedProps: {
-              description: "説明文"
-            }
-            },
-            {
-            id: "6",
-            title: 'event3',
-            start: '2022-11-09T12:30:00',
-            allDay: false, // will make the time show,
-            extendedProps: {
-              description: "説明文"
-            }
-            },
-            {
-            id: "7",
-            title: 'event3',
-            start: '2022-11-09T12:30:00',
-            allDay: false, // will make the time show,
-            extendedProps: {
-              description: "説明文"
-            }
-            }
-          ],
           headerToolbar: {
             left: "prev,next,today",
             center: "title",
@@ -103,15 +36,9 @@
             // 成功処理
             // 受け取ったhtmlをさっき追加したmodalのbodyの中に挿入します
             $('#modal-inner').html(res);
-            console.log(res);
-
             $('#modal1').modal('open');
 
         })
-    if (info.jsEvent.detail == 3&&confirm("Are you sure to delete?")) {
-    info.event.remove();
-        console.log('OK7')
-        }
     },
     eventDrop: function(info) {
     alert(info.event.title + " was dropped on " + info.event.start.toISOString());

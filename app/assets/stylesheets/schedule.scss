@@ -36,7 +36,8 @@
     transform: scaleX(0.8) scaleY(0.8);
 }
 
-.modal-body {
+.modal-body,
+#modal-inner {
     padding: 30px;
 }
 
