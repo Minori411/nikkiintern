@@ -22,7 +22,7 @@
             id: "1",
             title: "Ramadan",
             start: "2022-11-01",
-            end: "2022-11-04",
+            allDay: false,
             extendedProps: {
               description: "説明文"
             }
@@ -101,7 +101,7 @@
         }).done(function (res) {
             // 成功処理
             // 受け取ったhtmlをさっき追加したmodalのbodyの中に挿入します
-            $('.modal-content-eventshow').html(res);
+            $('.modal-content').html(res);
             console.log(res);
 
             $('#modal1').modal('open');
@@ -180,13 +180,15 @@
     <!-- Modal Structure -->
     <div id="modal2" class="modal">
       <div class="modal-body">
-        <h4>Modal Header</h4>
-        <p>A bunch of </p>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
       </div>
     </div>
 <!-- Modal Structure -->
+<!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-cont">
+        <h4>Event detail</h4>
+        <p>aaa</p>
+      </div>
+    </div>
 
   </body>

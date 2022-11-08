@@ -35,4 +35,17 @@
     top: 4%;
     transform: scaleX(0.8) scaleY(0.8);
 }
-  
+
+.modal-body {
+    padding: 30px;
+}
+
+.js-event-create-btn {
+    background: #d32f2f;
+    font-weight: 700;
+}
+
+.center {
+    margin: 0 auto;
+    margin-top: 20px;
+}

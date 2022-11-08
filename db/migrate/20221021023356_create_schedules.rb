@@ -7,7 +7,7 @@ class CreateSchedules < ActiveRecord::Migration[7.0]
       t.string :extendedprops
       t.string :description
       t.datetime :start_time
-      t.boolean :allday, default: false, null: false
+      t.boolean :allDay, default: false, null: false
       t.string :eventColor
       t.string :color
       t.string :events
