@@ -23,7 +23,7 @@
 
           events: [
             {
-            id: "a",
+            id: "1",
             title: "Ramadan",
             start: "2022-11-01",
             end: "2022-11-04",
@@ -32,7 +32,7 @@
             }
             },
             {
-            id: "b",
+            id: "2",
             title: 'gasin',
             start: '2022-11-05',
             end: '2022-11-07',
@@ -42,7 +42,7 @@
             }
             },
             {
-            id: "c",
+            id: "3",
             title: 'event3',
             start: '2022-11-09T12:30:00',
             allDay: false, // will make the time show,
@@ -51,7 +51,7 @@
             }
             },
             {
-            id: "d",
+            id: "4",
             title: 'event3',
             start: '2022-11-09T12:30:00',
             allDay: false, // will make the time show,
@@ -60,7 +60,7 @@
             }
             },
             {
-            id: "e",
+            id: "5",
             title: 'event3',
             start: '2022-11-09T12:30:00',
             allDay: false, // will make the time show,
@@ -69,7 +69,7 @@
             }
             },
             {
-            id: "f",
+            id: "6",
             title: 'event3',
             start: '2022-11-09T12:30:00',
             allDay: false, // will make the time show,
@@ -78,7 +78,7 @@
             }
             },
             {
-            id: "g",
+            id: "7",
             title: 'event3',
             start: '2022-11-09T12:30:00',
             allDay: false, // will make the time show,
@@ -87,8 +87,6 @@
             }
             }
           ],
-          
-          
           headerToolbar: {
             left: "prev,next,today",
             center: "title",
@@ -101,7 +99,17 @@
                 }
             },
     eventClick: function (info,event,jsEvent,view) {
-        $('.modals').modal('open');
+        $.ajax({
+            type: 'GET',
+            url:  '/schedules/events/show',
+        }).done(function (res) {
+            // 成功処理
+            // 受け取ったhtmlをさっき追加したmodalのbodyの中に挿入します
+            $('.modal-content-eventshow').html(res);
+
+            $('.modals').modal('open');
+
+        })
     if (info.jsEvent.detail == 3&&confirm("Are you sure to delete?")) {
         info.event.remove();
         console.log('OK7')
