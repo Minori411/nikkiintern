@@ -470,4 +470,8 @@ ScheduleAreaSection.create!(schedule_id:5,
                             area_id: 2,
                             section_id: 5)
 
+ScheduleAreaSection.create!(schedule_id:5,
+                            area_id: 2,
+                            section_id: 4)
+
                                     

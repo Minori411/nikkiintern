@@ -19,7 +19,7 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    redirect_to schedulea_path and return if current_user.user_style == 1
+    redirect_to schedulea_path and return if current_user.userstyle == 1
     @schedule =  Schedule.new(schedule_params)
     respond_to do |format|
       if @schedule.save
@@ -43,7 +43,12 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    schedule = Schedule.find(params[:id])
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update(news_params)
+      redirect_to schedules_path(@schedule.id)
+    else
+      render :update
+    end
   end
 
   def destroy
