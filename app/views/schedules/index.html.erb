@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang='en'>
-  <head>
+<head>
     <meta charset='utf-8' />
     <%= stylesheet_link_tag 'fullcalendar/main.css', media: 'all' %>
     <%= javascript_include_tag 'fullcalendar/main.js' %>
@@ -22,7 +20,7 @@
           eventSources: [
             '/schedules.json'
           ],
-          
+
           events: [
             {
             id: "a",
@@ -102,14 +100,8 @@
                 eventLimit: 5 // adjust to 6 only for timeGridWeek/timeGridDay
                 }
             },
-            
-        views: {
-            extendedProps: {
-                description: "説明文"
-            }
-    },
     eventClick: function (info,event,jsEvent,view) {
-        $("#modal1").modal("open")
+        $('.modals').modal('open');
     if (info.jsEvent.detail == 3&&confirm("Are you sure to delete?")) {
         info.event.remove();
         console.log('OK7')
@@ -176,11 +168,10 @@
 
 
     </script>
-  </head>
-  <body>
+</head>
+    <body>
     <div id='calendar'></div>
     <!-- ここからモーダル表示部分として追記 -->
-  
     <!-- Modal Structure -->
     <div id="modal" class="modal">
       <div class="modal-body">
@@ -192,7 +183,7 @@
       </div>
     </div>
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
+<div id="modal" class="modal modals">
   <div class="modal-content">
     <h4>Event detail</h4>
     <p></p>
@@ -201,17 +192,4 @@
     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
   </div>
 </div>
-
-<!-- Modal Structure -->
-  <div id="modal2" class="modal">
-    <div class="response-modal-body">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-  </div>
   </body>
-</html>

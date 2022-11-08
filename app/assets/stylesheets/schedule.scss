@@ -27,3 +27,12 @@
     top: 50%;
     z-index: 99
   }
+
+  #modal1 {
+    z-index: 1003;
+    display: none;
+    opacity: 0;
+    top: 4%;
+    transform: scaleX(0.8) scaleY(0.8);
+}
+  
