@@ -17,6 +17,7 @@ class SchedulesController < ApplicationController
   end
 
   def create
+    redirect_to schedulea_path and return if current_user.user_style == 1
     @schedule =  Schedule.new(schedule_params)
     respond_to do |format|
       if @schedule.save
@@ -30,6 +31,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
+    @schedule = Schedule.find(params[:id])
     render partial:'schedules/form_show',locals: { schedule: @schedule }
   end
 
@@ -39,19 +41,17 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    starttime = params[:start]
-    endtime = params[:end]
     schedule = Schedule.find(params[:id])
-    schedule.update(start: starttime, end: endtime)
   end
 
   def destroy
     schedule = Schedule.find(params[:id])
     schedule.destroy
+    redirect_to schedules_path
   end
 
   def schedule_params
-    params.require(:schedule).permit(:start, :end, :title, :start_time, :extendedProps, :description, :allday, :eventColor, :color, :events, :area_id, :section_id, schedule_area_sections_attributes:[:id,:area_id,:section_id]).merge(user_id: current_user.id)
+    params.require(:schedule).permit(:start, :end, :title, :start_time, :extendedProps, :description, :allDay, :eventColor, :color, :events, :area_id, :section_id, schedule_area_sections_attributes:[:id,:area_id,:section_id]).merge(user_id: current_user.id)
   end
 end
 

@@ -94,21 +94,22 @@
                 eventLimit: 5 // adjust to 6 only for timeGridWeek/timeGridDay
                 }
             },
-    eventClick: function (info,event,jsEvent,view) {
+    eventClick: function (info) {
+
         $.ajax({
             type: 'GET',
-            url:  '/schedules/events/show',
+            url:  `/schedules/events/${info.event.id}/show`,
         }).done(function (res) {
             // 成功処理
             // 受け取ったhtmlをさっき追加したmodalのbodyの中に挿入します
-            $('.modal-content').html(res);
+            $('#modal-inner').html(res);
             console.log(res);
 
             $('#modal1').modal('open');
 
         })
     if (info.jsEvent.detail == 3&&confirm("Are you sure to delete?")) {
-        info.event.remove();
+    info.event.remove();
         console.log('OK7')
         }
     },
@@ -186,8 +187,8 @@
 <!-- Modal Structure -->
     <div id="modal1" class="modal">
       <div class="modal-cont">
-        <h4>Event detail</h4>
-        <p>aaa</p>
+      <div id="modal-inner">
+      </div>
       </div>
     </div>
 

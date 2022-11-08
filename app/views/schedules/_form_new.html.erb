@@ -1,6 +1,6 @@
+<% if current_user.userstyle == 0 %>
 <div class="row">
       <%= form_with(model: @schedule, url: schedulesnew_path, remote: true) do |f| %>
-
         <%= f.label :title, "title"%>
         <%= f.text_field :title, class:'form-control mb-3', required: true %> 
 
@@ -42,4 +42,7 @@
         <%= f.submit "make a event",   class: "btn btn-primary js-event-create-btn" %>
         </div>
       <% end %>
-</div>    
+</div>   
+<% else %>
+<p>You are not admin.</p>
+<% end %>
