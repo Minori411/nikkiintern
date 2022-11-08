@@ -7,10 +7,6 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
 
-
-        var elems = document.querySelectorAll('#modal');
-        var instances = M.Modal.init(elems);
-
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
           contentHeight: 600,
@@ -106,8 +102,9 @@
             // 成功処理
             // 受け取ったhtmlをさっき追加したmodalのbodyの中に挿入します
             $('.modal-content-eventshow').html(res);
+            console.log(res);
 
-            $('.modals').modal('open');
+            $('#modal1').modal('open');
 
         })
     if (info.jsEvent.detail == 3&&confirm("Are you sure to delete?")) {
@@ -154,7 +151,7 @@
             //ここのidはevents/newのurlにアクセスするとhtmlがコードとして表示されるので、
             //開始時間と終了時間のフォームを表しているところのidを確認してもらうことが確実です
 
-            $('#modal').modal('open');
+            $('#modal2').modal('open');
 
         }).fail(function (result) {
             // 失敗処理
@@ -181,7 +178,7 @@
     <div id='calendar'></div>
     <!-- ここからモーダル表示部分として追記 -->
     <!-- Modal Structure -->
-    <div id="modal" class="modal">
+    <div id="modal2" class="modal">
       <div class="modal-body">
         <h4>Modal Header</h4>
         <p>A bunch of </p>
@@ -191,8 +188,8 @@
       </div>
     </div>
 <!-- Modal Structure -->
-<div id="modal" class="modal modals">
-  <div class="modal-content">
+<div id="modal1" class="modal">
+  <div class="modal-content-eventshow">
     <h4>Event detail</h4>
     <p></p>
   </div>

@@ -30,8 +30,6 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    @schedule = Schedule.find(params[:id])
-    @schedule_area_sections = @schedule.news_area_sections
   end
 
   def edit

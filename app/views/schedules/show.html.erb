@@ -1,8 +1,14 @@
 <%= form_with(model: @schedule, url: schedulesshow_path, remote: true) do |f| %>
     <!-- Modal Structure -->
-    <div id="modal" class="modal modals">
+    <div id="modal1" class="modal">
       <div class="modal-content-eventshow">
-        <h4><%= @schedule_area_sections.area_id %></h4>
+      <p>FROM</p>
+      <p>admin_name</p>
+      <p>To</p>
+      <p>start_time</p>
+      <p>end_time</p>
+      <p>title</p>
+      <p>description</p>
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
