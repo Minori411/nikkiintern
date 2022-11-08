@@ -7,6 +7,11 @@
     </div>
     <h3><%= link_to "News",news_path(note.target_id),class: "h3" %>arrived.</h3>
     <% elsif note.action == 'schedule' %>
+    <div class= "flexbox">
+    <div class ="newscount"><%= @notifications.count%></div>
+    <h6>Events arrived.</h6>
+    </div>
+    <h3><%= link_to "Event",schedulesshow_path(note.target_id),class: "h3" %>arrived.</h3>
     <% else %>
     <h2>No notifications here.</h2>
     <% end %>

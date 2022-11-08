@@ -8,9 +8,9 @@ class NotificationsController < ApplicationController
 
       def noteread
         notifications = current_user.passive_notifications.unread.page(params[:page]).per(20)
-        notifications.where(checked: false).each do |notification|
-            notification.update(checked: true)
-        end
+        # notifications.where(checked: false).each do |notification|
+        #     notification.update(checked: true)
+        # end
       end
 
 end
