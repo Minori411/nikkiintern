@@ -358,12 +358,27 @@ NewsAreaSection.create!(news_id: 6,
                         area_id: 3,
                         section_id: 4)
 
-#スケジュールの所属テーブル
-# ScheduleAreaSection.create!(schedule_id:1,
-#                             area_id: 1,
-#                             section_id: 1)
+Schedule.create!(title: "Ramadan",
+                 description: "aaa",
+                 start: "2022-11-01 00:00:00",
+                 end: "2022-11-30 00:00:00",
+                 area_id: 1,
+                 section_id: 1,
+                 user_id: 1)
 
-# ScheduleAreaSection.create!(schedule_id:1,
-#                             area_id: 2,
-#                             section_id: 2)
+Schedule.create!(title: "GASIN",
+                 description: "aaa",
+                 start: "2022-11-08 15:00:00",
+                 area_id: 1,
+                 section_id: 2,
+                 user_id: 2)
+
+#スケジュールの所属テーブル
+ScheduleAreaSection.create!(schedule_id:1,
+                            area_id: 1,
+                            section_id: 1)
+
+ScheduleAreaSection.create!(schedule_id:2,
+                            area_id: 1,
+                            section_id: 2)
                                     
