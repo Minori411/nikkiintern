@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :schedules, only: :index
   get 'schedules/events/new', to: 'schedules#new', as: :schedulesnew
   post "schedules/events/new", to: 'schedules#create', as: :schedulescreate
-  patch "schedules/events/:id/update", to: "schedules#update", as: :schedulesupdate
+  patch "schedules/events/:id/update", to: "schedules#update", as: :schedulesupdatepatch
+  get "schedules/events/:id/update", to: "schedules#update", as: :schedulesupdateget
   delete "schedules/events/:id/destroy", to: "schedules#destroy", as: :schedulesdestroy
   
   root 'news#index'

@@ -11,7 +11,7 @@
     <div class ="newscount"><%= @notifications.count%></div>
     <h6>Events arrived.</h6>
     </div>
-    <h3><%= link_to "Event",schedulesupdate_path(note.target_id),class: "h3" %>arrived.</h3>
+    <h3><%= link_to "Event",schedulesupdateget_path(note.target_id),class: "h3" %>arrived.</h3>
     <% else %>
     <h2>No notifications here.</h2>
     <% end %>
