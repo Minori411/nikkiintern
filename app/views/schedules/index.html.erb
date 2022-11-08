@@ -108,6 +108,46 @@
     </script>
 </head>
     <body>
+    <aside class="col-4">
+    <%= form_with url: search_path,id: :search_news, method: :get, local: true do |f| %>
+        <div class="row">
+    <div class="col s12 m4" style="width:100%;width: 410px;height: 100%; height: 320px;">
+      <div class="card-panel teal" style="width: 500px;width: 100%;height: 100%;background-color: white!important;border-radius: 8px;margin:0;border: 3px solid #d32f2f;">
+      <p class="search-title">絞り込み検索</p>
+          <div class="input-field col s12">
+            <%= f.text_field :keyword, value: @keyword, :placeholder => "キーワード検索" %>
+            <% f.submit "検索", id: 'search-submit' %>
+          </div>
+      <div class="area_search">
+      <h5>Area</h5>
+      </div>
+      <div class="block">
+      <%= f.check_box :area_name_a, id: :a_processarea, checked: params[:area_name_a] == "1", include_hidden: false %>
+      <%= f.label :A_ProcessArea,{class: 'index'} %>
+      <%= f.check_box :area_name_b, id: :b_utilityarea, checked: params[:area_name_b] == "1", include_hidden: false %>
+      <%= f.label :B_UtilityArea,{class: 'index'} %>
+      <%= f.check_box :area_name_c, id: :c_offsite, checked: params[:area_name_c] == "1", include_hidden: false %>
+      <%= f.label :C_Offsite,{class: 'index'} %>
+      </div>
+      <div class="area_search">
+      <h5>Section</h5>
+      </div>
+      <%= f.check_box :section_name_a, id: :civil, checked: params[:section_name_a] == "1" %>
+      <%= f.label :Civil,{class: 'indexx'} %>
+      <%= f.check_box :section_name_b,  id: :building, checked: params[:section_name_b] == "1" %>
+      <%= f.label :Building,{class: 'indexx'} %>
+      <%= f.check_box :section_name_c,  id: :mechanical, checked: params[:section_name_c] == "1" %>
+      <%= f.label :Mechanical,{class: 'indexx'} %><br>
+      <%= f.check_box :section_name_d,  id: :piping, checked: params[:section_name_d] == "1" %>
+      <%= f.label :Piping,{class: 'indexx'} %>
+      <%= f.check_box :section_name_e,  id: :erectrical, checked: params[:section_name_e] == "1" %>
+      <%= f.label :Erectrical,{class: 'indexx'} %>
+      </div>
+    </div>
+  </div>
+        
+    <% end %>
+  </aside>
     <div id='calendar'></div>
     <!-- ここからモーダル表示部分として追記 -->
     <!-- Modal Structure -->

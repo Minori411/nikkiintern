@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'news/create', to: 'news#create'
 
   get "search" => "news#search"
+  get "archive/search" => "news#archive_search", as: :archivesearch
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

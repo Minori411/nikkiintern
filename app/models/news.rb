@@ -30,27 +30,20 @@ class News < ApplicationRecord
             @news
     end
 
-    # #アーカイブページでの検索
-    # def archives.search(keyword,areas,sections)
-    #     if keyword != ""
-    #         @news = self.where(["title like ? OR body like ?", "%#{keyword}%", "%#{keyword}%"]) 
-    #     else
-    #         @news = News.all
-    #     end
+#     def archives.search(keyword,areas,sections)
+#         if keyword != ""
+#             @news = self.where(["title like ? OR body like ?", "%#{keyword}%", "%#{keyword}%"]) 
+#         else
+#             @news = News.all
+#         end
     
-    #     if areas.count > 0
-    #         @news = @news.where(id: NewsAreaSection.where(area_id: areas).pluck('news_id'))
-    #     end
+#         if areas.count > 0
+#             @news = @news.where(id: NewsAreaSection.where(area_id: areas).pluck('news_id'))
+#         end
 
-    #     if sections.count > 0
-    #         @news = @news.where(id: NewsAreaSection.where(section_id: sections).pluck('news_id'))
-    #     end
-    #     @news
+#         if sections.count > 0
+#             @news = @news.where(id: NewsAreaSection.where(section_id: sections).pluck('news_id'))
+#         end
+#         @news
 # end
-
-
-    
-    
-
-    
 end
