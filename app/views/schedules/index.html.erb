@@ -20,7 +20,7 @@
           eventColor: '#63ceef',
           
             
-          events: [
+          events:'/schedules.json' [
             {
             id: "a",
             title: "Ramadan",
@@ -103,19 +103,15 @@
         views: {
             extendedProps: {
                 description: "説明文"
-              }
-  },
-  eventClick: function (info,event,jsEvent,view) {
-    
-    alert('Event: ' + info.event.title);
-    alert('ExtendedProps: ' + info.event.extendedProps.description);
-
-    // change the border color just for fun
-    info.el.style.borderColor = 'red';
-      if (info.jsEvent.detail == 3&&confirm("Are you sure to delete?")) {
+            }
+    },
+    eventClick: function (info,event,jsEvent,view) {
+        $("#modal1").modal("open")
+    if (info.jsEvent.detail == 3&&confirm("Are you sure to delete?")) {
         info.event.remove();
+        console.log('OK7')
         }
-      },
+    },
     eventDrop: function(info) {
     alert(info.event.title + " was dropped on " + info.event.start.toISOString());
 
@@ -129,30 +125,38 @@
         alert("You can't choose.");
         return;
     }  
-      //クリックした日付情報を取得
-      const year = moment(start).year();
-      const month = moment(start).month()+1; //1月が0のため+1する
-      const day = moment(start).date();
-      //イベント登録のためnewアクションを発火
-      $.ajax({
-        type: 'GET',
-        url: '/schedules/events/new',
-      }).done(function (res) {
-        console.log(res)
-        //イベント登録用のhtmlを作成
-        $('.modal-body').html(res);
-        //イベント登録フォームの日付をクリックした日付とする
-        $('#event_start_time_1i').val(year);
-        $('#event_start_time_2i').val(month);
-        $('#event_start_time_3i').val(day);
-        //イベント登録フォームのモーダル表示
-        $("#modal").modal("open")
-        console.log("OK6")
-        // 成功処理
-      }).fail(function (result) {
-        // 失敗処理
-        alert('エラーが発生しました。運営に問い合わせてください。')
-      });
+        //クリックした日付の情報を取得
+        const year  = info.date.getFullYear();
+        const month = (info.date.getMonth() + 1);
+        const day   = info.date.getDate();
+
+        //ajaxでevents/newを着火させ、htmlを受け取ります
+        $.ajax({
+            type: 'GET',
+            url:  '/schedules/events/new',
+        }).done(function (res) {
+            // 成功処理
+            // 受け取ったhtmlをさっき追加したmodalのbodyの中に挿入します
+            $('.modal-body').html(res);
+
+            //フォームの年、月、日を自動入力
+            $('#event_start_1i').val(year);
+            $('#event_start_2i').val(month);
+            $('#event_start_3i').val(day);
+
+            $('#event_end_1i').val(year);
+            $('#event_end_2i').val(month);
+            $('#event_end_3i').val(day);
+
+            //ここのidはevents/newのurlにアクセスするとhtmlがコードとして表示されるので、
+            //開始時間と終了時間のフォームを表しているところのidを確認してもらうことが確実です
+
+            $('#modal').modal('open');
+
+        }).fail(function (result) {
+            // 失敗処理
+            alert("failed");
+        });
     },
           timeZone: 'Asia/Tokyo',
           navLinks: true,
@@ -173,21 +177,38 @@
   <body>
     <div id='calendar'></div>
     <!-- ここからモーダル表示部分として追記 -->
-    <!-- Modal Trigger -->
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
   
     <!-- Modal Structure -->
     <div id="modal" class="modal">
       <div class="modal-body">
         <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <p>A bunch of </p>
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
       </div>
     </div>
-<!-- ここまでモーダル追加部分で追記しました -->
-  
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Event detail</h4>
+    <p></p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+  <div id="modal2" class="modal">
+    <div class="response-modal-body">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
   </div>
   </body>
 </html>

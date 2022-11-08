@@ -99,8 +99,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_003553) do
     t.string "color"
     t.string "events"
     t.bigint "user_id", null: false
+    t.bigint "area_id", null: false
+    t.bigint "section_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_schedules_on_area_id"
+    t.index ["section_id"], name: "index_schedules_on_section_id"
     t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
@@ -149,6 +153,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_003553) do
   add_foreign_key "schedule_area_sections", "sections"
   add_foreign_key "schedule_reads", "schedules"
   add_foreign_key "schedule_reads", "users"
+  add_foreign_key "schedules", "areas"
+  add_foreign_key "schedules", "sections"
   add_foreign_key "schedules", "users"
   add_foreign_key "user_area_sections", "areas"
   add_foreign_key "user_area_sections", "sections"

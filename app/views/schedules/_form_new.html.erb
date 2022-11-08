@@ -1,18 +1,41 @@
-h1 新規イベント追加
-<%= form_with model: @schedule, url: schedulesnew_path do |f| %>
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class:'form-control mb-3', required: true %>
-  </div>
-  <div class="form-group">
-      <%= f.label :start_time %>
-      <br>
-      <%= f.datetime_select :start_time, {default: Date.today + 19.hours + 00.minutes, minute_step: 10}, class:'form-control bootstrap-date mb-3' %>
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, class:'form-control mb-3' %>
-  </div>
-  <div class="actions">
-    <%= f.submit class: "btn btn-primary mb-3 js-event-create-btn" %>
-  </div>
-<% end %>
+<div class="row">
+      <%= form_with(model: @schedule, url: schedulesnew_path, remote: true) do |f| %>
+
+        <%= f.label :title, "title"%>
+        <%= f.text_field :title, class:'form-control mb-3', required: true %> 
+
+        <%= f.label :Adress %><br>
+        <%= f.select :area_id, Area.where(id: current_user.user_area_sections.pluck('area_id')).pluck('area_name,id'),{ include_blank: true, selected: params[:area_id],:placeholder =>"#{@schedule.area_id}" }, id: "area-select", class: "area-control" %>
+        <%= f.select :section_id, Section.where(id: current_user.user_area_sections.pluck('section_id')).pluck('section_name,id'),{ include_blank: true, selected: params[:section_id] }, id: "section-select", class: "section-control" %>
+        <i class="fa-solid fa-angles-down fa-2xl"></i>
+        <div class="areas">
+        <%= f.fields_for :schedule_area_sections do |schedule_area_sectionsfields| %>
+            <div class="select-scope" data-index: "<%= schedule_area_sectionsfields.index %>">
+                <%= schedule_area_sectionsfields.select :area_id, [['All Area', 4],['A processarea', 1],['B Utilityarea', 2],['C Offsite', 3]],{ include_blank: true, selected: params[:area_id] }, id: "area-select", class: "area-control" %>
+                <%= schedule_area_sectionsfields.select :section_id, [['All Section',6 ],['Civil', 1],['Building', 2],['Mechanical', 3],['Piping', 4],['Erectrical', 6]],{ include_blank: true, selected: params[:section_id] }, id: "section-select", class: "section-control" %>
+            </div>
+            
+        <% end %>
+        <%= f.button type: :button, class:"btn-floating waves-effect waves-light red add-form-btn" do %>
+            <i class="material-icons">add</i>
+        <% end %>
+
+        <div class="form-inline text-left">
+         <%= f.label :start,"start", {class:'control-label'}%>
+         <%= f.datetime_select :start, {default: Date.today + 0.hours}, class: 'form-control' %>
+        </div>
+         <br>
+        <div class="form-inline text-left"> 
+         <%= f.label :end,"end", {class:'control-label'}%>
+         <%= f.datetime_select :end, {default: Date.today + 0.hours}, class: 'form-control' %>
+        </div>
+    </div>
+   
+        <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description, class:'form-control mb-3'%>
+        </div>
+
+        <%= f.submit "make a event",   class: "btn btn-primary js-event-create-btn" %>
+      <% end %>
+</div>    

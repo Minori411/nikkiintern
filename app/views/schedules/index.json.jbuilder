@@ -1,6 +1,8 @@
-json.array!(@schedules) do |schedule|
-  json.extract! schedule, :id, :title, :body
-  json.start schedule.start_date
-  json.end schedule.end_date
-  json.url schedule_url(schedule, format: :html)
-end
+json.array!(@schedule) do |schedule|
+    json.id event.id
+    json.title event.title
+    json.start event.start  
+    json.end event.end 
+    json.area_id event.area_id
+    json.section_id event.section_id
+   end

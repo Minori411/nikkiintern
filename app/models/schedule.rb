@@ -2,6 +2,8 @@ class Schedule < ApplicationRecord
     has_many :schedule_reads, dependent: :destroy
     belongs_to :user, optional: true
     has_many :schedule_area_sections, dependent: :destroy
+    accepts_nested_attributes_for :schedule_area_sections, allow_destroy: true
+
 
     # include ActiveModel::Model
     # include ActiveModel::Attributes

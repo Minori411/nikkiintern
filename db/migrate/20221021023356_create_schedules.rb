@@ -12,6 +12,8 @@ class CreateSchedules < ActiveRecord::Migration[7.0]
       t.string :color
       t.string :events
       t.references :user, null: false, foreign_key: true
+      t.references :area, null: false, foreign_key: true
+      t.references :section, null: false, foreign_key: true
       t.timestamps
     end
   end
