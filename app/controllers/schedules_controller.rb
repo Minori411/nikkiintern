@@ -30,6 +30,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
+    render partial:'schedules/form_show',locals: { schedule: @schedule }
   end
 
   def edit
