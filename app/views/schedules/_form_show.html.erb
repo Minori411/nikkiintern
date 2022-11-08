@@ -3,8 +3,8 @@
   <%= f.text_field :title, class:'form-control mb-3', required: true %> 
 
   <%= f.label :Adress %><br>
-  <%= f.select :area_id, Area.where(id: current_user.user_area_sections.pluck('area_id')).pluck('area_name,id'),{ include_blank: true, selected: params[:area_id],:placeholder =>"#{@schedule.area_id}" }, id: "area-select", class: "area-control" %>
-  <%= f.select :section_id, Section.where(id: current_user.user_area_sections.pluck('section_id')).pluck('section_name,id'),{ include_blank: true, selected: params[:section_id] }, id: "section-select", class: "section-control" %>
+  <%= f.select :area_id, Area.where(id: current_user.user_area_sections.pluck('area_id')).pluck('area_name,id'),{ include_blank: true, selected: @schedule.area_id}, id: "area-select", class: "area-control" %>
+  <%= f.select :section_id, Section.where(id: current_user.user_area_sections.pluck('section_id')).pluck('section_name,id'),{ include_blank: true, selected: @schedule.section_id}, id: "section-select", class: "section-control" %>
   <i class="fa-solid fa-angles-down fa-2xl"></i>
   <div class="areas">
   <%= f.fields_for :schedule_area_sections do |schedule_area_sectionsfields| %>

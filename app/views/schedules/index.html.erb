@@ -48,7 +48,10 @@
     }
   },
     dateClick: function (info,start, end, jsEvent, view) {
-                console.log("OK")
+                console.log(start)
+                console.log(info)
+                console.log('test')
+                console.log(end)
     if (info.dayEl.classList.contains("fc-day-past")) {
         alert("You can't choose.");
         return;
@@ -57,11 +60,13 @@
         const year  = info.date.getFullYear();
         const month = (info.date.getMonth() + 1);
         const day   = info.date.getDate();
-
+        console.log(year)
+        console.log(month)
+        console.log(day)
         //ajaxでevents/newを着火させ、htmlを受け取ります
         $.ajax({
             type: 'GET',
-            url:  '/schedules/events/new',
+            url:  '/schedules/events/new?year=' + year + '&month=' + month + '&day=' + day,
         }).done(function (res) {
             // 成功処理
             // 受け取ったhtmlをさっき追加したmodalのbodyの中に挿入します

@@ -3,6 +3,8 @@ class SchedulesController < ApplicationController
 
   def new
     @schedule = Schedule.new
+    @schedule.start = (params[:year] + "-" + params[:month] + "-" + params[:day]).to_datetime
+    @schedule.end = (params[:year] + "-" + params[:month] + "-" + params[:day]).to_datetime
     @schedule.schedule_area_sections.build
     render partial:'schedules/form_new',locals: { schedule: @schedule }
   end
