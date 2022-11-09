@@ -1,42 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :authenticate_user!
 
-  def schedule_search
-    areas = []
-    if params[:area_name_a].to_i == 1
-      areas << 1
-    end
-    if params[:area_name_b].to_i == 1
-      areas << 2
-    end
-    if params[:area_name_c].to_i == 1
-      areas << 3
-    end
-
-    sections = []
-    if params[:section_name_a].to_i == 1
-      sections << 1
-    end
-    if params[:section_name_b].to_i == 1
-      sections << 2
-    end
-    if params[:section_name_c].to_i == 1
-      sections << 3
-    end
-    if params[:section_name_d].to_i == 1
-      sections << 4
-    end
-    if params[:section_name_e].to_i == 1
-      sections << 5
-    end
-
-    @schedule = Schedule.search(params[:keyword],areas,sections)
-    #アーカイブページでの検索
-    # @archive = News.archives.search(params[:keyword],areas,sections)
-    @keyword = params[:keyword]
-    render "index"
-  end
-
   def new
     @schedule = Schedule.new
     @schedule.start = (params[:year] + "-" + params[:month] + "-" + params[:day]).to_datetime
@@ -56,6 +20,9 @@ class SchedulesController < ApplicationController
     if params[:area_name_c].to_i == 1
       areas << 3
     end
+    if params[:area_name_d].to_i == 1
+      areas << 4
+    end
 
     sections = []
     if params[:section_name_a].to_i == 1
@@ -72,6 +39,9 @@ class SchedulesController < ApplicationController
     end
     if params[:section_name_e].to_i == 1
       sections << 5
+    end
+    if params[:section_name_f].to_i == 1
+      sections << 6
     end
 
     @schedules = Schedule.search(params[:keyword],areas,sections)
@@ -138,26 +108,14 @@ class SchedulesController < ApplicationController
 
   def edit
     @schedule = Schedule.find(params[:id])
-    @schedule.schedule_area_sections.build
   end
 
   def update
     @schedule = Schedule.find_by(id: params[:id])
-    render partial:'schedules/form_update',locals: { schedule: @schedule }
     if @schedule.update(schedule_params)
       redirect_to schedules_path(@schedule.id)
-    else
-      render :update
     end
-  end
-
-  def schedulereads
-    @schedule = Schedule.find_by(id: params[:id])
-    # render partial:'schedules/form_update',locals: { schedule: @schedule }
-    unless ScheduleRead.find_by(user_id: current_user.id, schedule_id: @schedule.id)
-      current_user.schedule_reads.create(user_id: current_user.id, schedule_id: @schedule.id)
-    end
-    @schedule_reads = @schedule.schedule_reads
+    render partial:'schedules/form_update',locals: { schedule: @schedule }
   end
 
   def destroy
