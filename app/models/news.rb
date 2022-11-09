@@ -10,7 +10,8 @@ class News < ApplicationRecord
 
 
     mount_uploader :image, ImageUploader
-    scope :archives, -> {unscoped.where(archive: true).order('created_at DESC')}
+    default_scope -> { order(updated_at: :desc) }#更新順に並び替える
+    scope :archives, -> {unscoped.where(archive: true).order('updated_at DESC')}
     default_scope { where(archive: false) }
 
     def self.search(keyword,areas,sections)

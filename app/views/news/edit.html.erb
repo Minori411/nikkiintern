@@ -11,7 +11,9 @@
 <%= f.label :Adress %><br>
 <%= f.select :area_id, Area.where(id: News.find(params[:id]).user.user_area_sections.pluck('area_id')).pluck('area_name,id'),{ include_blank: true, selected:  @news.area_id  }, id: "area-select", class: "area-control" %>
 <%= f.select :section_id, Section.where(id: News.find(params[:id]).user.user_area_sections.pluck('section_id')).pluck('section_name,id'),{ include_blank: true, selected: @news.section_id }, id: "section-select", class: "section-control" %>
-<i class="fa-solid fa-angles-down fa-2xl"></i>
+<div class="angle-space">
+    <i class="fa-solid fa-angles-down fa-2xl"></i>
+</div>
 <div class="areas">
 <%= f.fields_for :news_area_sections do |news_area_sectionsfields| %>
     <div class="select-scope" data-index: "<%= news_area_sectionsfields.index %>">
