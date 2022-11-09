@@ -20,7 +20,7 @@ class Schedule < ApplicationRecord
         if sections.count > 0
             @schedule = @schedule.where(id: ScheduleAreaSection.where(section_id: sections).pluck('schedule_id'))
         end
-        @news
+        @schedule
     end 
 
 end

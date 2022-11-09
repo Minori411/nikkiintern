@@ -46,7 +46,36 @@ class SchedulesController < ApplicationController
   end
 
   def index
-    @schedules =  Schedule.all
+    areas = []
+    if params[:area_name_a].to_i == 1
+      areas << 1
+    end
+    if params[:area_name_b].to_i == 1
+      areas << 2
+    end
+    if params[:area_name_c].to_i == 1
+      areas << 3
+    end
+
+    sections = []
+    if params[:section_name_a].to_i == 1
+      sections << 1
+    end
+    if params[:section_name_b].to_i == 1
+      sections << 2
+    end
+    if params[:section_name_c].to_i == 1
+      sections << 3
+    end
+    if params[:section_name_d].to_i == 1
+      sections << 4
+    end
+    if params[:section_name_e].to_i == 1
+      sections << 5
+    end
+
+    @schedules = Schedule.search(params[:keyword],areas,sections)
+    @keyword = params[:keyword]
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @schedules }
@@ -100,6 +129,11 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
+    # render partial:'schedules/form_update',locals: { schedule: @schedule }
+    unless ScheduleRead.find_by(user_id: current_user.id, schedule_id: @schedule.id)
+      current_user.schedule_reads.create(user_id: current_user.id, schedule_id: @schedule.id)
+    end
+    @schedule_reads = @schedule.schedule_reads
   end
 
   def edit
@@ -108,21 +142,22 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    @schedule = if current_user.userstyle == 0
-      Schedule.unscoped.find(params[:id])
-      else
-      Schedule.find_by(id: params[:id])
-      end
+    @schedule = Schedule.find_by(id: params[:id])
     render partial:'schedules/form_update',locals: { schedule: @schedule }
-    unless ScheduleRead.find_by(user_id: current_user.id, schedule_id: @schedule.id)
-      current_user.schedule_reads.create(user_id: current_user.id, schedule_id: @schedule.id)
-    end
-    @schedule_reads = @schedule.schedule_reads
     if @schedule.update(schedule_params)
       redirect_to schedules_path(@schedule.id)
     else
       render :update
     end
+  end
+
+  def schedulereads
+    @schedule = Schedule.find_by(id: params[:id])
+    # render partial:'schedules/form_update',locals: { schedule: @schedule }
+    unless ScheduleRead.find_by(user_id: current_user.id, schedule_id: @schedule.id)
+      current_user.schedule_reads.create(user_id: current_user.id, schedule_id: @schedule.id)
+    end
+    @schedule_reads = @schedule.schedule_reads
   end
 
   def destroy
