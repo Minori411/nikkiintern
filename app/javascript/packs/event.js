@@ -33,7 +33,8 @@ $(function(){
     $(".hidden-destroy").hide(); // 編集フォーム用（削除用のチェックボックスを非表示にしておく）
     if (fileIndex.length == 0) $(".add-form-btn-event").css("display","none"); // 編集フォーム用（フォームが５つある場合は追加ボタンを非表示にしておく）
 
-    $(".add-form-btn-event").on("click", function() { // 追加ボタンクリックでイベント発火
+    $(document).on("click",".add-form-btn-event2", function() {
+        console.log('test2') // 追加ボタンクリックでイベント発火
       $(".areas-event").append(buildField(fileIndex[0])); // fileIndexの一番小さい数字をインデックス番号に使ってフォームを作成
       fileIndex.shift(); // fileIndexの一番小さい数字を取り除く
     //   if (fileIndex.length == 0) $(".add-form-btn").css("display","none"); // フォームが５つになったら追加ボタンを非表示にする

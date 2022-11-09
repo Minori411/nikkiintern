@@ -8,7 +8,7 @@
         <%= f.select :area_id, Area.where(id: current_user.user_area_sections.pluck('area_id')).pluck('area_name,id'),{ include_blank: true, selected: params[:area_id],:placeholder =>"#{@schedule.area_id}" }, id: "area-select", class: "area-control" %>
         <%= f.select :section_id, Section.where(id: current_user.user_area_sections.pluck('section_id')).pluck('section_name,id'),{ include_blank: true, selected: params[:section_id] }, id: "section-select", class: "section-control" %>
         <i class="fa-solid fa-angles-down fa-2xl"></i>
-        <div class="areas">
+        <div class="areas-event">
         <%= f.fields_for :schedule_area_sections do |schedule_area_sectionsfields| %>
             <div class="select-scope-event" data-index: "<%= schedule_area_sectionsfields.index %>">
                 <%= schedule_area_sectionsfields.select :area_id, [['All Area', 4],['A processarea', 1],['B Utilityarea', 2],['C Offsite', 3]],{ include_blank: true, selected: params[:area_id] }, id: "area-select", class: "area-control" %>
@@ -16,7 +16,8 @@
             </div>
             
         <% end %>
-        <%= f.button type: :button, class:"btn-floating waves-effect waves-light red add-form-btn-event" do %>
+        </div>
+        <%= f.button type: :button, class:"btn-floating waves-effect waves-light red add-form-btn-event2" do %>
             <i class="material-icons">add</i>
         <% end %>
 
