@@ -44,9 +44,19 @@
     alert(info.event.title + " was dropped on " + info.event.start.toISOString());
 
     if (!confirm("Are you sure about this change?")) {
-      info.revert();
+        info.revert();
     }
-  },
+    $.ajax({
+            type: 'POST',
+            url:  '/schedules/events/upgrade',
+            data: {info: info}
+        }).done(function (res) {
+
+        }).fail(function (result) {
+            // 失敗処理
+            alert("failed");
+        });
+},
     dateClick: function (info,start, end, jsEvent, view) {
                 console.log(start)
                 console.log(info)
@@ -63,7 +73,7 @@
         console.log(year)
         console.log(month)
         console.log(day)
-        //ajaxでevents/newを着火させ、htmlを受け取ります
+
         $.ajax({
             type: 'GET',
             url:  '/schedules/events/new?year=' + year + '&month=' + month + '&day=' + day,
