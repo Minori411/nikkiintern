@@ -12,18 +12,16 @@
     <%= @schedule.title %>
 
     <p>Address</p><br>
-    <%= Area.where(id: Schedule.find(params[:id]).user.user_area_sections.pluck('area_id')).pluck('area_name,id'), class: "area-control" %>
-    <%= Section.where(id: Schedule.find(params[:id]).user.user_area_sections.pluck('section_id')).pluck('section_name,id'), class: "section-control" %>
+    <%= @schedule.area.area_name%>
+    <%= @schedule.section.section_name %>
     <div class="angle-space">
         <i class="fa-solid fa-angles-down fa-2xl"></i>
     </div>
     <div class="areas-event">
-    <%= f.fields_for :schedule_area_sections do |schedule_area_sectionsfields| %>
-        <div class="select-scope" data-index: "<%= schedule_area_sectionsfields.index %>">
-            <%= schedule_area_sectionsfields.select :area_id, [['All Area', 4],['A processarea', 1],['B Utilityarea', 2],['C Offsite', 3]],{ include_blank: true, selected: schedule_area_sectionsfields.object.area_id }, id: "area-select", class: "area-control" %>
-            <%= schedule_area_sectionsfields.select :section_id, [['All Section',6 ],['Civil', 1],['Building', 2],['Mechanical', 3],['Piping', 4],['Erectrical', 6]],{ include_blank: true, selected: schedule_area_sectionsfields.object.section_id }, id: "section-select", class: "section-control" %>
-        </div>
-    <% end %>
+        <% @schedule.schedule_area_sections.each do |schedule| %>
+            <%= Area.find(schedule.area_id).area_name  %>
+            <%= Section.find(schedule.section_id).section_name %>
+        <% end %>
     </div>
 
     <div class="form-inline text-left">
@@ -42,4 +40,3 @@
         <p>description</p>
         <div class="form-control mb-3"><%= @schedule.description %></div>
     </div>
-    <% end %>

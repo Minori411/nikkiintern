@@ -30,8 +30,8 @@
     eventClick: function (info) {
 
         $.ajax({
-            type: 'PATCH',
-            url:  `/schedules/events/${info.event.id}/update`,
+            type: 'GET',
+            url:  `/schedules/events/${info.event.id}/edit`,
         }).done(function (res) {
             // 成功処理
             // 受け取ったhtmlをさっき追加したmodalのbodyの中に挿入します
