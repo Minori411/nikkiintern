@@ -12,6 +12,9 @@ class NewsController < ApplicationController
     if params[:area_name_c].to_i == 1
       areas << 3
     end
+    if params[:area_name_d].to_i == 1
+      areas << 4
+    end
 
     sections = []
     if params[:section_name_a].to_i == 1
@@ -28,6 +31,9 @@ class NewsController < ApplicationController
     end
     if params[:section_name_e].to_i == 1
       sections << 5
+    end
+    if params[:section_name_f].to_i == 1
+      sections << 6
     end
 
     @news = News.search(params[:keyword],areas,sections)

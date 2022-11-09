@@ -127,6 +127,8 @@
       <%= f.label :B_UtilityArea,{class: 'index'} %>
       <%= f.check_box :area_name_c, id: :c_offsite, checked: params[:area_name_c] == "1", include_hidden: false %>
       <%= f.label :C_Offsite,{class: 'index'} %>
+      <%= f.check_box :area_name_d, id: :all_area, checked: params[:area_name_d] == "1", include_hidden: false %>
+      <%= f.label :All_Area,{class: 'index'} %>
       <div class="area_search">
       <h5>Section</h5>
       </div>
@@ -140,6 +142,8 @@
       <%= f.label :Piping,{class: 'indexx'} %>
       <%= f.check_box :section_name_e,  id: :erectrical, checked: params[:section_name_e] == "1" %>
       <%= f.label :Erectrical,{class: 'indexx'} %>
+      <%= f.check_box :section_name_f,  id: :all_section, checked: params[:section_name_f] == "1" %>
+      <%= f.label :All_Section,{class: 'indexx'} %>
       </div>
     </div>
   </div>

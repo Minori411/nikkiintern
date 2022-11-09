@@ -1,4 +1,7 @@
 $(function() {
+    console.log('jQuery!');
+  })
+$(function() {
     function readURL(input) {
         if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -19,11 +22,13 @@ $(function() {
     const aSelect = document.querySelector('#a_processarea')
     const bSelect = document.querySelector('#b_utilityarea')
     const cSelect = document.querySelector('#c_offsite')
+    const dSelect = document.querySelector('#all_area')
     const civilSelect = document.querySelector('#civil')
     const buildingSelect = document.querySelector('#building')
     const mechanicalSelect = document.querySelector('#mechanical')
     const pipingSelect = document.querySelector('#piping')
     const erectricalSelect = document.querySelector('#erectrical')
+    const allsectionSelect = document.querySelector('#all_section')
     const submitButton = document.querySelector('#search-submit')
 
     $(aSelect).on('change', function() {
@@ -33,6 +38,9 @@ $(function() {
         submitTarget.submit()
     })
     $(cSelect).on('change', function() {
+        submitTarget.submit()
+    })
+    $(dSelect).on('change', function() {
         submitTarget.submit()
     })
     $(civilSelect).on('change', function() {
@@ -50,6 +58,9 @@ $(function() {
     $(erectricalSelect).on('change', function() {
     submitTarget.submit()
     })
+    $(allsectionSelect).on('change', function() {
+        submitTarget.submit()
+        })
 });
 
 $(function(){
