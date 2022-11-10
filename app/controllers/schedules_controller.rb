@@ -54,7 +54,7 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    redirect_to schedulea_path and return if current_user.userstyle == 1
+    redirect_to schedules_path and return if current_user.userstyle == 1
     @schedule =  Schedule.new(schedule_params)
     respond_to do |format|
       if @schedule.save
@@ -98,7 +98,6 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    @schedules = Schedule.all
     @schedule = Schedule.find(params[:id])
     # render partial:'schedules/form_update',locals: { schedule: @schedule }
     unless ScheduleRead.find_by(user_id: current_user.id, schedule_id: @schedule.id)
@@ -114,6 +113,7 @@ class SchedulesController < ApplicationController
   end
 
   def update
+    redirect_to schedules_path and return if current_user.userstyle == 1
     @schedule = Schedule.find_by(id: params[:id])
     if @schedule.update(schedule_params)
       schedule_area_sections = params[:schedule][:schedule_area_sections_attributes].values
@@ -151,6 +151,7 @@ class SchedulesController < ApplicationController
   end
 
   def destroy
+    redirect_to schedules_path and return if current_user.userstyle == 1
     schedule = Schedule.find(params[:id])
     schedule.destroy
     redirect_to schedules_path

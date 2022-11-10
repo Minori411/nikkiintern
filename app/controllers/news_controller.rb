@@ -117,6 +117,7 @@ class NewsController < ApplicationController
   end
 
   def create
+    redirect_to schedules_path and return if current_user.userstyle == 1
     @news = News.new(news_params) # 何を新しく保存するか指定
     @news.user_id = current_user.id
     
@@ -169,6 +170,7 @@ class NewsController < ApplicationController
   end
 
   def update
+    redirect_to schedules_path and return if current_user.userstyle == 1
     @news = News.find(params[:id])
     if @news.update(news_params)
       news_area_sections = params[:news][:news_area_sections_attributes].values
@@ -208,6 +210,7 @@ class NewsController < ApplicationController
   end
 
   def destroy
+    redirect_to schedules_path and return if current_user.userstyle == 1
     @news = News.find(params[:id])
     @news.destroy
     redirect_to action: 'index'
