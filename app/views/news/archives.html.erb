@@ -22,9 +22,11 @@
             <div class ="flexbox">
             <span class="card-title"><%= news.title %></span>
             <% if current_user.userstyle == 0 %>
+            <div>
             <%= link_to back_path(news.id), class: "back-arrow", method: :post, data: { confirm: "【confirm】Do you want to be back？" } do %>
                 <i class="fa-solid fa-arrow-rotate-left fa-2xl"></i>
             <% end %>
+            </div>
             <% end %>
             </div>
             <div class="fromto">
