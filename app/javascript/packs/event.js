@@ -62,3 +62,22 @@ $(document).on('change','.areas .select-scope select', function(){
     }
 })
 })
+
+$(function() {
+
+    $(document).on('change','.areas-event .select-scope-event select', function(){
+        console.log('selectEvent')
+        const address = [];
+        $('.areas-event .select-scope-event').each(function(index, element){
+            const area = $(element).find('select').eq(0).val();
+            const section = $(element).find('select').eq(1).val();
+            address.push(area + '-' + section);
+        });
+        console.log(address)
+        const array = new Set(address);
+        console.log(array.size, address.length)
+        if(array.size !== address.length){
+            alert('You are doubled.')
+        }
+    })
+    })
