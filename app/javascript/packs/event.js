@@ -3,7 +3,7 @@
 $(function(){
     function buildField(index) { 
         console.log(index)
-    const html = `<div class="select-scope-event" data-index:="${index}">
+    const html = `<div class="select-scope-events" data-index:="${index}">
                 <select id="area-select" class="area-control" name="schedule[schedule_area_sections_attributes][${index}][area_id]"><option value="" label=" "></option>
               <option value="4">All Area</option>
               <option value="1">A Processarea</option>
@@ -25,10 +25,10 @@ $(function(){
     }
 
     let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // 追加するフォームのインデックス番号を用意
-    var lastIndex = $(".select-scope-event:last").data("index"); // 編集フォーム用（すでにデータがある分のインデックス番号が何か取得しておく）
+    var lastIndex = $(".select-scope-events:last").data("index"); // 編集フォーム用（すでにデータがある分のインデックス番号が何か取得しておく）
     fileIndex.splice(0, lastIndex); // 編集フォーム用（データがある分のインデックスをfileIndexから除いておく）
     let fileCount = $(".hidden-destroy").length; // 編集フォーム用（データがある分のフォームの数を取得する）
-    let displayCount = $(".select-scope-event").length // 見えているフォームの数を取得する
+    let displayCount = $(".select-scope-events").length // 見えているフォームの数を取得する
 
     for(let i = 1 ; i < displayCount; i++){
         fileIndex.shift();
@@ -39,7 +39,7 @@ $(function(){
 
     $(document).on("click",".add-form-btn-event2", function() {
         console.log('test2') // 追加ボタンクリックでイベント発火
-      $(".areas-event").append(buildField(fileIndex[0])); // fileIndexの一番小さい数字をインデックス番号に使ってフォームを作成
+      $(".areas-events").append(buildField(fileIndex[0])); // fileIndexの一番小さい数字をインデックス番号に使ってフォームを作成
       fileIndex.shift(); // fileIndexの一番小さい数字を取り除く
     //   if (fileIndex.length == 0) $(".add-form-btn").css("display","none"); // フォームが５つになったら追加ボタンを非表示にする
       displayCount += 1; // 見えているフォームの数をカウントアップしておく
