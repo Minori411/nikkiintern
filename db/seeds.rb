@@ -156,7 +156,7 @@ NewsAreaSection.create!(news_id: 6,
                         section_id: 4)
 
 Schedule.create!(title: "Ramadan",
-                 description: "aaa",
+                 description: "Rmadan is gonne be started.",
                  start: "2022-11-01",
                  end: "2022-12-01",
                  user_id: 1,
@@ -166,7 +166,7 @@ Schedule.create!(title: "Ramadan",
                  color: "#009688")
 
 Schedule.create!(title: "GASIN",
-                 description: "aaa",
+                 description: "GASIN ins gonne be started.",
                  start: "2022-11-17 15:00:00",
                  user_id: 1,
                  area_id: 2,
@@ -175,7 +175,7 @@ Schedule.create!(title: "GASIN",
                  color: "#d50000")
 
 Schedule.create!(title: "rainy",
-                 description: "aaa",
+                 description: "rainy season has come.",
                  start: "2022-11-10 15:00:00",
                  end: "2022-11-12 19:00:00",
                  user_id: 2,
@@ -185,7 +185,7 @@ Schedule.create!(title: "rainy",
                  color: "#00e5ff")
 
 Schedule.create!(title: "event",
-                 description: "bbb",
+                 description: "birthday",
                  start: "2022-11-15 15:00:00",
                  user_id: 2,
                  area_id: 2,
@@ -194,7 +194,7 @@ Schedule.create!(title: "event",
                  color: "#ffd54f")
 
 Schedule.create!(title: "event",
-                 description: "aaa",
+                 description: "construction",
                  start: "2022-11-08 15:00:00",
                  user_id: 2,
                  area_id: 3,
@@ -203,7 +203,7 @@ Schedule.create!(title: "event",
                  color: "#00bfa5")
 
 Schedule.create!(title: "event",
-                 description: "aaa",
+                 description: "rainy events.",
                  start: "2022-11-08 15:00:00",
                  user_id: 3,
                  area_id: 2,
@@ -212,7 +212,7 @@ Schedule.create!(title: "event",
                  color: "#fff176")
 
 Schedule.create!(title: "event",
-                 description: "aaa",
+                 description: "Mr.Narikawa will come.",
                  start: "2022-11-08 15:00:00",
                  user_id: 3,
                  area_id: 1,
@@ -221,7 +221,7 @@ Schedule.create!(title: "event",
                  color:"#00bfa5")
 
 Schedule.create!(title: "event",
-                 description: "aaa",
+                 description: "Mr.Awatari woill come.",
                  start: "2022-11-08 15:00:00",
                  user_id: 4,
                  area_id: 4,
@@ -230,7 +230,7 @@ Schedule.create!(title: "event",
                  color: "#00bcd4")
 
 Schedule.create!(title: "construction",
-                 description: "ccc",
+                 description: "construction is gonna be started.",
                  start: "2022-11-20 15:00:00",
                  end: "2022-11-25 19:00:00",
                  user_id: 5,
