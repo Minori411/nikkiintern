@@ -92,11 +92,18 @@ $(function(){
     fileIndex.splice(0, lastIndex); // 編集フォーム用（データがある分のインデックスをfileIndexから除いておく）
     let fileCount = $(".hidden-destroy").length; // 編集フォーム用（データがある分のフォームの数を取得する）
     let displayCount = $(".select-scope").length // 見えているフォームの数を取得する
+ 
+    for(let i = 1 ; i < displayCount; i++){
+        fileIndex.shift();
+    }
     $(".hidden-destroy").hide(); // 編集フォーム用（削除用のチェックボックスを非表示にしておく）
     if (fileIndex.length == 0) $(".add-form-btn").css("display","none"); // 編集フォーム用（フォームが５つある場合は追加ボタンを非表示にしておく）
-
     $(".add-form-btn").on("click", function() { // 追加ボタンクリックでイベント発火
-      $(".areas").append(buildField(fileIndex[-1])); // fileIndexの一番小さい数字をインデックス番号に使ってフォームを作成
+        console.log("start")
+        console.log("displayCount is " + displayCount)
+        console.log("end")
+
+        $(".areas").append(buildField(fileIndex[0])); // fileIndexの一番小さい数字をインデックス番号に使ってフォームを作成
       fileIndex.shift(); // fileIndexの一番小さい数字を取り除く
     //   if (fileIndex.length == 0) $(".add-form-btn").css("display","none"); // フォームが５つになったら追加ボタンを非表示にする
       displayCount += 1; // 見えているフォームの数をカウントアップしておく

@@ -1,4 +1,14 @@
 <%= form_with(model: @schedule, url: schedulesupdatepatch_path, method: :patch, remote: true) do |f| %>
+  <% if current_user.userstyle == 0 %>
+    <div class="reads">READ:</div>
+    <% @schedule_reads.each do |schedulereads| %>
+        <div class="view-count">
+        <div class="chip">
+        <%= schedulereads.user.name %>/<%= schedulereads.user.email %>
+        </div>
+        </div>
+    <% end %>
+  <% end %>
   <%= f.label :title, "title"%>
   <%= f.text_field :title, class:'form-control mb-3', required: true %> 
 

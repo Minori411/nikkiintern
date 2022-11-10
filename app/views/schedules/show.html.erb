@@ -1,14 +1,4 @@
 <div class="boxbaseP30">
-<% if current_user.userstyle == 0 %>
-    <div class="reads">READ:</div>
-    <% @schedule_reads.each do |schedulereads| %>
-        <div class="view-count">
-        <div class="chip">
-        <%= schedulereads.user.name %>/<%= schedulereads.user.email %>
-        </div>
-        </div>
-    <% end %>
-<% end %>
     <h5>Title</h5>
     <h6 class="schedule-title">
         <%= @schedule.title %>

@@ -29,6 +29,11 @@ $(function(){
     fileIndex.splice(0, lastIndex); // 編集フォーム用（データがある分のインデックスをfileIndexから除いておく）
     let fileCount = $(".hidden-destroy").length; // 編集フォーム用（データがある分のフォームの数を取得する）
     let displayCount = $(".select-scope-event").length // 見えているフォームの数を取得する
+
+    for(let i = 1 ; i < displayCount; i++){
+        fileIndex.shift();
+    }
+
     $(".hidden-destroy").hide(); // 編集フォーム用（削除用のチェックボックスを非表示にしておく）
     if (fileIndex.length == 0) $(".add-form-btn-event2").css("display","none"); // 編集フォーム用（フォームが５つある場合は追加ボタンを非表示にしておく）
 
@@ -79,7 +84,7 @@ $(function() {
         const array = new Set(address);
         console.log(array.size, address.length)
         if(array.size !== address.length){
-            alert('You are doubled.')
+            alert('duplicate.')
         }
     })
     })
