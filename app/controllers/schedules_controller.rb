@@ -98,6 +98,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
+    @schedules = Schedule.all
     @schedule = Schedule.find(params[:id])
     # render partial:'schedules/form_update',locals: { schedule: @schedule }
     unless ScheduleRead.find_by(user_id: current_user.id, schedule_id: @schedule.id)

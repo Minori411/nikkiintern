@@ -280,4 +280,31 @@ ScheduleAreaSection.create!(schedule_id:5,
                             area_id: 2,
                             section_id: 4)
 
-                                    
+ScheduleAreaSection.create!(schedule_id:6,
+                            area_id: 3,
+                            section_id: 1)
+
+ScheduleAreaSection.create!(schedule_id:6,
+                            area_id: 3,
+                            section_id: 4)
+
+ScheduleAreaSection.create!(schedule_id:7,
+                            area_id: 1,
+                            section_id: 2)
+
+ScheduleAreaSection.create!(schedule_id:8,
+                            area_id: 2,
+                            section_id: 3)
+
+ScheduleAreaSection.create!(schedule_id:9,
+                            area_id: 3,
+                            section_id: 4)
+
+
+
+
+
+
+
+
+
