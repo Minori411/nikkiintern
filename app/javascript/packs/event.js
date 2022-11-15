@@ -65,7 +65,7 @@ $(document).on('change','.areas .select-scope select', function(){
     const array = new Set(address);
     console.log(array.size, address.length)
     if(array.size !== address.length){
-        alert('You are doubled.')
+        alert('duplicate.')
     }
 })
 })
